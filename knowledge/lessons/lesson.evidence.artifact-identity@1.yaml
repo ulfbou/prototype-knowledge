@@ -1,0 +1,67 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "rule": "Do not accept a corrected package solely from its name or description.",
+    "verification": [
+      "filename",
+      "byte size",
+      "SHA-256",
+      "complete file list",
+      "required semantic markers",
+      "carrier-evidence-report agreement"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.evidence.artifact-identity",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "deliver",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "collab",
+      "prototype-docs",
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "user"
+    ],
+    "topics": [
+      "evidence",
+      "devops/artifacts",
+      "delivery"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "delivery-recovery-and-finalization",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "proven-collab-findings",
+      "path": "current.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Attachment names and conversational claims are not artifact identity. Before acceptance, verify filename, size, SHA-256, complete file list, expected semantic changes, and agreement among carrier, evidence, and report.",
+  "title": "Artifact identity requires byte and semantic verification",
+  "version": 1
+}

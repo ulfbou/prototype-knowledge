@@ -1,0 +1,63 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "change_triggers": [
+      "missing dependency exposed",
+      "accepted rules changed",
+      "provider capability differs from assumption",
+      "planned PR is no longer bounded",
+      "workflow friction changes the efficient route",
+      "implementation evidence contradicts an architectural assumption"
+    ],
+    "precedence": [
+      "latest explicit user instruction",
+      "accepted repository decisions and active issue criteria",
+      "current source and executable tests",
+      "current cross-repository plan",
+      "older discussions, mocks, and brainstorms"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "decision.prototype.adaptive-planning",
+  "kind": "decision",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom"
+    ],
+    "roles": [
+      "lead"
+    ],
+    "topics": [
+      "planning",
+      "decisions"
+    ]
+  },
+  "sources": [
+    {
+      "path": "workflow/adaptive-planning.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Before each bounded delivery, compare the plan with explicit instructions, accepted issue criteria, current source, executable tests, repository definitions of done, and provider-consumer relationships. Refine stale planning before implementation.",
+  "title": "Planning is adaptive, not an immutable queue",
+  "version": 1
+}

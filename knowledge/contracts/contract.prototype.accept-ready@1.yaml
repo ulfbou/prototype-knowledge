@@ -1,0 +1,65 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "criteria": [
+      "repository standard build succeeds",
+      "relevant tests pass",
+      "Verdant and MoldFirstBloom build and test when consumed Verdant behavior changes",
+      "presentation or host code does not gain competing engine authority",
+      "generic Verdant modules do not gain First Bloom-specific concepts"
+    ],
+    "planning_result_when_missing": "REFINE_EXISTING_ISSUE"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "contract.prototype.accept-ready",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "verdant",
+      "moldfirstbloom"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "testing",
+      "testing/conformance",
+      "compatibility",
+      "architecture/authority"
+    ]
+  },
+  "sources": [
+    {
+      "path": "templates/accept-ready.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "mandatory-guardrails",
+      "path": "plan.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Every delivery builds, passes relevant tests, preserves authority boundaries, and verifies required consumers when provider contracts change.",
+  "title": "Cross-repository Accept-ready baseline",
+  "version": 1
+}

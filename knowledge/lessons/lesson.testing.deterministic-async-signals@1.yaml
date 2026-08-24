@@ -1,0 +1,50 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "moldfirstbloom"
+  },
+  "content": {
+    "anti_pattern": "Poll Task.IsCompleted and then request another asynchronous item.",
+    "risk": "Completion can race with the poll and leave the test waiting for work that will never be scheduled.",
+    "rule": "Wait for a known expected signal or operation count."
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.testing.deterministic-async-signals",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "implement"
+    ],
+    "repositories": [
+      "moldfirstbloom",
+      "verdant"
+    ],
+    "roles": [
+      "senior"
+    ],
+    "topics": [
+      "testing",
+      "architecture/determinism"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "delivery-recovery-and-finalization",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Deterministic asynchronous tests should await a known number of expected operations or signals rather than polling completion and then requesting more work.",
+  "title": "Wait for known asynchronous signals in deterministic tests",
+  "version": 1
+}

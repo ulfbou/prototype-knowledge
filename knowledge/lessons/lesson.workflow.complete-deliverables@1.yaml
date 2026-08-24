@@ -1,0 +1,62 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "rules": [
+      "no placeholders in accepted deliverables",
+      "complete files rather than fragments",
+      "validate before presentation",
+      "prefer an exact shell command for a safe few-line correction",
+      "use a downloadable validated script when chat formatting threatens executability"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.complete-deliverables",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "implement",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android",
+      "prototype-docs",
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "delivery"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "implementation-quality",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Proposed files, carriers, scripts, and code changes must be complete, runnable, and non-regressive. For a simple few-line correction, prefer one exact shell command over a correction carrier.",
+  "title": "Deliver complete files without placeholders",
+  "version": 1
+}

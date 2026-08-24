@@ -1,0 +1,80 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "moldfirstbloom"
+  },
+  "content": {
+    "adopt_as_direction": [
+      "visible growth authority",
+      "preview before commitment",
+      "explicit connectivity",
+      "Bloom forecast",
+      "contextual teaching",
+      "deterministic seeded behavior"
+    ],
+    "presentation_only": [
+      "palette",
+      "glow",
+      "glass cards",
+      "audio tones",
+      "haptics",
+      "specific animations"
+    ],
+    "requires_explicit_acceptance": [
+      "board dimensions",
+      "growth and aging semantics",
+      "Bloom threshold",
+      "scoring formula",
+      "stone behavior",
+      "enclosure definition",
+      "hand refresh policy",
+      "piece catalog"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "decision.product.mock-is-reference",
+  "kind": "decision",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan"
+    ],
+    "repositories": [
+      "moldfirstbloom",
+      "verdant",
+      "prototype-docs"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "product",
+      "decisions"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "reference-mock",
+      "path": "product/moldfirstbloom-experience-principles.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "what-remains-inspiration-not-specification",
+      "path": "references/moldfirstbloom-mock-analysis-plan.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "The MoldFirstBloom mock and analysis are major design references. Their clarity-first interaction patterns may be adopted, but numeric rules, board dimensions, scoring, pieces, and random policies require explicit reconciliation and acceptance.",
+  "title": "Product mocks inspire but do not silently override accepted rules",
+  "version": 1
+}

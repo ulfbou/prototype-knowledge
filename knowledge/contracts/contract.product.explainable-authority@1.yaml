@@ -1,0 +1,95 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "verdant"
+  },
+  "content": {
+    "invariants": [
+      "UI does not approximate authority",
+      "Verdant remains First-Bloom-agnostic",
+      "preview and commit use the same authoritative rules"
+    ],
+    "mold_rules_own": [
+      "moss",
+      "mycelium",
+      "stone",
+      "Fertile",
+      "Barren",
+      "pieces",
+      "growth",
+      "organisms",
+      "Bloom",
+      "scoring",
+      "game-over semantics"
+    ],
+    "presentation_owns": [
+      "interaction flow",
+      "visual grammar",
+      "contextual wording",
+      "animation timing",
+      "tutorials",
+      "audio",
+      "haptics",
+      "accessibility controls"
+    ],
+    "verdant_owns": [
+      "deterministic evaluation",
+      "transactions",
+      "topology",
+      "replay",
+      "history",
+      "canonical serialization",
+      "deterministic random services",
+      "structured semantic results"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "contract.product.explainable-authority",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "verdant",
+      "moldfirstbloom"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "product",
+      "contracts"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "authority-boundary",
+      "path": "product/moldfirstbloom-experience-principles.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "product-and-experience-direction",
+      "path": "plan.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Verdant owns generic deterministic evaluation and reconstruction. MoldFirstBloom rules own game semantics. Presentation owns readable interaction and must not approximate authoritative outcomes.",
+  "title": "Verdant provides explainable authority and MoldFirstBloom owns game meaning",
+  "version": 1
+}

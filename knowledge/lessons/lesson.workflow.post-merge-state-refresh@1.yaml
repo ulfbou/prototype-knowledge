@@ -1,0 +1,64 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "steps": [
+      "record completed delivery",
+      "update current focus",
+      "reassess follow-up and retrospective needs",
+      "start the next Lead cycle only from refreshed evidence"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.post-merge-state-refresh",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "finalize",
+      "maintain-knowledge",
+      "plan"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "prototype-knowledge",
+      "moldfirstbloom",
+      "collab"
+    ],
+    "roles": [
+      "user",
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "planning",
+      "workflow"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "post-merge-workflow-discipline",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "completion-transition",
+      "path": "current.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "After a product PR merges, update current and history documentation before starting the next Lead cycle so planning evidence does not describe completed work as active.",
+  "title": "Refresh planning state after merge",
+  "version": 1
+}

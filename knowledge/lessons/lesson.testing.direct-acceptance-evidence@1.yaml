@@ -1,0 +1,70 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "examples": [
+      "pause",
+      "fast-forward",
+      "skip",
+      "cancellation",
+      "reduced motion",
+      "preview purity",
+      "preview-commit parity",
+      "rejection parity",
+      "replay prefix equivalence"
+    ],
+    "rule": "Every issue-specific acceptance behavior maps to direct executable evidence."
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.testing.direct-acceptance-evidence",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "testing",
+      "testing/conformance",
+      "evidence"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "delivery-recovery-and-finalization",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "proven-collab-findings",
+      "path": "current.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Aggregate build and test success is insufficient when issue-specific paths are not exercised in the state where their behavior matters.",
+  "title": "Map each required behavior to direct executable evidence",
+  "version": 1
+}

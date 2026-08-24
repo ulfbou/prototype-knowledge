@@ -1,0 +1,65 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "moldfirstbloom"
+  },
+  "content": {
+    "authoritative_envelope": [
+      "initialization",
+      "ruleset identity",
+      "catalog identity",
+      "deterministic random state",
+      "ordered accepted commands"
+    ],
+    "presentation_animation": "regenerated from semantic events, not persisted",
+    "resume_rules": [
+      "reconstruct board and log exactly",
+      "discard or recompute uncommitted preview",
+      "resume animation only from a stable boundary",
+      "temporary UI state never becomes authority"
+    ],
+    "visual_export": "presentation artifact separate from authoritative save and replay"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "contract.product.authoritative-persistence-sharing",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement"
+    ],
+    "repositories": [
+      "moldfirstbloom",
+      "verdant"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "contracts",
+      "product",
+      "architecture/determinism"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "persistence-export-sharing",
+      "path": "references/moldfirstbloom-mock-analysis-plan.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Session persistence and replay sharing store authoritative initialization, identities, deterministic state, and accepted commands. Visual board export remains separate and is not an importable save unless explicitly encoded.",
+  "title": "Persistence and sharing preserve authoritative reconstruction",
+  "version": 1
+}

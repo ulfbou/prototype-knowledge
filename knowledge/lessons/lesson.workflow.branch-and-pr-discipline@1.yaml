@@ -1,0 +1,70 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "branch_rule": "generic type/scope without issue number",
+    "examples": [
+      "feat/animation-timeline",
+      "test/deterministic-core-gate",
+      "fix/replay-prefix-validation"
+    ],
+    "pr_rules": [
+      "commit staged files before collab-pr-create.sh",
+      "default commit message is PR title",
+      "default assignee is @me",
+      "write or update the complete PR body before finalization"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.branch-and-pr-discipline",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "create-pr",
+      "finalize"
+    ],
+    "repositories": [
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android",
+      "prototype-docs",
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "user",
+      "senior"
+    ],
+    "topics": [
+      "workflow/pr-lifecycle",
+      "devops"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "branch-naming",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "pr-lifecycle",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Branches use generic type/scope names without issue numbers. Stage and commit accepted files before PR creation, use the PR title as the default commit message, and use @me as default assignee unless explicitly overridden.",
+  "title": "Use generic branches and one controlled PR lifecycle",
+  "version": 1
+}

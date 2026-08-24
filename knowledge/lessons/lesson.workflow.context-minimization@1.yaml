@@ -1,0 +1,62 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "rules": [
+      "prefer bounded current target-repository evidence",
+      "do not upload historical logs or superseded conversations by default",
+      "inspect the generated Senior package before manually adding context",
+      "record exact missing information instead of reconstructing context silently"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.context-minimization",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "handoff"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "lessons",
+      "evidence",
+      "workflow/handoff"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "context-size",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "senior-context",
+      "path": "workflow.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Use one current package from the target repository instead of old concatenated collections. Exclude superseded conversations, large logs, snapshots, and databases unless the active task requires them.",
+  "title": "Prefer one bounded current context package",
+  "version": 1
+}

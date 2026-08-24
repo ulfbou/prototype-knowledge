@@ -1,0 +1,66 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "coordination_root": "/f/repos/prototype",
+    "rules": [
+      "run repository commands from the target repository root",
+      "do not infer target workspace from carrier location",
+      "store repository lifecycle carriers under the target repository .dx directory",
+      "store shared courier carriers under /f/repos/prototype/.dx",
+      "invoke Collab commands from PATH rather than copying them into repositories"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "contract.prototype.repository-workspaces",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "user",
+      "senior"
+    ],
+    "topics": [
+      "workflow",
+      "dx/path-safety"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "directory-architecture",
+      "path": "workflow.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "repository-roots",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "The prototype coordination directory is not a Git or DX workspace. Git, GitHub, DX, and Collab commands run from the repository they target; generated repository lifecycle carriers stay under that repository’s .dx directory.",
+  "title": "Repository commands run in the target workspace",
+  "version": 1
+}

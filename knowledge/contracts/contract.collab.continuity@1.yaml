@@ -1,0 +1,74 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "lead_selection_required": [
+      "repository",
+      "issue",
+      "branch",
+      "PR title",
+      "objective",
+      "allowed paths",
+      "non-goals",
+      "architecture constraints",
+      "provider-consumer constraints",
+      "selection rationale",
+      "accepted assumptions",
+      "focused tests",
+      "complete verification",
+      "Senior output",
+      "return path"
+    ],
+    "rule": "Do not silently compensate for missing generated handoff information.",
+    "senior_sufficiency_checks": [
+      "decision",
+      "boundary",
+      "constraints",
+      "rationale",
+      "verification",
+      "output contract",
+      "current repository evidence"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "contract.collab.continuity",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "handoff"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "workflow/handoff",
+      "contracts"
+    ]
+  },
+  "sources": [
+    {
+      "path": "workflow/collab-continuity.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "An implementation-ready Lead selection must preserve identity, bounded scope, architecture constraints, rationale, verification, and the Senior return path. Missing accepted information is continuity friction; a defective implementation is not automatically continuity loss.",
+  "title": "Lead-to-Senior continuity preserves accepted delivery context",
+  "version": 1
+}

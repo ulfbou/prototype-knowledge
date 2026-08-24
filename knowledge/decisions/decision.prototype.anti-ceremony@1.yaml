@@ -1,0 +1,63 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "decision": "Prefer the smallest mechanism that preserves delivery quality and recoverability.",
+    "deferred_by_default": [
+      "formal gate-evidence manifests",
+      "cross-repository project automation",
+      "comprehensive banned-API analysis",
+      "formal proof identities",
+      "closure of every provider gate before product development"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "decision.prototype.anti-ceremony",
+  "kind": "decision",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "planning",
+      "workflow"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "anti-ceremony-rule",
+      "path": "workflow/adaptive-planning.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "deferred-unless-justified",
+      "path": "plan.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Do not add manifests, dashboards, automation, analyzers, packaging, or workflow stages unless active-delivery evidence shows that value exceeds coordination and maintenance cost.",
+  "title": "Add process only from demonstrated value",
+  "version": 1
+}

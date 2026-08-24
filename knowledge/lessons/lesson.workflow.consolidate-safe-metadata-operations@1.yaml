@@ -1,0 +1,67 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "benefits": [
+      "fewer transcription errors",
+      "fewer omitted metadata values",
+      "less profile accumulation",
+      "less operator work"
+    ],
+    "github_issue_flags": {
+      "create_labels": "--label",
+      "edit_add_labels": "--add-label",
+      "edit_remove_labels": "--remove-label"
+    },
+    "rule": "Consolidate assignee, labels, milestone, and similar metadata when supported safely."
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.consolidate-safe-metadata-operations",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "create-pr",
+      "finalize"
+    ],
+    "repositories": [
+      "collab",
+      "prototype-docs"
+    ],
+    "roles": [
+      "user",
+      "lead"
+    ],
+    "topics": [
+      "workflow/pr-lifecycle",
+      "devops"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "delivery-recovery-and-finalization",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "planning-command-rule",
+      "path": "workflow.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "When one CLI invocation safely supports all required metadata, use it once and verify the resulting state once.",
+  "title": "Consolidate safe metadata operations",
+  "version": 1
+}

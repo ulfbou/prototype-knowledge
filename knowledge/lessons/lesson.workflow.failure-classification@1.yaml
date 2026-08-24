@@ -1,0 +1,66 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "classes": [
+      "continuity",
+      "prompt",
+      "implementation",
+      "evidence",
+      "planning",
+      "tool",
+      "repository"
+    ],
+    "rule": "A bad delivery is not automatically continuity failure, and one ordinary defect does not justify rewriting the whole workflow."
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.failure-classification",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-docs",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "failure-classification",
+      "path": "workflow/collab-continuity.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "prompt-calibration",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Before changing prompts, tools, plans, or repositories, classify the first cause and change only the narrowest responsible layer.",
+  "title": "Classify the first responsible failure layer",
+  "version": 1
+}

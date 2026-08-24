@@ -1,0 +1,75 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "moldfirstbloom"
+  },
+  "content": {
+    "interaction": [
+      "Input",
+      "Prediction",
+      "Confirmation",
+      "Result",
+      "Explanation"
+    ],
+    "player_questions": [
+      "What can I do?",
+      "What will happen?",
+      "Why will it happen?",
+      "What happened after I committed?"
+    ],
+    "principles": [
+      "surface consequential hidden state",
+      "preview authoritative outcomes when prediction matters",
+      "use the same rules for preview and commit",
+      "teach in context",
+      "preserve strategic depth while reducing bookkeeping",
+      "drive presentation from semantic events",
+      "do not use color as the only carrier of meaning",
+      "keep animation, audio, and haptics optional",
+      "prefer progressive disclosure"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "decision.product.experience-principles",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "contract.product.explainable-authority"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "moldfirstbloom",
+      "verdant"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "product",
+      "architecture/authority"
+    ]
+  },
+  "sources": [
+    {
+      "path": "product/moldfirstbloom-experience-principles.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "The product interaction direction is Input, Prediction, Confirmation, Result, and Explanation, with authoritative previews, contextual teaching, progressive disclosure, and accessibility that does not rely on color or motion alone.",
+  "title": "MoldFirstBloom uses readable predictive commitment",
+  "version": 1
+}

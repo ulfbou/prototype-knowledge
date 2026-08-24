@@ -1,0 +1,69 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "repeatable_values": [
+      "allowed paths",
+      "focused tests",
+      "audit scopes",
+      "labels",
+      "reviewers",
+      "assignees"
+    ],
+    "rules": [
+      "explicit values replace profile-loaded values",
+      "deduplicate deterministically",
+      "reject CR, LF, and NUL"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.collab.explicit-values-replace-profile-defaults",
+  "kind": "lesson",
+  "relationships": {
+    "related": [
+      "lesson.collab.windows-dx-boundaries"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "implement",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "senior"
+    ],
+    "topics": [
+      "recovery",
+      "workflow",
+      "devops"
+    ]
+  },
+  "sources": [
+    {
+      "anchor": "delivery-recovery-and-finalization",
+      "path": "lessons.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "anchor": "proven-collab-findings",
+      "path": "current.md",
+      "repository": "prototype-docs"
+    }
+  ],
+  "status": "active",
+  "summary": "Persisted lifecycle profiles are defaults, not additional arguments. Explicit repeatable values replace corresponding profile values, are deduplicated, and reject CR, LF, and NUL.",
+  "title": "Explicit repeatable values replace profile defaults",
+  "version": 1
+}
