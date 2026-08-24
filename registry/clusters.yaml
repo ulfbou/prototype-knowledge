@@ -1,0 +1,85 @@
+{
+  "clusters": [
+    {
+      "default_target": "moldfirstbloom",
+      "driver": "moldfirstbloom",
+      "id": "moldfirstbloom",
+      "participants": [
+        {
+          "repository": "verdant",
+          "role": "provider"
+        },
+        {
+          "repository": "collab",
+          "role": "workflow"
+        },
+        {
+          "repository": "prototype-docs",
+          "role": "human-context"
+        },
+        {
+          "repository": "prototype-knowledge",
+          "role": "machine-context"
+        }
+      ],
+      "rules": [
+        "Develop MoldFirstBloom until materially blocked.",
+        "Select Verdant or Collab work only from demonstrated product need, correctness risk, or accepted higher priority."
+      ],
+      "switch_only_when": [
+        "driver-blocked",
+        "shared-correctness-risk",
+        "accepted-higher-priority-work"
+      ]
+    },
+    {
+      "default_target": "dx-carrier-android",
+      "driver": "dx-carrier-android",
+      "id": "dx-carrier-android",
+      "participants": [
+        {
+          "repository": "collab",
+          "role": "dx-provider-and-workflow"
+        },
+        {
+          "repository": "prototype-docs",
+          "role": "human-context"
+        },
+        {
+          "repository": "prototype-knowledge",
+          "role": "machine-context"
+        }
+      ],
+      "rules": [
+        "Develop DX Carrier Android until materially blocked.",
+        "Select Collab codec work only for demonstrated compatibility, correctness, or recovery needs."
+      ],
+      "switch_only_when": [
+        "driver-blocked",
+        "canonical-dx-contract-gap",
+        "shared-correctness-risk",
+        "accepted-higher-priority-work"
+      ]
+    }
+  ],
+  "id": "registry.clusters",
+  "kind": "registry",
+  "schema_version": "1.0",
+  "shared_repository_policy": {
+    "change_classes": [
+      "internal",
+      "compatible-extension",
+      "coordinated-contract-change",
+      "emergency-correction"
+    ],
+    "overlap_rule": "Avoid simultaneous overlapping changes. Independent changes may proceed only with disjoint contracts and paths plus explicit integration order.",
+    "preferred_compatibility_order": [
+      "backward-compatible extension",
+      "capability flag or schema version",
+      "temporary dual support",
+      "bounded migration",
+      "coordinated breaking change"
+    ],
+    "rule": "Shared repository changes preserve other cluster contracts unless accepted work explicitly coordinates affected consumers."
+  }
+}

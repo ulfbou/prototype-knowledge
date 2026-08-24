@@ -1,0 +1,36 @@
+{
+  "filters": {
+    "current_versions_only": true,
+    "statuses": [
+      "active"
+    ]
+  },
+  "id": "query.dx-carrier-android-cluster",
+  "include": {
+    "historical": "summaries-only",
+    "relationships": true,
+    "sources": true
+  },
+  "kind": "query",
+  "limits": {
+    "maximum_characters": 150000,
+    "maximum_items": 100
+  },
+  "schema_version": "1.0",
+  "select": {
+    "repositories": [
+      "dx-carrier-android",
+      "collab",
+      "prototype-docs",
+      "prototype-knowledge"
+    ],
+    "topics": [
+      "governance/clusters",
+      "governance/priorities",
+      "dx/codec",
+      "dx/line-endings",
+      "dx/path-safety",
+      "compatibility"
+    ]
+  }
+}

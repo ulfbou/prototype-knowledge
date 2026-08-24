@@ -1,0 +1,62 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "disregard_when": [
+      "material blockade",
+      "disproportionate effort",
+      "greater delivery risk",
+      "duplicate mechanism",
+      "stronger current evidence"
+    ],
+    "recording": "Make the decision visible when it affects scope, compatibility, or residual risk; otherwise no formal exception event is required.",
+    "statement": "A recommended rule must not become a hidden hard prerequisite.",
+    "strength": "core-invariant"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.recommended-rules-must-not-block",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "governance/rules"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "Recommended guidance may be disregarded when compliance causes blockade, disproportionate cost, greater risk, duplication, or conflict with stronger evidence.",
+  "title": "Recommended rules are explicitly non-blocking",
+  "version": 1
+}

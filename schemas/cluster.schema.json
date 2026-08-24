@@ -1,0 +1,31 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/cluster.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "clusters": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "id": {
+      "const": "registry.clusters"
+    },
+    "kind": {
+      "const": "registry"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "shared_repository_policy": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "clusters",
+    "shared_repository_policy"
+  ],
+  "title": "Development cluster registry",
+  "type": "object"
+}

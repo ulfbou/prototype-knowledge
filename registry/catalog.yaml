@@ -30,16 +30,23 @@
   "kind": "catalog",
   "registries": [
     "registry/authority.yaml",
+    "registry/clusters.yaml",
     "registry/lifecycle.yaml",
+    "registry/priorities.yaml",
     "registry/repositories.yaml",
     "registry/roles.yaml",
-    "registry/topics.yaml"
+    "registry/rule-strengths.yaml",
+    "registry/topics.yaml",
+    "registry/work-index.yaml"
   ],
   "schema_version": "1.0",
   "schemas": [
+    "schemas/cluster.schema.json",
     "schemas/event.schema.json",
+    "schemas/governance-rule.schema.json",
     "schemas/knowledge-item.schema.json",
     "schemas/query.schema.json",
-    "schemas/repository.schema.json"
+    "schemas/repository.schema.json",
+    "schemas/work-item.schema.json"
   ]
 }

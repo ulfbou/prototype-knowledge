@@ -1,0 +1,61 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "prohibited": [
+      "complete issue-body duplication",
+      "independent completion state that contradicts GitHub"
+    ],
+    "required_fields": [
+      "canonical repository and issue when available",
+      "priority",
+      "status",
+      "clusters",
+      "reason",
+      "blockade or risk",
+      "dependencies and enabled work"
+    ],
+    "statement": "Do not duplicate issue tracking in prototype-knowledge.",
+    "strength": "core-invariant"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.work-index-not-issue-tracker",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "work/index",
+      "governance/priorities"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "GitHub issues and pull requests remain canonical for executable repository work. prototype-knowledge stores only cross-repository priority, dependency, cluster impact, and blockade metadata.",
+  "title": "The work index coordinates but does not replace GitHub",
+  "version": 1
+}

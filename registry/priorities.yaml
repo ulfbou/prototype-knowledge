@@ -1,0 +1,78 @@
+{
+  "bands": [
+    {
+      "criteria": [
+        "security exposure",
+        "data loss",
+        "corrupted knowledge",
+        "incorrect authority resolution",
+        "broken immutable history",
+        "actively harmful shared contract"
+      ],
+      "id": "P0",
+      "may_interrupt_driver": true,
+      "name": "Immediate integrity",
+      "rank": 5
+    },
+    {
+      "criteria": [
+        "driver cannot progress",
+        "required verification impossible",
+        "shared defect prevents delivery",
+        "evidence gap prevents correct decision"
+      ],
+      "id": "P1",
+      "may_interrupt_driver": true,
+      "name": "Active blockade",
+      "rank": 4
+    },
+    {
+      "criteria": [
+        "current driver feature",
+        "required near-term provider work",
+        "valuable knowledge capture",
+        "high-value non-blocking correctness"
+      ],
+      "id": "P2",
+      "may_interrupt_driver": false,
+      "name": "High-value active work",
+      "rank": 3
+    },
+    {
+      "criteria": [
+        "anticipated feature",
+        "non-blocking workflow improvement",
+        "knowledge roadmap capability",
+        "convenience automation"
+      ],
+      "id": "P3",
+      "may_interrupt_driver": false,
+      "name": "Planned improvement",
+      "rank": 2
+    },
+    {
+      "criteria": [
+        "idea",
+        "experiment",
+        "optional index",
+        "speculative automation"
+      ],
+      "id": "P4",
+      "may_interrupt_driver": false,
+      "name": "Opportunity",
+      "rank": 1
+    }
+  ],
+  "id": "registry.priorities",
+  "kind": "registry",
+  "schema_version": "1.0",
+  "tie_breakers": [
+    "unblocks highest-value active work",
+    "protects correctness or recoverability",
+    "affects most active clusters",
+    "smallest safe bounded implementation",
+    "strongest evidence",
+    "reduces recurring coordination cost",
+    "otherwise advances cluster driver"
+  ]
+}
