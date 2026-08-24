@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "artifact": ".dx/collab/lead-selection-validation.json",
+    "error_fields": [
+      "file",
+      "path",
+      "code",
+      "message",
+      "expected",
+      "actual",
+      "repairability",
+      "correctionOwner"
+    ],
+    "required_fields": [
+      "status",
+      "phase",
+      "input",
+      "mutationsPerformed",
+      "repairsPerformed",
+      "errors"
+    ],
+    "requirements": [
+      "report all independently detectable structural errors",
+      "state explicitly when no files were written",
+      "identify producing role as correction owner",
+      "emit canonical repaired carrier when repair succeeds"
+    ],
+    "schema_version": "1.0",
+    "statuses": [
+      "VALID",
+      "REPAIRED_AND_VALID",
+      "INVALID_SEMANTIC_INPUT",
+      "INVALID_UNSAFE_INPUT"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.collab.validation-diagnostic",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.collab.safe-validation-repair"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "handoff",
+      "recover"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "user"
+    ],
+    "topics": [
+      "validation/diagnostics",
+      "evidence",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "Collab validation reports every safely detectable defect in one pass, records whether mutation occurred, identifies repairability and correction ownership, and emits a machine-readable diagnostic artifact.",
+  "title": "Validation failures are complete, structured, and actionable",
+  "version": 1
+}

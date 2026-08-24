@@ -1,0 +1,65 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "anti_pattern": "Do not use empty, N/A, or tautological values merely to satisfy syntax.",
+    "legacy_derivation": "For REFINE_EXISTING_ISSUE only, reasonToWait may be standardized as implementation waiting for acceptance of the non-empty proposed planning change.",
+    "target_fields": {
+      "blockingPrerequisites": "Existing external prerequisites, if any.",
+      "implementationReadiness": "Whether implementation is ready after planning acceptance.",
+      "refinementReason": "Why accepted planning must change."
+    },
+    "transition": [
+      "add new fields in a compatible schema version",
+      "continue accepting reasonToWait temporarily",
+      "generate legacy and new fields during transition",
+      "update Lead instructions, schemas, and tests",
+      "remove reasonToWait only in a future breaking schema version"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.collab.reason-to-wait-migration",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "contract.collab.safe-validation-repair"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "handoff"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "schemas/evolution",
+      "validation/repair",
+      "planning"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "The legacy reasonToWait field conflates why an issue needs refinement with whether implementation is externally blocked. Collab should migrate compatibly to semantically distinct fields.",
+  "title": "Separate refinement reason from waiting prerequisites",
+  "version": 1
+}

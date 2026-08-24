@@ -1,0 +1,46 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/validation-repair-policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "decisions": {
+      "additionalProperties": {
+        "properties": {
+          "repairs": {
+            "additionalProperties": {
+              "properties": {
+                "requires": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "strategy": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "strategy"
+              ],
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "repairs"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "decisions"
+  ],
+  "title": "Deterministic validation repair policy",
+  "type": "object"
+}

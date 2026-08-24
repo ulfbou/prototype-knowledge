@@ -1,0 +1,68 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "failure_behavior": [
+      "do not present invalid carrier",
+      "repair in same conversation",
+      "return a complete replacement"
+    ],
+    "statement": "Do not present a Lead return carrier until its complete reparsed contents satisfy the executable contract.",
+    "steps": [
+      "select decision",
+      "load decision-specific contract",
+      "construct structured model",
+      "check exact required and forbidden keys",
+      "check non-empty semantic fields",
+      "pack DX",
+      "reparse complete DX",
+      "validate reparsed files",
+      "present only validated artifact"
+    ],
+    "strength": "required"
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "rule.collab.lead-self-validates-return",
+  "kind": "rule",
+  "relationships": {
+    "related": [
+      "rule.collaboration.producer-owned-correction"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "handoff"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "lead"
+    ],
+    "topics": [
+      "validation",
+      "workflow/handoff",
+      "workflow/producer-responsibility"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "The Lead must validate the complete reparsed carrier against the executable decision-specific contract before presenting it.",
+  "title": "Lead validates its complete reparsed return carrier",
+  "version": 1
+}

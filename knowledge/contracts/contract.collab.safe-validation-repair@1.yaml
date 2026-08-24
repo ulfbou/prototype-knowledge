@@ -1,0 +1,113 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "default_behavior": "Safe repair is enabled during ordinary acceptance; diagnostic-only and no-repair modes remain available.",
+    "failure_guarantees": [
+      "no accepted selection",
+      "no planning change output",
+      "no Senior package",
+      "no partial profile update",
+      "original package unchanged"
+    ],
+    "never_repair": [
+      "repository mismatch",
+      "evidence HEAD mismatch",
+      "issue title conflict",
+      "unsafe path",
+      "readonly mutation",
+      "unknown decision",
+      "unexpected package file",
+      "unexpected JSON key",
+      "branch containing issue number",
+      "malformed DX structure",
+      "invalid UTF-8",
+      "conflicting duplicate data"
+    ],
+    "pipeline": [
+      "read original",
+      "parse",
+      "diagnose all safely detectable errors",
+      "repair in memory",
+      "canonical repack",
+      "reparse repaired carrier",
+      "run full validation",
+      "prepare all outputs",
+      "atomically publish outputs"
+    ],
+    "safe_derivation": [
+      "repository from authoritative package manifest",
+      "evidence HEAD from startup evidence",
+      "issue identity from selected GitHub evidence",
+      "next conversation from decision type",
+      "required package files from decision contract",
+      "standardized refinement wait reason when issue and non-empty planning change are present"
+    ],
+    "safe_normalization": [
+      "CRLF and lone CR carrier input to canonical LF",
+      "canonical DX repacking",
+      "set-like array deduplication",
+      "transport newline removal from paths",
+      "declared optional collection defaults",
+      "explicitly versioned legacy aliases"
+    ],
+    "semantic_input_required": [
+      "issue objective",
+      "new acceptance criteria",
+      "new dependencies",
+      "architecture constraints",
+      "non-goals",
+      "planning-change body",
+      "user decision",
+      "priority",
+      "consumer requirement",
+      "allowed implementation paths",
+      "ungrounded verification commands"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.collab.safe-validation-repair",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "rule.collaboration.producer-owned-correction"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "handoff",
+      "recover"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "user"
+    ],
+    "topics": [
+      "validation/repair",
+      "validation",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "Collab acceptance may normalize or derive fields only when the result is mechanically determined by an explicit repair policy and authoritative package evidence. Semantic intent, identity, scope, and compatibility decisions are never invented.",
+  "title": "Collab repairs only deterministic validation defects",
+  "version": 1
+}

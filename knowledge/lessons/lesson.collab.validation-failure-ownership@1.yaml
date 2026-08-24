@@ -1,0 +1,72 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "classification": {
+      "class": "artifact-generation-defect",
+      "detected_by": "collab-chat-accept",
+      "failed_boundary": "lead-return-contract",
+      "producer": "lead-ai",
+      "remediation_owner": "lead",
+      "user_fault": false
+    },
+    "dry_run_default": "Useful diagnostic tool, not mandatory user ritual.",
+    "dry_run_use_cases": [
+      "manually authored carriers",
+      "validator development",
+      "debugging",
+      "CI and regression tests"
+    ],
+    "normal_flow": [
+      "producer validates before presentation",
+      "user runs acceptance once",
+      "acceptance validates before mutation",
+      "producer repairs any rejected artifact"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "lesson.collab.validation-failure-ownership",
+  "kind": "lesson",
+  "relationships": {
+    "related": [
+      "rule.collaboration.producer-owned-correction"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "handoff",
+      "recover"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "user"
+    ],
+    "topics": [
+      "validation",
+      "workflow/producer-responsibility",
+      "lessons"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "Rejecting an invalid package is correct validation behavior, but the package producer still owns repair. The user should not maintain templates or run two validation cycles to compensate for an AI artifact-generation defect.",
+  "title": "A validator success does not excuse producer failure",
+  "version": 1
+}

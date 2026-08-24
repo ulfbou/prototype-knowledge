@@ -1,0 +1,76 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "exception": {
+      "condition": "A genuine existing prerequisite required for correction is unavailable.",
+      "response": [
+        "identify the exact unavailable prerequisite",
+        "preserve machine-readable validation evidence",
+        "do not claim correction"
+      ]
+    },
+    "prohibits": [
+      "shift schema interpretation to the user",
+      "ask the user to repair generated boilerplate",
+      "require a second routine validation command",
+      "explain instead of redelivering",
+      "weaken validation before assessing field semantics"
+    ],
+    "required_response": [
+      "identify every violated contract reported",
+      "correct every safely resolvable defect",
+      "reparse the complete replacement artifact",
+      "validate against the executable contract",
+      "provide the complete replacement artifact",
+      "provide one next action"
+    ],
+    "statement": "The producing role owns immediate correction and complete redelivery of its invalid deterministic artifact.",
+    "strength": "required"
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-lead-selection-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "rule.collaboration.producer-owned-correction",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "handoff",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "collab",
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "lead",
+      "senior"
+    ],
+    "topics": [
+      "workflow/producer-responsibility",
+      "validation",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.collab-validation-repair-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "When an AI-generated artifact fails deterministic validation, the producing AI returns a complete corrected artifact in the same conversation rather than transferring boilerplate or schema repair to the user.",
+  "title": "Producers own deterministic artifact correction",
+  "version": 1
+}

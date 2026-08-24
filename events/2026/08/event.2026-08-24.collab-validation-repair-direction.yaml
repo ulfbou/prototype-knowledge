@@ -1,0 +1,35 @@
+{
+  "evidence": [
+    {
+      "observation": "A Lead-generated REFINE_EXISTING_ISSUE package failed because details.reasonToWait was an empty required string."
+    },
+    {
+      "decision": "Keep validation strict while reducing user correction loops through producer-side validation and bounded repair."
+    }
+  ],
+  "id": "event.2026-08-24.collab-validation-repair-direction",
+  "kind": "architecture-direction-accepted",
+  "occurred_on": "2026-08-24",
+  "resulted_in": [
+    "rule.collaboration.producer-owned-correction@1",
+    "contract.collab.safe-validation-repair@1",
+    "decision.collab.reason-to-wait-migration@1",
+    "work.collab.validation-repair"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "collab",
+      "prototype-knowledge"
+    ],
+    "topics": [
+      "validation",
+      "validation/repair",
+      "validation/diagnostics",
+      "workflow/producer-responsibility",
+      "workflow/transactionality",
+      "schemas/evolution"
+    ]
+  },
+  "summary": "Accepted producer-owned correction, safe deterministic artifact repair, transactional acceptance, structured diagnostics, and semantic schema evolution as the direction for Collab validation recovery."
+}

@@ -27,6 +27,44 @@
       "blocks_or_risks": [],
       "canonical": {
         "issue": null,
+        "repository": "collab"
+      },
+      "clusters": [
+        "moldfirstbloom",
+        "dx-carrier-android"
+      ],
+      "enables": [
+        "producer-side Lead validation",
+        "single-command safe acceptance",
+        "machine-readable validation diagnostics"
+      ],
+      "id": "work.collab.validation-repair",
+      "kind": "feature",
+      "non_goals": [
+        "automatic issue-body authoring",
+        "invented acceptance criteria",
+        "repository or HEAD correction",
+        "interactive wizard",
+        "autonomous GitHub mutation",
+        "weakened exact-key validation",
+        "broad Lead schema redesign"
+      ],
+      "priority": "P2",
+      "reason": "Remove repeated AI-generated validation correction loops while preserving strict transactional validation.",
+      "scope": [
+        "collab-chat.py",
+        "collab-chat-accept.sh",
+        "schemas/lead-selection-repair-policy.json",
+        "schemas/lead-selection.schema.json",
+        "schemas/lead-output-contract.schema.json",
+        "tests/collab-chat-workflow-tests.sh"
+      ],
+      "status": "proposed"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
         "repository": "moldfirstbloom"
       },
       "clusters": [

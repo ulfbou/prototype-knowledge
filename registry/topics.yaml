@@ -123,12 +123,37 @@
       "id": "recovery"
     },
     {
+      "aliases": [
+        "schema-migration"
+      ],
+      "id": "schemas/evolution"
+    },
+    {
       "aliases": [],
       "id": "testing"
     },
     {
       "aliases": [],
       "id": "testing/conformance"
+    },
+    {
+      "aliases": [
+        "schema-validation"
+      ],
+      "id": "validation"
+    },
+    {
+      "aliases": [
+        "validation-report"
+      ],
+      "id": "validation/diagnostics"
+    },
+    {
+      "aliases": [
+        "automatic-repair",
+        "autofix"
+      ],
+      "id": "validation/repair"
     },
     {
       "aliases": [
@@ -148,6 +173,18 @@
     {
       "aliases": [],
       "id": "workflow/pr-lifecycle"
+    },
+    {
+      "aliases": [
+        "producer-owned-correction"
+      ],
+      "id": "workflow/producer-responsibility"
+    },
+    {
+      "aliases": [
+        "atomic-acceptance"
+      ],
+      "id": "workflow/transactionality"
     }
   ]
 }

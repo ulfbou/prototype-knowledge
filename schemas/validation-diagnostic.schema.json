@@ -1,0 +1,43 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/validation-diagnostic.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "errors": {
+      "type": "array"
+    },
+    "input": {
+      "type": "string"
+    },
+    "mutationsPerformed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "repairsPerformed": {
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "status": {
+      "enum": [
+        "VALID",
+        "REPAIRED_AND_VALID",
+        "INVALID_SEMANTIC_INPUT",
+        "INVALID_UNSAFE_INPUT"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "phase",
+    "input",
+    "mutationsPerformed",
+    "repairsPerformed",
+    "errors"
+  ],
+  "title": "Collab validation diagnostic",
+  "type": "object"
+}
