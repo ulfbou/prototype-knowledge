@@ -1,0 +1,87 @@
+{
+  "canonical_system": "GitHub issues and pull requests",
+  "id": "registry.work-index",
+  "items": [
+    {
+      "blocks_or_risks": [
+        "moldfirstbloom"
+      ],
+      "canonical": {
+        "issue": 18,
+        "repository": "collab"
+      },
+      "clusters": [
+        "moldfirstbloom",
+        "dx-carrier-android"
+      ],
+      "enables": [
+        "work.moldfirstbloom.persistence-envelope-v3"
+      ],
+      "id": "work.collab.windows-dx-recovery",
+      "kind": "corrective",
+      "priority": "P1",
+      "reason": "Windows DX delivery-recovery defects obstruct deterministic delivery and safe recovery.",
+      "status": "active"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
+        "repository": "moldfirstbloom"
+      },
+      "clusters": [
+        "moldfirstbloom"
+      ],
+      "enables": [
+        "work.moldfirstbloom.board-export",
+        "work.moldfirstbloom.replay-sharing"
+      ],
+      "id": "work.moldfirstbloom.persistence-envelope-v3",
+      "kind": "product",
+      "priority": "P2",
+      "reason": "Next product-driver delivery after the bounded Collab correction.",
+      "status": "planned"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
+        "repository": "moldfirstbloom"
+      },
+      "clusters": [
+        "moldfirstbloom"
+      ],
+      "enables": [],
+      "id": "work.moldfirstbloom.board-export",
+      "kind": "product",
+      "priority": "P3",
+      "reason": "Visual export remains separate from authoritative persistence.",
+      "status": "planned"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
+        "repository": "moldfirstbloom"
+      },
+      "clusters": [
+        "moldfirstbloom"
+      ],
+      "enables": [],
+      "id": "work.moldfirstbloom.replay-sharing",
+      "kind": "product",
+      "priority": "P3",
+      "reason": "Share authoritative reconstruction rather than presentation state.",
+      "status": "planned"
+    }
+  ],
+  "kind": "registry",
+  "purpose": "Store only cross-repository priority, dependency, cluster impact, and blockade metadata.",
+  "rules": [
+    "Do not duplicate complete issue bodies.",
+    "Record cross-repository significance and priority rationale.",
+    "Distinguish blockade from benefit.",
+    "Update only from accepted evidence."
+  ],
+  "schema_version": "1.0"
+}

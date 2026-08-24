@@ -1,0 +1,59 @@
+{
+  "default_strength": "recommended",
+  "id": "registry.rule-strengths",
+  "kind": "registry",
+  "material_blockade": [
+    "cluster driver cannot make meaningful progress",
+    "required verification cannot run",
+    "shared incompatibility prevents integration",
+    "authoritative evidence is unavailable",
+    "workflow defect prevents lifecycle transition",
+    "compliance effort is disproportionate and protects no applicable risk"
+  ],
+  "precedence": [
+    "core-invariant",
+    "required",
+    "recommended",
+    "optional"
+  ],
+  "schema_version": "1.0",
+  "scope_precedence": [
+    "current-explicit-user-instruction",
+    "core-invariant",
+    "accepted-repository-contract-or-active-issue",
+    "current-source-and-executable-tests",
+    "cluster-required",
+    "generic-required",
+    "cluster-recommended",
+    "generic-recommended",
+    "optional",
+    "historical-or-generated"
+  ],
+  "specificity_rule": "A specific rule overrides a generic rule only when explicit, applicable, equal or higher authority, and not in conflict with a core invariant.",
+  "strengths": [
+    {
+      "id": "core-invariant",
+      "meaning": "Protects correctness, security, authority, traceability, compatibility, or recoverability.",
+      "override": "Only emergency security, privacy, legal, or corruption remediation; record the exception.",
+      "rank": 4
+    },
+    {
+      "id": "required",
+      "meaning": "Expected for normal work and enforceable through a bounded exception path.",
+      "override": "Allowed only to avoid or remove a material blockade when no smaller compliant route exists; record reason, scope, residual risk, owner, and disposition.",
+      "rank": 3
+    },
+    {
+      "id": "recommended",
+      "meaning": "Preferred default for most operational guidance.",
+      "override": "May be disregarded when it creates blockade, disproportionate cost, greater risk, duplication, or conflict with stronger evidence.",
+      "rank": 2
+    },
+    {
+      "id": "optional",
+      "meaning": "Contextual convenience with no presumption of use.",
+      "override": "No exception record required; must not become a hidden prerequisite.",
+      "rank": 1
+    }
+  ]
+}

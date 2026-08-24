@@ -1,0 +1,67 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "preferred_order": [
+      "backward-compatible extension",
+      "capability flags or schema versioning",
+      "temporary dual support",
+      "bounded migration",
+      "coordinated breaking change"
+    ],
+    "required_change_metadata": [
+      "owning issue and PR",
+      "affected clusters",
+      "required consumer verification",
+      "change classification",
+      "migration guidance when compatibility changes"
+    ],
+    "simultaneous_work": "Independent changes require disjoint contracts and paths plus explicit integration order.",
+    "statement": "Do not silently break or blockade another active cluster through a shared repository change.",
+    "strength": "core-invariant"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.shared-repositories-non-blocking",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "collab",
+      "prototype-knowledge",
+      "prototype-docs"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "governance/clusters",
+      "compatibility"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "Changes to Collab, prototype-knowledge, or another shared repository preserve other cluster contracts or explicitly coordinate affected consumers.",
+  "title": "Shared repositories avoid cross-cluster blockades",
+  "version": 1
+}

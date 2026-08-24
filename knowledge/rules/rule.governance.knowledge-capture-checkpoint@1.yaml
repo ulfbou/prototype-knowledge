@@ -1,0 +1,86 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "deferral_allowed_when": [
+      "P0 or P1 correction would be delayed",
+      "cluster driver would be blocked",
+      "capture requires unsupported architecture work"
+    ],
+    "deferral_requires": [
+      "candidate summary",
+      "reason",
+      "revisit trigger"
+    ],
+    "outcomes": [
+      "NO_KNOWLEDGE_CHANGE",
+      "ADD_EVENT",
+      "ADD_KNOWLEDGE_VERSION",
+      "SUPERSEDE_KNOWLEDGE",
+      "UPDATE_MAINTAINED_REGISTRY",
+      "DEFER_WITH_REASON"
+    ],
+    "statement": "Capture valuable durable knowledge before the next dependent delivery, or record a bounded deferral reason.",
+    "strength": "required",
+    "valuable_when": [
+      "influences future planning",
+      "prevents repeated failure",
+      "clarifies authority",
+      "affects multiple repositories or clusters",
+      "defines compatibility",
+      "changes verification",
+      "improves retrieval or handoff",
+      "preserves significant decision",
+      "defines reusable command or recovery procedure",
+      "invalidates existing knowledge"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.knowledge-capture-checkpoint",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "assess",
+      "finalize",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "knowledge/capture",
+      "lessons",
+      "evidence"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "Every completed delivery, significant correction, planning decision, compatibility discovery, or repeated workflow difficulty requires a knowledge-value evaluation.",
+  "title": "Evaluate valuable knowledge at lifecycle boundaries",
+  "version": 1
+}

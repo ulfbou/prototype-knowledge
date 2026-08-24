@@ -1,0 +1,59 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "exceptions": [
+      "material driver blockade",
+      "shared correctness risk",
+      "accepted P0 or P1 work"
+    ],
+    "override_requires": [
+      "reason",
+      "affected cluster",
+      "expected unblock condition"
+    ],
+    "statement": "Advance the active cluster driver by default.",
+    "strength": "required"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.product-driver-first",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan"
+    ],
+    "repositories": [
+      "moldfirstbloom",
+      "dx-carrier-android",
+      "verdant",
+      "collab"
+    ],
+    "roles": [
+      "lead"
+    ],
+    "topics": [
+      "governance/clusters",
+      "governance/priorities"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "Each cluster develops its driver until materially blocked or superseded by accepted higher-priority integrity work.",
+  "title": "Cluster drivers receive default development priority",
+  "version": 1
+}

@@ -1,0 +1,30 @@
+{
+  "filters": {
+    "current_versions_only": true,
+    "statuses": [
+      "active"
+    ]
+  },
+  "id": "query.governance",
+  "include": {
+    "historical": "summaries-only",
+    "relationships": true,
+    "sources": true
+  },
+  "kind": "query",
+  "limits": {
+    "maximum_characters": 150000,
+    "maximum_items": 100
+  },
+  "schema_version": "1.0",
+  "select": {
+    "topics": [
+      "governance",
+      "governance/clusters",
+      "governance/priorities",
+      "governance/rules",
+      "knowledge/capture",
+      "work/index"
+    ]
+  }
+}

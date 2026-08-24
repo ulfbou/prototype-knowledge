@@ -77,6 +77,36 @@
       "id": "evidence"
     },
     {
+      "aliases": [
+        "ground-rules"
+      ],
+      "id": "governance"
+    },
+    {
+      "aliases": [
+        "development-clusters"
+      ],
+      "id": "governance/clusters"
+    },
+    {
+      "aliases": [
+        "priority-model"
+      ],
+      "id": "governance/priorities"
+    },
+    {
+      "aliases": [
+        "rule-strength"
+      ],
+      "id": "governance/rules"
+    },
+    {
+      "aliases": [
+        "knowledge-checkpoint"
+      ],
+      "id": "knowledge/capture"
+    },
+    {
       "aliases": [],
       "id": "lessons"
     },
@@ -99,6 +129,13 @@
     {
       "aliases": [],
       "id": "testing/conformance"
+    },
+    {
+      "aliases": [
+        "repo-todo",
+        "prioritized-features"
+      ],
+      "id": "work/index"
     },
     {
       "aliases": [],

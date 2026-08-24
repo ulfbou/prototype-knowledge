@@ -1,0 +1,39 @@
+{
+  "evidence": [
+    {
+      "path": "knowledge/prototype-knowledge.md",
+      "repository": "prototype-docs"
+    },
+    {
+      "conversation_decision": "ground-rules-brainstorm"
+    }
+  ],
+  "id": "event.2026-08-24.governance-ground-rules",
+  "kind": "decision-accepted",
+  "occurred_on": "2026-08-24",
+  "resulted_in": [
+    "rule.governance.product-driver-first@1",
+    "rule.governance.evidence-gated-enabling-work@1",
+    "rule.governance.knowledge-capture-checkpoint@1",
+    "rule.governance.shared-repositories-non-blocking@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "topics": [
+      "governance",
+      "governance/clusters",
+      "governance/priorities",
+      "governance/rules",
+      "knowledge/capture"
+    ]
+  },
+  "summary": "Accepted non-blocking cluster, priority, enabling-work, shared-repository, and knowledge-capture ground rules for the prototype repository family."
+}

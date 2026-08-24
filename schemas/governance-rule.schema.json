@@ -1,0 +1,73 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/governance-rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "content": {
+      "required": [
+        "strength",
+        "statement"
+      ],
+      "type": "object"
+    },
+    "freshness": {
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "const": "rule"
+    },
+    "relationships": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "retracted",
+        "retired"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "kind",
+    "status",
+    "title",
+    "summary",
+    "scope",
+    "authority",
+    "sources",
+    "freshness",
+    "relationships",
+    "content"
+  ],
+  "title": "Governance rule",
+  "type": "object"
+}

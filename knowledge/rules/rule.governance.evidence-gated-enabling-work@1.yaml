@@ -1,0 +1,65 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "invalid_triggers": [
+      "interesting possibility alone",
+      "open umbrella issue alone",
+      "speculative automation without expected value"
+    ],
+    "preferred_action": "Add knowledge within the current architecture before evolving the architecture.",
+    "statement": "Use existing Collab and prototype-knowledge architecture unless evidence justifies platform work.",
+    "strength": "required",
+    "valid_triggers": [
+      "correctness defect",
+      "recoverability defect",
+      "representation gap",
+      "retrieval gap",
+      "validation gap",
+      "continuity gap",
+      "maintenance gap",
+      "accepted prioritized capability"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "rule.governance.evidence-gated-enabling-work",
+  "kind": "rule",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "collab",
+      "prototype-knowledge"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "governance",
+      "planning"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-24.governance-ground-rules"
+    }
+  ],
+  "status": "active",
+  "summary": "Collab and prototype-knowledge architecture evolve only to remove demonstrated gaps, correct discovered issues, satisfy accepted priorities, or deliver clearly justified shared value.",
+  "title": "Enabling repositories evolve from demonstrated need",
+  "version": 1
+}

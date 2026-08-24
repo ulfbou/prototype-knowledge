@@ -1,0 +1,38 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/work-item.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "canonical_system": {
+      "type": "string"
+    },
+    "id": {
+      "const": "registry.work-index"
+    },
+    "items": {
+      "type": "array"
+    },
+    "kind": {
+      "const": "registry"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "canonical_system",
+    "purpose",
+    "items",
+    "rules"
+  ],
+  "title": "Cross-repository work index",
+  "type": "object"
+}
