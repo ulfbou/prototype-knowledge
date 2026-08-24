@@ -1,0 +1,36 @@
+{
+  "filters": {
+    "current_versions_only": true,
+    "statuses": [
+      "active"
+    ]
+  },
+  "id": "query.devops",
+  "include": {
+    "historical": "summaries-only",
+    "relationships": true,
+    "sources": true
+  },
+  "kind": "query",
+  "limits": {
+    "maximum_characters": 100000,
+    "maximum_items": 50
+  },
+  "schema_version": "1.0",
+  "select": {
+    "phases": [
+      "implement",
+      "deliver",
+      "finalize"
+    ],
+    "roles": [
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "devops",
+      "devops/artifacts",
+      "workflow/pr-lifecycle"
+    ]
+  }
+}

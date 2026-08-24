@@ -1,0 +1,11 @@
+{
+  "authority": "repository-owned",
+  "collection": "manual-until-manifest-adoption",
+  "id": "source.collab",
+  "kind": "source",
+  "local_path_hint": "../collab",
+  "manifest_path": ".machine/repository.yaml",
+  "name_with_owner": "ulfbou/collab",
+  "repository_id": "collab",
+  "schema_version": "1.0"
+}

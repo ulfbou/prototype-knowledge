@@ -1,0 +1,116 @@
+{
+  "id": "registry.topics",
+  "kind": "registry",
+  "schema_version": "1.0",
+  "topics": [
+    {
+      "aliases": [],
+      "id": "architecture"
+    },
+    {
+      "aliases": [
+        "authority-boundary"
+      ],
+      "id": "architecture/authority"
+    },
+    {
+      "aliases": [],
+      "id": "architecture/determinism"
+    },
+    {
+      "aliases": [
+        "consumer-compatibility"
+      ],
+      "id": "compatibility"
+    },
+    {
+      "aliases": [],
+      "id": "contracts"
+    },
+    {
+      "aliases": [],
+      "id": "decisions"
+    },
+    {
+      "aliases": [],
+      "id": "delivery"
+    },
+    {
+      "aliases": [
+        "ci-cd"
+      ],
+      "id": "devops"
+    },
+    {
+      "aliases": [],
+      "id": "devops/artifacts"
+    },
+    {
+      "aliases": [
+        "knowledge-base"
+      ],
+      "id": "documentation/machine-readability"
+    },
+    {
+      "aliases": [
+        "carrier"
+      ],
+      "id": "dx"
+    },
+    {
+      "aliases": [],
+      "id": "dx/codec"
+    },
+    {
+      "aliases": [
+        "crlf",
+        "newline-normalization"
+      ],
+      "id": "dx/line-endings"
+    },
+    {
+      "aliases": [],
+      "id": "dx/path-safety"
+    },
+    {
+      "aliases": [],
+      "id": "evidence"
+    },
+    {
+      "aliases": [],
+      "id": "lessons"
+    },
+    {
+      "aliases": [],
+      "id": "planning"
+    },
+    {
+      "aliases": [],
+      "id": "product"
+    },
+    {
+      "aliases": [],
+      "id": "recovery"
+    },
+    {
+      "aliases": [],
+      "id": "testing"
+    },
+    {
+      "aliases": [],
+      "id": "testing/conformance"
+    },
+    {
+      "aliases": [],
+      "id": "workflow"
+    },
+    {
+      "aliases": [],
+      "id": "workflow/handoff"
+    },
+    {
+      "aliases": [],
+      "id": "workflow/pr-lifecycle"
+    }
+  ]
+}

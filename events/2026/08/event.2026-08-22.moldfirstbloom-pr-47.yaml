@@ -1,0 +1,28 @@
+{
+  "evidence": [
+    {
+      "issue": 22,
+      "pull_request": 47,
+      "repository": "moldfirstbloom"
+    }
+  ],
+  "id": "event.2026-08-22.moldfirstbloom-pr-47",
+  "kind": "delivery-completed",
+  "occurred_on": "2026-08-22",
+  "resulted_in": [
+    "lesson.collab.windows-dx-boundaries@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "moldfirstbloom",
+      "collab"
+    ],
+    "topics": [
+      "delivery",
+      "recovery",
+      "dx/line-endings"
+    ]
+  },
+  "summary": "MoldFirstBloom PR 47 completed the authoritative Animation Timeline and exposed recoverability defects in Collab."
+}

@@ -1,0 +1,47 @@
+{
+  "id": "registry.roles",
+  "kind": "registry",
+  "roles": [
+    {
+      "id": "user",
+      "owns": [
+        "local-execution",
+        "mutation",
+        "authorization"
+      ]
+    },
+    {
+      "id": "lead",
+      "owns": [
+        "planning",
+        "scope",
+        "assessment"
+      ],
+      "prohibits": [
+        "implementation",
+        "premature-pr"
+      ]
+    },
+    {
+      "id": "senior",
+      "owns": [
+        "implementation",
+        "tests",
+        "delivery"
+      ],
+      "prohibits": [
+        "scope-expansion",
+        "pr-creation"
+      ]
+    },
+    {
+      "id": "maintainer",
+      "owns": [
+        "knowledge-review",
+        "registry-maintenance",
+        "schema-migration"
+      ]
+    }
+  ],
+  "schema_version": "1.0"
+}

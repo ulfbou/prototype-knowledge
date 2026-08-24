@@ -1,0 +1,15 @@
+[build-system]
+requires = []
+build-backend = "prototype_knowledge.build"
+
+[project]
+name = "prototype-knowledge"
+version = "0.1.0"
+description = "AI-first cross-repository knowledge registry and context compiler"
+requires-python = ">=3.11"
+
+[project.scripts]
+prototype-knowledge = "prototype_knowledge.cli:main"
+
+[tool.unittest]
+start-directory = "tests"

@@ -1,0 +1,45 @@
+{
+  "collections": [
+    {
+      "id": "events",
+      "mutation": "immutable",
+      "path": "events"
+    },
+    {
+      "id": "knowledge",
+      "mutation": "versioned",
+      "path": "knowledge"
+    },
+    {
+      "id": "registry",
+      "mutation": "maintained",
+      "path": "registry"
+    },
+    {
+      "id": "sources",
+      "mutation": "maintained",
+      "path": "sources"
+    },
+    {
+      "id": "queries",
+      "mutation": "maintained",
+      "path": "queries"
+    }
+  ],
+  "id": "catalog.prototype-knowledge",
+  "kind": "catalog",
+  "registries": [
+    "registry/authority.yaml",
+    "registry/lifecycle.yaml",
+    "registry/repositories.yaml",
+    "registry/roles.yaml",
+    "registry/topics.yaml"
+  ],
+  "schema_version": "1.0",
+  "schemas": [
+    "schemas/event.schema.json",
+    "schemas/knowledge-item.schema.json",
+    "schemas/query.schema.json",
+    "schemas/repository.schema.json"
+  ]
+}

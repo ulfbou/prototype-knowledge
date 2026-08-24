@@ -1,0 +1,53 @@
+{
+  "classes": {
+    "generated": {
+      "allowed": [
+        "regenerate",
+        "replace"
+      ],
+      "paths": [
+        ".dx"
+      ]
+    },
+    "immutable": {
+      "allowed": [
+        "create"
+      ],
+      "correction": "append-correction-event",
+      "paths": [
+        "events"
+      ]
+    },
+    "maintained": {
+      "allowed": [
+        "surgical-edit"
+      ],
+      "paths": [
+        "registry",
+        "schemas",
+        "queries",
+        "sources",
+        "README.md"
+      ],
+      "requires": [
+        "review",
+        "validation"
+      ]
+    },
+    "versioned": {
+      "allowed": [
+        "create-version",
+        "supersede"
+      ],
+      "paths": [
+        "knowledge"
+      ],
+      "prohibited": [
+        "silent-semantic-rewrite"
+      ]
+    }
+  },
+  "id": "registry.mutation-policy",
+  "kind": "registry",
+  "schema_version": "1.0"
+}

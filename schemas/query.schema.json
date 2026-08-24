@@ -1,0 +1,40 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/query.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "filters": {
+      "type": "object"
+    },
+    "id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "include": {
+      "type": "object"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "select": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "select",
+    "filters",
+    "include",
+    "limits"
+  ],
+  "title": "Knowledge query",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "authority": "repository-owned",
+  "collection": "manual-until-manifest-adoption",
+  "id": "source.verdant",
+  "kind": "source",
+  "local_path_hint": "../verdant",
+  "manifest_path": ".machine/repository.yaml",
+  "name_with_owner": "ulfbou/verdant",
+  "repository_id": "verdant",
+  "schema_version": "1.0"
+}

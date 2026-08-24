@@ -1,0 +1,69 @@
+{
+  "classes": [
+    {
+      "id": "generated",
+      "rank": 0
+    },
+    {
+      "id": "historical",
+      "rank": 1
+    },
+    {
+      "id": "reference",
+      "rank": 2
+    },
+    {
+      "id": "advisory",
+      "rank": 3
+    },
+    {
+      "id": "accepted-lesson",
+      "rank": 4
+    },
+    {
+      "id": "verified-observation",
+      "rank": 5
+    },
+    {
+      "id": "current-state",
+      "rank": 6
+    },
+    {
+      "id": "accepted-decision",
+      "rank": 7
+    },
+    {
+      "id": "normative-cross-repository-contract",
+      "rank": 8
+    },
+    {
+      "id": "current-source-and-tests",
+      "rank": 9
+    },
+    {
+      "id": "accepted-repository-contract",
+      "rank": 10
+    },
+    {
+      "id": "explicit-current-instruction",
+      "rank": 11
+    }
+  ],
+  "id": "registry.authority",
+  "kind": "registry",
+  "precedence": [
+    "explicit-current-instruction",
+    "accepted-repository-contract",
+    "current-source-and-tests",
+    "normative-cross-repository-contract",
+    "accepted-decision",
+    "current-state",
+    "verified-observation",
+    "accepted-lesson",
+    "advisory",
+    "reference",
+    "historical",
+    "generated"
+  ],
+  "schema_version": "1.0"
+}

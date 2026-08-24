@@ -1,0 +1,11 @@
+{
+  "authority": "repository-owned",
+  "collection": "manual-until-manifest-adoption",
+  "id": "source.dx-carrier-android",
+  "kind": "source",
+  "local_path_hint": "../dx-carrier-android",
+  "manifest_path": ".machine/repository.yaml",
+  "name_with_owner": "ulfbou/dx-carrier-android",
+  "repository_id": "dx-carrier-android",
+  "schema_version": "1.0"
+}

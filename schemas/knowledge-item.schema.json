@@ -1,0 +1,71 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/knowledge-item.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "content": {},
+    "freshness": {
+      "type": "object"
+    },
+    "id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relationships": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "retracted",
+        "retired"
+      ]
+    },
+    "summary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "kind",
+    "status",
+    "title",
+    "summary",
+    "scope",
+    "authority",
+    "sources",
+    "freshness",
+    "relationships",
+    "content"
+  ],
+  "title": "Versioned knowledge item",
+  "type": "object"
+}

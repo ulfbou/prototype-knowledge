@@ -1,0 +1,9 @@
+.dx/
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*~
+*#
+*.#*

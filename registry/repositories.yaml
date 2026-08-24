@@ -1,0 +1,95 @@
+{
+  "id": "registry.repositories",
+  "kind": "registry",
+  "relationships": [
+    {
+      "consumer": "moldfirstbloom",
+      "id": "verdant-to-mold",
+      "provider": "verdant",
+      "topics": [
+        "compatibility",
+        "architecture/determinism"
+      ]
+    },
+    {
+      "consumer": "dx-carrier-android",
+      "id": "collab-to-android",
+      "provider": "collab",
+      "topics": [
+        "dx/codec",
+        "dx/line-endings",
+        "dx/path-safety"
+      ]
+    },
+    {
+      "consumer": "prototype-docs",
+      "id": "knowledge-to-family",
+      "provider": "prototype-knowledge",
+      "topics": [
+        "documentation/machine-readability"
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "consumes": [],
+      "id": "prototype-knowledge",
+      "name_with_owner": "ulfbou/prototype-knowledge",
+      "product_driver": false,
+      "role": "knowledge-registry"
+    },
+    {
+      "consumes": [
+        "prototype-knowledge"
+      ],
+      "id": "prototype-docs",
+      "name_with_owner": "ulfbou/prototype-docs",
+      "product_driver": false,
+      "role": "human-coordination-docs"
+    },
+    {
+      "consumes": [
+        "prototype-knowledge",
+        "prototype-docs"
+      ],
+      "id": "collab",
+      "name_with_owner": "ulfbou/collab",
+      "product_driver": false,
+      "role": "collaboration-workflow-provider"
+    },
+    {
+      "consumes": [
+        "prototype-knowledge",
+        "prototype-docs",
+        "collab"
+      ],
+      "id": "verdant",
+      "name_with_owner": "ulfbou/verdant",
+      "product_driver": false,
+      "role": "deterministic-engine-provider"
+    },
+    {
+      "consumes": [
+        "prototype-knowledge",
+        "prototype-docs",
+        "collab",
+        "verdant"
+      ],
+      "id": "moldfirstbloom",
+      "name_with_owner": "ulfbou/MoldFirstBloom",
+      "product_driver": true,
+      "role": "product-driver-and-verdant-consumer"
+    },
+    {
+      "consumes": [
+        "prototype-knowledge",
+        "collab"
+      ],
+      "id": "dx-carrier-android",
+      "name_with_owner": "ulfbou/dx-carrier-android",
+      "product_driver": false,
+      "role": "dx-boundary-client"
+    }
+  ],
+  "schema_version": "1.0"
+}

@@ -1,0 +1,44 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "binary": "explicit-base64-only",
+    "bom": "forbidden",
+    "encoding": "utf-8",
+    "indentation_spaces": 4,
+    "path_style": "relative-posix",
+    "readonly": "preserved",
+    "writes": "lf"
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "contract.dx.canonical-carrier",
+  "kind": "contract",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [],
+    "repositories": [
+      "collab",
+      "dx-carrier-android"
+    ],
+    "roles": [],
+    "topics": [
+      "dx/codec",
+      "contracts"
+    ]
+  },
+  "sources": [],
+  "status": "active",
+  "summary": "Cross-repository DX compatibility uses UTF-8, LF-only writes, safe POSIX relative paths, four-space payload indentation, readonly semantics, and exact logical payload extraction.",
+  "title": "Canonical DX carrier boundary",
+  "version": 1
+}

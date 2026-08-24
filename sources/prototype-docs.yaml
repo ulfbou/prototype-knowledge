@@ -1,0 +1,11 @@
+{
+  "authority": "repository-owned",
+  "collection": "manual-until-manifest-adoption",
+  "id": "source.prototype-docs",
+  "kind": "source",
+  "local_path_hint": "../prototype-docs",
+  "manifest_path": ".machine/repository.yaml",
+  "name_with_owner": "ulfbou/prototype-docs",
+  "repository_id": "prototype-docs",
+  "schema_version": "1.0"
+}

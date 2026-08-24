@@ -1,0 +1,44 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "decision": "Use product evidence to drive provider and workflow development.",
+    "non_goals": [
+      "do not make Verdant First-Bloom-specific",
+      "do not develop Collab without demonstrated friction"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.product-driver",
+  "kind": "decision",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [],
+    "repositories": [
+      "prototype-docs",
+      "moldfirstbloom",
+      "verdant",
+      "collab"
+    ],
+    "roles": [],
+    "topics": [
+      "planning",
+      "architecture/authority"
+    ]
+  },
+  "sources": [],
+  "status": "active",
+  "summary": "MoldFirstBloom is the product driver, Verdant is its generic deterministic provider, and Collab is enabling workflow infrastructure.",
+  "title": "MoldFirstBloom drives prototype development",
+  "version": 1
+}

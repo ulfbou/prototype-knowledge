@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "class": "current-state",
+    "owner": "prototype-docs"
+  },
+  "content": {
+    "active_repository": "collab",
+    "next": [
+      {
+        "repository": "moldfirstbloom",
+        "work": "Persistence Envelope v3"
+      }
+    ],
+    "preferred_issue": 18
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "status.prototype.current",
+  "kind": "status",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [],
+    "repositories": [
+      "prototype-docs",
+      "collab",
+      "moldfirstbloom"
+    ],
+    "roles": [],
+    "topics": [
+      "planning",
+      "delivery"
+    ]
+  },
+  "sources": [],
+  "status": "active",
+  "summary": "Complete the bounded Collab Windows DX delivery-recovery correction, then return to MoldFirstBloom Persistence Envelope v3.",
+  "title": "Current prototype development status",
+  "version": 1
+}

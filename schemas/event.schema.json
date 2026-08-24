@@ -1,0 +1,42 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "evidence": {
+      "type": "array"
+    },
+    "id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurred_on": {
+      "format": "date",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "summary": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "occurred_on",
+    "summary",
+    "scope",
+    "evidence"
+  ],
+  "title": "Knowledge event",
+  "type": "object"
+}

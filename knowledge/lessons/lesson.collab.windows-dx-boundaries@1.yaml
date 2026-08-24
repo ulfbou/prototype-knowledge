@@ -1,0 +1,50 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "collab"
+  },
+  "content": {
+    "rules": [
+      "accept LF, CRLF, and lone CR at carrier read boundaries",
+      "emit LF-only carriers and text payloads",
+      "preserve canonical final LF",
+      "reject CR, LF, and NUL in persisted paths",
+      "compare canonical logical payload bytes"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "lesson.collab.windows-dx-boundaries",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [],
+    "repositories": [
+      "collab",
+      "dx-carrier-android"
+    ],
+    "roles": [],
+    "topics": [
+      "dx/codec",
+      "dx/line-endings",
+      "dx/path-safety",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-22.moldfirstbloom-pr-47"
+    }
+  ],
+  "status": "active",
+  "summary": "DX readers normalize supported line endings at read boundaries; canonical writers emit UTF-8 LF-only content and path consumers reject CR, LF, and NUL.",
+  "title": "Canonical Windows DX boundaries",
+  "version": 1
+}

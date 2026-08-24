@@ -1,0 +1,19 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=src python3 -m prototype_knowledge validate
+      - run: PYTHONPATH=src python3 -m unittest discover -s tests -v
+      - if: github.event_name == 'pull_request'
+        run: python3 scripts/check-immutable.py origin/${{ github.base_ref }}

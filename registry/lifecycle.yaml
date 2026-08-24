@@ -1,0 +1,47 @@
+{
+  "id": "registry.lifecycle",
+  "kind": "registry",
+  "phases": [
+    {
+      "id": "discover",
+      "label": "Discover"
+    },
+    {
+      "id": "plan",
+      "label": "Plan"
+    },
+    {
+      "id": "handoff",
+      "label": "Handoff"
+    },
+    {
+      "id": "implement",
+      "label": "Implement"
+    },
+    {
+      "id": "deliver",
+      "label": "Deliver"
+    },
+    {
+      "id": "assess",
+      "label": "Assess"
+    },
+    {
+      "id": "create-pr",
+      "label": "Create Pr"
+    },
+    {
+      "id": "finalize",
+      "label": "Finalize"
+    },
+    {
+      "id": "recover",
+      "label": "Recover"
+    },
+    {
+      "id": "maintain-knowledge",
+      "label": "Maintain Knowledge"
+    }
+  ],
+  "schema_version": "1.0"
+}

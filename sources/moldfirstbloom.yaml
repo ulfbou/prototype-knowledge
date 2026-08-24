@@ -1,0 +1,11 @@
+{
+  "authority": "repository-owned",
+  "collection": "manual-until-manifest-adoption",
+  "id": "source.moldfirstbloom",
+  "kind": "source",
+  "local_path_hint": "../moldfirstbloom",
+  "manifest_path": ".machine/repository.yaml",
+  "name_with_owner": "ulfbou/MoldFirstBloom",
+  "repository_id": "moldfirstbloom",
+  "schema_version": "1.0"
+}

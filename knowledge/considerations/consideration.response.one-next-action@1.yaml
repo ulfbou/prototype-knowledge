@@ -1,0 +1,45 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "download_file_when": [
+      "multiline-code",
+      "nested-heredoc",
+      "multiple-files",
+      "idempotency-required",
+      "windows-shell-boundary"
+    ],
+    "maximum_next_actions": 1
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "event-driven"
+  },
+  "id": "consideration.response.one-next-action",
+  "kind": "consideration",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [],
+    "topics": [
+      "workflow",
+      "documentation/machine-readability"
+    ]
+  },
+  "sources": [],
+  "status": "active",
+  "summary": "AI responses should select the shortest safe path and return no more than one executable next action.",
+  "title": "Return one next action",
+  "version": 1
+}

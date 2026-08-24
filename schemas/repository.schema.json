@@ -1,0 +1,33 @@
+{
+  "$id": "https://prototype-knowledge.local/schemas/repository.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "repositories": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "repositories",
+    "relationships"
+  ],
+  "title": "Repository registry",
+  "type": "object"
+}
