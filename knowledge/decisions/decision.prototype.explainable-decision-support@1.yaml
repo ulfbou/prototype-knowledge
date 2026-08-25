@@ -1,0 +1,169 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "assessment_model": {
+      "required_sections": [
+        "observation",
+        "evidence",
+        "inference",
+        "confidence",
+        "unknowns",
+        "recommendation",
+        "next_action"
+      ],
+      "rules": [
+        "separate observations from inferences and accepted decisions",
+        "attach material findings to stable evidence references",
+        "show supporting evidence, contradicting evidence, and decision-changing unknowns",
+        "use deterministic explainable methods before opaque or hosted methods",
+        "recommend at most one shortest safe next action",
+        "treat similarity and correlation as advisory rather than proof of causation"
+      ]
+    },
+    "capability_lifecycle": [
+      "record opportunity and revisit trigger",
+      "prototype against a demonstrated decision gap",
+      "measure repeated value and false classifications",
+      "promote only with accepted evidence",
+      "version contracts and preserve machine-readable compatibility",
+      "retire or supersede when evidence invalidates the capability"
+    ],
+    "github_actions_failure_support": {
+      "future_facets": [
+        "normalized failure fingerprints",
+        "exact and approximate similarity families",
+        "same-commit rerun correlation",
+        "flaky-versus-deterministic assessment",
+        "new-recurring-resolved comparison",
+        "cross-repository correlation",
+        "change-path correlation",
+        "resolution verification",
+        "knowledge-capture candidates"
+      ],
+      "minimum_observation": [
+        "repository",
+        "workflow",
+        "run",
+        "attempt",
+        "branch",
+        "commit",
+        "job",
+        "step",
+        "conclusion",
+        "time",
+        "evidence_retrieval_status"
+      ],
+      "safety": [
+        "retain workflow-level failures when jobs or logs are unavailable",
+        "bound diagnostic evidence instead of copying complete logs",
+        "record degraded retrieval explicitly",
+        "keep repository-local and cross-repository clustering separately selectable",
+        "expose similarity configuration and family cohesion",
+        "never infer causation solely from similarity"
+      ]
+    },
+    "ownership": {
+      "collab": [
+        "collect operational evidence",
+        "integrate lifecycle state",
+        "publish diagnostics",
+        "preserve explicit mutation boundaries"
+      ],
+      "prototype-knowledge": [
+        "provide authority precedence",
+        "provide repository relationships",
+        "record accepted knowledge",
+        "coordinate cross-repository priority"
+      ],
+      "repository_adapters": [
+        "provide domain semantics",
+        "map acceptance criteria to verification",
+        "define provider-consumer impact"
+      ],
+      "reusable_library": [
+        "normalize evidence",
+        "compare observations",
+        "classify findings",
+        "rank alternatives",
+        "render explanations"
+      ]
+    },
+    "prohibitions": [
+      "automatic acceptance of inferred decisions",
+      "automatic creation or reprioritization of GitHub work",
+      "automatic acceptance of durable knowledge",
+      "duplication of complete issue or pull-request bodies",
+      "mandatory decision-support stages without demonstrated value",
+      "persistent services, dashboards, or learned models without accepted evidence",
+      "hidden prerequisites created from optional analysis"
+    ],
+    "promotion_evidence": [
+      "the same manual decision analysis recurs",
+      "multiple tools duplicate the same explainable assessment model",
+      "missing or contradictory evidence causes rework",
+      "aggregate verification passes while required behavior lacks direct evidence",
+      "a shared change misses or over-expands consumer verification",
+      "failure families recur after attempted correction"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "decision-support-authority-change",
+      "evidence-model-change",
+      "github-actions-observability-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.explainable-decision-support",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "decision.prototype.anti-ceremony",
+      "rule.governance.evidence-gated-enabling-work",
+      "rule.governance.knowledge-capture-checkpoint",
+      "rule.governance.work-index-not-issue-tracker"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "assess",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "devops/actions",
+      "decisions",
+      "evidence",
+      "knowledge/capture",
+      "planning",
+      "validation/diagnostics"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-25.decision-support-opportunities"
+    }
+  ],
+  "status": "active",
+  "summary": "Decision support derives explainable advisory findings from traceable evidence, preserves repository and role authority, recommends one bounded next action, and evolves only after demonstrated value. GitHub Actions failure gathering may use normalized exact and approximate similarity while retaining degraded evidence and avoiding causal claims.",
+  "title": "Decision support advises from evidence without taking authority",
+  "version": 1
+}

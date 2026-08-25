@@ -111,6 +111,88 @@
       "priority": "P3",
       "reason": "Share authoritative reconstruction rather than presentation state.",
       "status": "planned"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
+        "repository": "prototype-knowledge"
+      },
+      "clusters": [
+        "moldfirstbloom",
+        "dx-carrier-android"
+      ],
+      "enables": [
+        "shared explainable findings",
+        "evidence sufficiency assessment",
+        "contradiction detection",
+        "verification mapping",
+        "provider-consumer impact advice"
+      ],
+      "id": "work.prototype.evidence-decision-support",
+      "kind": "experiment",
+      "priority": "P4",
+      "reason": "Preserve a reusable evidence-assessment direction without creating a platform before repeated decision friction demonstrates shared value.",
+      "revisit_triggers": [
+        "two tools duplicate the same assessment model",
+        "the same manual evidence decision recurs",
+        "missing or contradictory evidence causes delivery rework",
+        "an accepted capability requires shared explainable findings"
+      ],
+      "scope": [
+        "observation and evidence references",
+        "inference and confidence",
+        "contradictions and unknowns",
+        "recommendation and one next action",
+        "repository-specific adapters"
+      ],
+      "status": "opportunity"
+    },
+    {
+      "blocks_or_risks": [],
+      "canonical": {
+        "issue": null,
+        "repository": "collab"
+      },
+      "clusters": [
+        "moldfirstbloom",
+        "dx-carrier-android"
+      ],
+      "enables": [
+        "recent failed-run gathering",
+        "normalized failure families",
+        "same-commit rerun analysis",
+        "cross-repository failure correlation",
+        "bounded knowledge-capture candidates"
+      ],
+      "id": "work.collab.github-actions-failure-similarity",
+      "kind": "workflow-improvement",
+      "non_goals": [
+        "automatic reruns",
+        "automatic issue creation",
+        "automatic priority mutation",
+        "automatic knowledge acceptance",
+        "causal claims from similarity alone",
+        "mandatory dashboards or persistent services"
+      ],
+      "priority": "P3",
+      "reason": "A concrete script design demonstrates bounded value for gathering and grouping recent GitHub Actions failures across Collab and dependent repositories, but further productization requires repeated operational evidence.",
+      "revisit_triggers": [
+        "the prototype is used for three maintenance decisions",
+        "raw run lists fail to expose a recurring family",
+        "reruns obscure whether a failure is flaky or deterministic",
+        "the same failure affects multiple repositories",
+        "manual comparison against a prior report recurs"
+      ],
+      "scope": [
+        "repository and initialized-submodule discovery",
+        "run and attempt metadata",
+        "bounded failed-job and step evidence",
+        "exact fingerprints and configurable approximate similarity",
+        "Markdown and versioned JSON reports",
+        "explicit degraded-evidence reporting"
+      ],
+      "status": "candidate"
     }
   ],
   "kind": "registry",

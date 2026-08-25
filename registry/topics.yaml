@@ -42,6 +42,13 @@
       "id": "devops"
     },
     {
+      "aliases": [
+        "github-actions",
+        "workflow-runs"
+      ],
+      "id": "devops/actions"
+    },
+    {
       "aliases": [],
       "id": "devops/artifacts"
     },
@@ -75,6 +82,13 @@
     {
       "aliases": [],
       "id": "evidence"
+    },
+    {
+      "aliases": [
+        "decision-evidence",
+        "evidence-assessment"
+      ],
+      "id": "evidence/decision-support"
     },
     {
       "aliases": [

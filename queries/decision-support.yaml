@@ -1,0 +1,33 @@
+{
+  "filters": {
+    "current_versions_only": true,
+    "statuses": [
+      "active"
+    ]
+  },
+  "id": "query.decision-support",
+  "include": {
+    "historical": "summaries-only",
+    "relationships": true,
+    "sources": true
+  },
+  "kind": "query",
+  "limits": {
+    "maximum_characters": 120000,
+    "maximum_items": 75
+  },
+  "schema_version": "1.0",
+  "select": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "devops/actions",
+      "evidence",
+      "knowledge/capture",
+      "validation/diagnostics"
+    ]
+  }
+}

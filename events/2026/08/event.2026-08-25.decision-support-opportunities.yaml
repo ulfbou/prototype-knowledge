@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    {
+      "artifact": "gha-failure-families.py",
+      "observation": "A dependency-free prototype was designed for bounded GitHub Actions failure gathering, normalized fingerprints, approximate similarity families, submodule-aware repository selection, and machine-readable output."
+    },
+    {
+      "conversation_decision": "incorporate-evidence-support-and-gh-run-similarity-as-future-proof-knowledge"
+    },
+    {
+      "path": "registry/work-index.yaml",
+      "repository": "prototype-knowledge"
+    }
+  ],
+  "id": "event.2026-08-25.decision-support-opportunities",
+  "kind": "architecture-direction-accepted",
+  "occurred_on": "2026-08-25",
+  "resulted_in": [
+    "decision.prototype.explainable-decision-support@1",
+    "work.prototype.evidence-decision-support",
+    "work.collab.github-actions-failure-similarity"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "devops/actions",
+      "knowledge/capture",
+      "planning"
+    ]
+  },
+  "summary": "Accepted a future-proof knowledge direction for explainable evidence support and GitHub Actions failure similarity gathering while deferring implementation until evidence-based revisit triggers are met."
+}
