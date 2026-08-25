@@ -1,0 +1,36 @@
+{
+  "evidence": [
+    {
+      "artifact": "collab.dx.txt",
+      "observation": "Current Collab already provides canonical DX, atomic writes, profiles, immutable run records, dry-run boundaries, evidence collection, artifact hashes, and phased delivery workflows."
+    },
+    {
+      "conversation_decision": "align-decision-support-with-structured-diagnostic-recovery-north-star"
+    }
+  ],
+  "id": "event.2026-08-25.decision-support-and-recovery-direction",
+  "kind": "architecture-direction-accepted",
+  "occurred_on": "2026-08-25",
+  "resulted_in": [
+    "decision.prototype.explainable-decision-support@1",
+    "contract.collab.structured-diagnostic-recovery@1",
+    "work.collab.structured-diagnostics",
+    "work.collab.github-actions-failure-similarity"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "validation/repair",
+      "recovery/resume",
+      "devops/actions",
+      "dx/codec"
+    ]
+  },
+  "summary": "Aligned explainable decision support and GitHub Actions failure similarity with Collab structured diagnostics, the repair-safety ladder, canonical DX evidence and corrections, immutable run records, and controlled workflow resume."
+}

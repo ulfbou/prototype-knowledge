@@ -138,6 +138,13 @@
     },
     {
       "aliases": [
+        "workflow-resume",
+        "controlled-continuation"
+      ],
+      "id": "recovery/resume"
+    },
+    {
+      "aliases": [
         "schema-migration"
       ],
       "id": "schemas/evolution"

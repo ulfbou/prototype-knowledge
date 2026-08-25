@@ -1,0 +1,193 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "automatic_repair_preconditions": [
+      "deterministic",
+      "scope-preserving",
+      "security-preserving",
+      "independently-verifiable",
+      "no ambiguity or content selection",
+      "no readonly mutation",
+      "no unauthorized GitHub mutation",
+      "no test weakening",
+      "no default-branch mutation"
+    ],
+    "diagnostic": {
+      "categories": [
+        "USAGE",
+        "ENVIRONMENT",
+        "REPOSITORY",
+        "GIT",
+        "GITHUB",
+        "PROFILE",
+        "DX",
+        "CONTRACT",
+        "SCOPE",
+        "VERIFICATION",
+        "ARTIFACT",
+        "WORKFLOW",
+        "USER_DECISION"
+      ],
+      "compatibility": [
+        "stable codes are the machine contract",
+        "human prose may evolve",
+        "terminal and JSON outputs agree",
+        "exit-status compatibility is preserved unless explicitly versioned"
+      ],
+      "presentation_questions": [
+        "what failed",
+        "where it failed",
+        "what evidence proves it",
+        "why it was not repaired automatically",
+        "what artifacts were generated",
+        "what exact command comes next"
+      ],
+      "required_fields": [
+        "schemaVersion",
+        "code",
+        "category",
+        "severity",
+        "phase",
+        "mechanicallyRepairable",
+        "repairSafety",
+        "message",
+        "evidence",
+        "action",
+        "mutationsPerformed",
+        "artifacts"
+      ]
+    },
+    "diagnostic_only_boundary": [
+      "without explicit fix authorization inspect, classify, explain, and predict only",
+      "dry-run writes nothing locally or remotely",
+      "diagnostic-only execution performs no profile, Git, repository, or GitHub mutation"
+    ],
+    "dx_correction_rules": [
+      "only dx.py serializes carriers",
+      "every generated carrier is reparsed immediately",
+      "decoded entries byte-match intended content",
+      "writable correction contains only new and changed files",
+      "readonly evidence and writable correction are separate",
+      "ambiguous or destructive conditions never produce inferred repository content"
+    ],
+    "failure_bundle": {
+      "artifacts": [
+        "run.json",
+        "diagnostic.json",
+        "diagnostic.md",
+        "evidence.dx.txt",
+        "proposed-correction.dx.txt",
+        "resume.json"
+      ],
+      "root": ".dx/collab/runs/<run-id>/",
+      "rules": [
+        "omit proposed-correction.dx.txt unless correction is complete and deterministic",
+        "evidence.dx.txt is readonly and minimal",
+        "all user-visible artifacts are hashed in the immutable run record",
+        "artifact absence is explicit rather than represented by an empty file"
+      ]
+    },
+    "repair_safety_ladder": [
+      {
+        "behavior": "bounded transparent retry without input or repository mutation; record attempts and result",
+        "id": "RETRY",
+        "level": 0
+      },
+      {
+        "behavior": "canonicalize losslessly, revalidate independently, record mutation, and continue",
+        "id": "LOSSLESS_CONTINUE",
+        "level": 1
+      },
+      {
+        "behavior": "repair deterministic generated or remembered state, emit reviewed artifacts, and stop before further mutation",
+        "id": "GENERATED_STATE_REVIEW",
+        "level": 2
+      },
+      {
+        "behavior": "emit a complete writable DX v1.3.1 delta containing only new and changed repository files; canonicalize, reparse, byte-compare, hash, and stop for application",
+        "id": "DX_CORRECTION",
+        "level": 3
+      },
+      {
+        "behavior": "perform no repair; explain the product, security, destructive, compatibility, scope, or ambiguity decision and provide one exact next action",
+        "id": "AUTHORITY_STOP",
+        "level": 4
+      }
+    ],
+    "resume": {
+      "preconditions": [
+        "verified immutable parent run",
+        "verified artifact hashes",
+        "matching repository",
+        "matching expected branch",
+        "matching expected HEAD or an explicitly versioned safe derivation",
+        "verified correction carrier"
+      ],
+      "rules": [
+        "resume at earliest phase whose inputs changed",
+        "never reuse stale downstream evidence",
+        "create a new run linked to the failed run",
+        "preserve failed run immutability",
+        "publish stable artifacts only from successful verified runs"
+      ]
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "collab-diagnostic-schema-change",
+      "collab-recovery-policy-change",
+      "canonical-dx-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.collab.structured-diagnostic-recovery",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.explainable-decision-support",
+      "contract.collab.safe-validation-repair",
+      "contract.collab.validation-diagnostic",
+      "contract.dx.canonical-carrier"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "implement",
+      "deliver",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "collab"
+    ],
+    "roles": [
+      "user",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "validation/diagnostics",
+      "validation/repair",
+      "recovery",
+      "recovery/resume",
+      "dx/codec",
+      "workflow/transactionality",
+      "devops/artifacts"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-25.decision-support-and-recovery-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "Every reasonable Collab validation failure has a stable machine-readable diagnostic, a repair-safety classification, bounded evidence, explicit mutation accounting, and exactly one safe disposition. Nontrivial corrections and evidence use canonical DX; ambiguous, destructive, security-sensitive, scope-changing, or product decisions stop before mutation.",
+  "title": "Collab diagnostics provide one safe recovery disposition",
+  "version": 1
+}

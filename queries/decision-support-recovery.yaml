@@ -1,0 +1,35 @@
+{
+  "filters": {
+    "current_versions_only": true,
+    "statuses": [
+      "active"
+    ]
+  },
+  "id": "query.decision-support-recovery",
+  "include": {
+    "historical": "summaries-only",
+    "relationships": true,
+    "sources": true
+  },
+  "kind": "query",
+  "limits": {
+    "maximum_characters": 150000,
+    "maximum_items": 100
+  },
+  "schema_version": "1.0",
+  "select": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "validation/repair",
+      "recovery",
+      "recovery/resume",
+      "devops/actions",
+      "dx/codec"
+    ]
+  }
+}

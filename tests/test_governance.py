@@ -13,12 +13,15 @@ class GovernanceTests(unittest.TestCase):
     def test_dx_driver(self): self.assertEqual("dx-carrier-android",cluster_view(ROOT,"dx-carrier-android")["cluster"]["driver"])
     def test_checkpoint_no_change(self): self.assertEqual("NO_KNOWLEDGE_CHANGE",knowledge_checkpoint({})["outcome"])
     def test_checkpoint_knowledge(self): self.assertEqual("ADD_KNOWLEDGE_VERSION",knowledge_checkpoint({"cross_repo":True,"durable_rule":True})["outcome"])
-    def test_decision_support_opportunities_are_indexed(self):
+    def test_decision_support_recovery_direction(self):
         items={x["id"]:x for x in model(ROOT)["work-index"]["items"]}
-        self.assertEqual("P4",items["work.prototype.evidence-decision-support"]["priority"])
-        self.assertEqual("P3",items["work.collab.github-actions-failure-similarity"]["priority"])
-        self.assertTrue(items["work.prototype.evidence-decision-support"]["revisit_triggers"])
-        self.assertTrue(items["work.collab.github-actions-failure-similarity"]["non_goals"])
+        diagnostics=items["work.collab.structured-diagnostics"]
+        actions=items["work.collab.github-actions-failure-similarity"]
+        self.assertEqual(("P2","proposed"),(diagnostics["priority"],diagnostics["status"]))
+        self.assertEqual(("P3","candidate"),(actions["priority"],actions["status"]))
+        self.assertIn("work.collab.structured-diagnostics",actions["depends_on"])
+        self.assertTrue(diagnostics["acceptance_direction"])
+        self.assertTrue(actions["revisit_triggers"])
 
     def test_checkpoint_deferral_requires_trace(self):
         with self.assertRaises(Exception): knowledge_checkpoint({"cross_repo":True,"must_defer":True})
