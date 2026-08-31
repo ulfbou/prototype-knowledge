@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "anti_dependencies": [
+      "machine-specific tool directories",
+      "user PATH state",
+      "existing remote repositories",
+      "developer branch state",
+      "global Git configuration"
+    ],
+    "fixture_requirements": [
+      "tools and executable policy",
+      "Git refs and remote configuration",
+      "input files and expected environment",
+      "mocked external commands",
+      "repository-local or temporary paths"
+    ],
+    "platform_rules": [
+      "use repository-relative paths where possible",
+      "convert paths only when crossing between shell-native and native-process boundaries",
+      "normalize supported line endings at process boundaries",
+      "do not assume copy preserves executable mode",
+      "avoid network-dependent repository introspection by default"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.testing.hermetic-platform-boundaries",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Portable tests provide their own dependencies and treat paths, line endings, permissions, process ownership, and filesystem semantics as explicit boundary contracts.",
+  "title": "Make tests hermetic and model platform boundaries explicitly",
+  "version": 1
+}

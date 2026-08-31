@@ -1,0 +1,77 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "high_risk_edits": [
+      "nested shell quoting",
+      "heredocs",
+      "traps",
+      "multiline replacements",
+      "cross-shell path conversion"
+    ],
+    "rules": [
+      "provide one command or one short atomic block at a time",
+      "do not change strict-mode settings in the interactive shell",
+      "do not invoke shell termination from interactive instructions",
+      "avoid redundant exit-status plumbing when output is conclusive",
+      "use exact paths and arguments without placeholders",
+      "move complex quoting and failure handling into a validated child script or correction artifact"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.copy-safe-command-boundaries",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Troubleshooting commands should gather one fact or perform one bounded correction without risking the caller’s shell session or requiring fragile manual editing.",
+  "title": "Keep interactive commands bounded and session-safe",
+  "version": 1
+}

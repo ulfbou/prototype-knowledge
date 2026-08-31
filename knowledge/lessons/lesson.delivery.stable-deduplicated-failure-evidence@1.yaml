@@ -1,0 +1,70 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "rules": [
+      "copy required failure artifacts to a stable workspace before temporary cleanup or preserve the failed workspace",
+      "emit the shell-appropriate path and optionally a separate native path",
+      "prefer a structured failure summary over repeated raw logs",
+      "print only bounded log material not already present in the structured report",
+      "distinguish required evidence from optional enrichment",
+      "do not fail local delivery solely because optional external evidence is unavailable"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.delivery.stable-deduplicated-failure-evidence",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Failure diagnostics are actionable only when referenced artifacts survive cleanup, paths match the operator’s shell, and repeated transcripts are deduplicated.",
+  "title": "Retain concise failure evidence at stable accessible paths",
+  "version": 1
+}

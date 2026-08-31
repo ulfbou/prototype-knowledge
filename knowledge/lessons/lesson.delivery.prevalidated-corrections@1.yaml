@@ -1,0 +1,76 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "correction_selection": [
+      "use a direct command only for genuinely simple quote-safe edits",
+      "use a validated script or delta artifact for complex edits",
+      "stop and reassess after a generated correction introduces a new defect"
+    ],
+    "verification": [
+      "apply to exact current input",
+      "run language syntax validation",
+      "run the directly affected test",
+      "inspect the resulting diff",
+      "confirm only intended files and lines changed",
+      "confirm no placeholders remain",
+      "verify target-shell behavior where practical"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.delivery.prevalidated-corrections",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "The producer of a correction must apply and verify it against an exact copy of the current input so the operator is not the first executor.",
+  "title": "Validate corrections before handing them to an operator",
+  "version": 1
+}

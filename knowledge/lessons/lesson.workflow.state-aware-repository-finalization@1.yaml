@@ -1,0 +1,78 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "checks": [
+      "working-tree status",
+      "unstaged diff boundary",
+      "staged diff boundary",
+      "local commits ahead of upstream",
+      "branch publication state",
+      "package manifest and artifact hash"
+    ],
+    "rules": [
+      "stage exact paths only after verification",
+      "do not assume staged and working copies are identical",
+      "inspect existing local commits before recommending amend or additional commit",
+      "use ordinary push for ordinary history and force only for intentional published-history rewrite",
+      "generate packages only from the stable reviewed diff",
+      "never claim a test, workflow, or consumer check passed unless it actually ran successfully"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.state-aware-repository-finalization",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Staging, commits, packages, and pull-request claims must be derived from the actual working tree, index, branch history, and completed verification.",
+  "title": "Finalize from verified repository state",
+  "version": 1
+}

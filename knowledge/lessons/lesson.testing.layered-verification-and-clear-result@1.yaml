@@ -1,0 +1,86 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "layers": [
+      {
+        "evidence": "directly affected test or probe",
+        "name": "inner loop"
+      },
+      {
+        "evidence": "affected unit, contract, and workflow tests",
+        "name": "component gate"
+      },
+      {
+        "evidence": "complete required repository suite",
+        "name": "integration gate"
+      },
+      {
+        "evidence": "platform matrix and explicitly optional external integrations",
+        "name": "CI gate"
+      }
+    ],
+    "reporting": [
+      "print one concise PASS line on success",
+      "print an unmistakable aggregate FAIL line when any required test fails",
+      "report optional skips separately",
+      "on failure include phase, expected and actual values, relevant command, bounded evidence, and retained artifact paths"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.testing.layered-verification-and-clear-result",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Focused tests are the efficient inner loop; broader suites are gates run after affected behavior is green, and every gate must state its aggregate outcome clearly.",
+  "title": "Use layered verification with an unmistakable aggregate result",
+  "version": 1
+}

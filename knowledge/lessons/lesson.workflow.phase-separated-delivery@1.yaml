@@ -1,0 +1,80 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "phases": [
+      "implementation",
+      "focused verification",
+      "integration verification",
+      "scope review",
+      "staging",
+      "commit",
+      "metadata preparation",
+      "PR creation",
+      "remote checks",
+      "finalization"
+    ],
+    "rules": [
+      "complete each phase before starting state-dependent finalization",
+      "return to the earliest affected phase after a source change",
+      "treat previously generated packages and reports as stale after relevant changes",
+      "write final metadata from the verified diff and factual test results"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.phase-separated-delivery",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "A delivery remains understandable and recoverable when implementation, verification, packaging, and repository finalization do not mutate the same state concurrently.",
+  "title": "Separate implementation, verification, and finalization phases",
+  "version": 1
+}

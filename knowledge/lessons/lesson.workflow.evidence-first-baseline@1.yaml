@@ -1,0 +1,70 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "anti_pattern": "Treat planned capabilities as proof that the current implementation already provides them.",
+    "rules": [
+      "inspect current source and parser construction before writing expectations",
+      "run built-in help and focused probes for ambiguous behavior",
+      "verify function signatures and deployment boundaries",
+      "separate observed behavior from target behavior",
+      "refresh evidence when a newer authoritative snapshot is available"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.evidence-first-baseline",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Specifications and plans describe intended behavior, but current source, interfaces, and executable probes establish the baseline that characterization and migration work must preserve.",
+  "title": "Establish the executable baseline before designing change",
+  "version": 1
+}

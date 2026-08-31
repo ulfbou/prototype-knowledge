@@ -1,0 +1,43 @@
+{
+  "evidence": [
+    {
+      "artifact": "retrospective input",
+      "observation": "The retrospective documents repeated failures and corrective principles across evidence handling, scope control, command safety, portability, testing, diagnostics, packaging, and repository finalization.",
+      "sha256": "686df088ccbfced36043c048529cd70f134ab184b69d9c1b5bb76652f8298838"
+    }
+  ],
+  "id": "event.2026-08-31.generic-engineering-workflow-lessons",
+  "kind": "lessons-accepted",
+  "occurred_on": "2026-08-31",
+  "resulted_in": [
+    "lesson.workflow.evidence-first-baseline@1",
+    "lesson.workflow.scope-locked-change-ownership@1",
+    "lesson.workflow.phase-separated-delivery@1",
+    "lesson.workflow.copy-safe-command-boundaries@1",
+    "lesson.delivery.prevalidated-corrections@1",
+    "lesson.testing.hermetic-platform-boundaries@1",
+    "lesson.testing.layered-verification-and-clear-result@1",
+    "lesson.delivery.stable-deduplicated-failure-evidence@1",
+    "lesson.workflow.state-aware-repository-finalization@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "summary": "Accepted generic evidence-first, scope-controlled, session-safe, cross-platform, verifiable, and state-aware engineering workflow lessons from a delivery retrospective."
+}

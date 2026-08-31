@@ -1,0 +1,77 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "failure_ownership": [
+      "change-caused regression",
+      "existing prerequisite defect",
+      "fixture or test defect",
+      "environment or platform defect",
+      "external dependency failure",
+      "unrelated out-of-scope defect"
+    ],
+    "rules": [
+      "lock objective, allowed paths, non-goals, and compatibility constraints before implementation",
+      "classify every newly discovered defect before modifying code",
+      "fix the narrowest responsible layer",
+      "record valuable unrelated defects as follow-up work",
+      "do not weaken valid assertions to make a delivery pass"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [],
+    "mode": "durable"
+  },
+  "id": "lesson.workflow.scope-locked-change-ownership",
+  "kind": "lesson",
+  "relationships": {
+    "related": [],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "deliver",
+      "assess",
+      "create-pr",
+      "finalize",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab",
+      "verdant",
+      "moldfirstbloom",
+      "dx-carrier-android"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "workflow",
+      "evidence",
+      "testing",
+      "delivery",
+      "recovery"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-08-31.generic-engineering-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "A newly observed failure authorizes a change only after its owning layer and relationship to the current delivery are established.",
+  "title": "Classify new failures before changing scope",
+  "version": 1
+}
