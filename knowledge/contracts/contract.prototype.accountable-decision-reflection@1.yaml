@@ -1,0 +1,138 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "boundary": "The Reflection Engine explains outcomes and formulates proposals but never invents missing evidence, treats similarity as causal proof, converts confidence into authority, accepts candidates, or publishes durable knowledge.",
+    "candidate_gate": {
+      "authority": "Passing this gate establishes candidacy only; human-maintainer review remains mandatory for acceptance and publication.",
+      "required": [
+        "proposal record",
+        "reflection record",
+        "confidence value at least 0.80",
+        "calibrated confidence basis",
+        "at least one available hash-verified primary evidence item",
+        "basis includes a verified causal or contributing finding",
+        "basis is not correlation-only"
+      ],
+      "result_when_blocked": "Retain the proposal without creating a knowledge-candidate record."
+    },
+    "deterministic_input": {
+      "evidence_fields": [
+        "evidenceId",
+        "availability",
+        "sha256 when available",
+        "authority",
+        "redaction"
+      ],
+      "required": [
+        "transactionId",
+        "decisionRecordId",
+        "outcomeRecordId",
+        "retainedEvidence"
+      ],
+      "rules": [
+        "resolve records by immutable identity",
+        "use only bounded retained evidence",
+        "record unavailable, expired, partial, or redacted evidence as limitations",
+        "do not silently retrieve or substitute additional evidence during reflection"
+      ]
+    },
+    "failure_behavior": [
+      "unknown or insufficient evidence maps to unknown-or-unclassified",
+      "evidence gaps suppress unsupported causal findings",
+      "low confidence remains visible and never grants authority",
+      "contradictory evidence is retained and reported"
+    ],
+    "finding_strengths": [
+      {
+        "id": "causal",
+        "may_support_candidate": true,
+        "meaning": "The condition is demonstrated to produce the outcome by a reproducible execution link, controlled intervention, or authoritative deterministic diagnostic whose contract establishes that causal relationship."
+      },
+      {
+        "id": "contributing",
+        "may_support_candidate": true,
+        "meaning": "The condition is verified to enable, amplify, or shape the failure path but is not independently sufficient to produce the outcome."
+      },
+      {
+        "id": "correlation",
+        "may_support_candidate": false,
+        "meaning": "Historical, temporal, or structural similarity is observed without a proven execution link."
+      }
+    ],
+    "proposal_gate": {
+      "required": [
+        "outcome is failed or rejected",
+        "at least one verified causal or contributing finding",
+        "concrete corrective statement",
+        "unambiguous applicability conditions",
+        "explicit contraindications"
+      ],
+      "result_when_blocked": "Persist the reflection and gate reasons without creating a proposal."
+    },
+    "reflection_output": [
+      "classification",
+      "findings with strength and evidence references",
+      "assessment",
+      "confidence",
+      "limitations",
+      "proposal eligibility and reasons"
+    ],
+    "success_learning": "Successful or confirmed outcomes may produce reflections for evaluation and calibration, but Phase 6 does not permit them to generate proposals or knowledge candidates. Revisit after PoC evidence demonstrates value."
+  },
+  "freshness": {
+    "invalidated_by": [
+      "reflection-input-change",
+      "reflection-gate-change",
+      "reflection-authority-change",
+      "reflection-taxonomy-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-reflection",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.reflection-taxonomy"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "validation/diagnostics"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-reflection"
+    }
+  ],
+  "status": "active",
+  "summary": "Reflection uses bounded immutable inputs, distinguishes causal, contributing, and correlational findings, and gates proposals and knowledge candidates without granting automated publication authority.",
+  "title": "Reflection produces evidence-bounded proposals, not authority",
+  "version": 1
+}

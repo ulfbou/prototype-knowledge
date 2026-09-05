@@ -1,0 +1,106 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "classifications": [
+      {
+        "id": "schema-validation-failure",
+        "meaning": "Input or generated data violates an applicable structural schema."
+      },
+      {
+        "id": "contract-violation",
+        "meaning": "Behavior or state violates an accepted semantic, authority, compatibility, or workflow contract."
+      },
+      {
+        "id": "environment-mismatch",
+        "meaning": "Execution assumptions differ from the actual platform, filesystem, permissions, configuration, or runtime environment."
+      },
+      {
+        "id": "flaky-test-execution",
+        "meaning": "Equivalent executions produce inconsistent results and evidence supports nondeterministic test or fixture behavior."
+      },
+      {
+        "id": "unhandled-exception",
+        "meaning": "Execution terminates through an exception not converted into the applicable structured diagnostic or expected failure result."
+      },
+      {
+        "id": "dependency-resolution-failure",
+        "meaning": "A required local or external dependency cannot be resolved, loaded, reached, or satisfied."
+      },
+      {
+        "id": "timeout-or-cancellation",
+        "meaning": "Execution exceeds its time boundary or is cancelled before the expected terminal result."
+      },
+      {
+        "id": "human-operator-error",
+        "meaning": "Primary evidence demonstrates that an explicit human action contradicted a known applicable instruction or contract. This label must not be inferred merely from missing context or tool failure."
+      },
+      {
+        "id": "unknown-or-unclassified",
+        "meaning": "Available evidence is insufficient, contradictory, or outside the current taxonomy."
+      }
+    ],
+    "closed": true,
+    "relationship_to_existing_taxonomy": "This runtime outcome taxonomy complements, and does not supersede, lesson.workflow.failure-classification, which classifies the first responsible workflow layer.",
+    "selection_rules": [
+      "select one primary classification",
+      "record additional conditions as findings rather than inventing labels",
+      "prefer unknown-or-unclassified over unsupported specificity",
+      "distinguish first responsible failure layer from downstream symptoms",
+      "taxonomy expansion requires a new version of this contract and compatible schema evolution"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "reflection-taxonomy-change",
+      "diagnostic-taxonomy-alignment-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.reflection-taxonomy",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-reflection",
+      "lesson.workflow.failure-classification",
+      "contract.collab.structured-diagnostic-recovery"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "implement",
+      "assess",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "recovery",
+      "validation/diagnostics",
+      "knowledge/capture"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-reflection"
+    }
+  ],
+  "status": "active",
+  "summary": "Reflection assigns exactly one primary outcome class from a compact versioned taxonomy and records causal strength separately from classification.",
+  "title": "Reflection uses a closed outcome classification taxonomy",
+  "version": 1
+}

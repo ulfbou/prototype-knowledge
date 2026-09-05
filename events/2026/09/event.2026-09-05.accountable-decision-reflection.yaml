@@ -1,0 +1,35 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-6-reflection-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-ledger@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-authority-lifecycle@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-reflection",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-reflection@1",
+    "contract.prototype.reflection-taxonomy@1",
+    "schemas/decision-ledger.schema.json"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "validation/diagnostics"
+    ]
+  },
+  "summary": "Accepted bounded post-outcome reflection, closed failure classification, explicit causal-strength labels, evidence-gated proposal generation, and human-governed knowledge candidacy for the Accountable Decision System proof of concept."
+}
