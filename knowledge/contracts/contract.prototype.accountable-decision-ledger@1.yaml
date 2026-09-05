@@ -1,0 +1,139 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "atomic_boundary": "One ledger record is one immutable lifecycle event. A decision transaction is a derived projection linked by transaction and causation identifiers.",
+    "causality": [
+      "timestamps express chronology, not causation",
+      "parent links express direct dependency",
+      "root identifies the first observation",
+      "correction and supersession append records and preserve originals",
+      "cycles are forbidden"
+    ],
+    "deferred": [
+      "distributed consensus",
+      "digital signatures",
+      "trusted timestamps",
+      "hash chains",
+      "Merkle trees",
+      "remote attestation",
+      "trust scoring",
+      "MCP transport",
+      "autonomous execution"
+    ],
+    "evidence_rules": [
+      "reference rather than duplicate authoritative evidence",
+      "hash retrievable retained artifacts",
+      "record unavailable, partial, expired, and redacted evidence explicitly",
+      "exclude credentials, unrestricted prompts, private reasoning, complete environment dumps, and unbounded logs",
+      "treat similarity as advisory rather than causal proof"
+    ],
+    "identity": {
+      "record": "dlr_<uuid-v7>",
+      "subject": "stable external correlation identifier",
+      "transaction": "dtx_<uuid-v7>"
+    },
+    "integrity": {
+      "algorithm": "SHA-256",
+      "canonicalization": "RFC 8785 JSON Canonicalization Scheme",
+      "hash_input": "Canonicalize the complete record with integrity.recordHash omitted, then hash those canonical UTF-8 bytes."
+    },
+    "persistence": {
+      "authoritative_path": ".dx/ads/ledger/decision-ledger.jsonl",
+      "encoding": "UTF-8",
+      "line_endings": "LF",
+      "projection_path": ".dx/ads/projections/transactions.json",
+      "recovery": "Preserve an invalid trailing fragment as diagnostic evidence before truncating only that incomplete final line; never skip or rewrite a malformed complete line.",
+      "write": "validate, canonicalize, hash, revalidate, lock, append one complete line, flush, unlock"
+    },
+    "projections": "Generated transaction state is disposable, regenerable, and never authoritative.",
+    "record_types": [
+      "observation",
+      "decision",
+      "outcome",
+      "reflection",
+      "proposal",
+      "knowledge-candidate",
+      "review",
+      "publication",
+      "correction"
+    ],
+    "required_v1_record_types": [
+      "observation",
+      "decision",
+      "outcome",
+      "reflection",
+      "proposal"
+    ],
+    "semantic_invariants": [
+      "decision references at least one observation",
+      "outcome references a decision",
+      "reflection references a decision and outcome",
+      "proposal references a reflection",
+      "knowledge candidate references proposal, reflection, evidence, and confidence",
+      "accepted review is human-maintainer-authored",
+      "publication references an accepted review",
+      "automated actors cannot accept or publish their own proposals",
+      "incomplete transactions remain visible"
+    ],
+    "validation_layers": {
+      "schema": "Validate one record's local structure and type-specific payload.",
+      "semantic": "Validate references, ordering, acyclicity, actor authority, separation of duties, lifecycle gates, and record hashes."
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-ledger-schema-change",
+      "accountable-decision-ledger-storage-change",
+      "accountable-decision-authority-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-ledger",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-system",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "decision.prototype.explainable-decision-support"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-ledger"
+    }
+  ],
+  "status": "active",
+  "summary": "The Accountable Decision System persists one immutable lifecycle event per canonical JSONL record, reconstructs transactions from explicit causation, and separates structural validation from semantic authority and lifecycle validation.",
+  "title": "Accountable decision ledger records immutable lifecycle events",
+  "version": 1
+}

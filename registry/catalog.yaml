@@ -42,6 +42,7 @@
     "schemas/query.schema.json",
     "schemas/repository.schema.json",
     "schemas/validation-diagnostic.schema.json",
-    "schemas/validation-repair-policy.schema.json"
+    "schemas/validation-repair-policy.schema.json",
+    "schemas/decision-ledger.schema.json"
   ]
 }

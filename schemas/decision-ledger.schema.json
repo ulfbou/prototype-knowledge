@@ -1,0 +1,821 @@
+{
+  "$defs": {
+    "actor": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "actorType": {
+                "enum": [
+                  "tool",
+                  "agent",
+                  "system"
+                ]
+              }
+            },
+            "required": [
+              "actorType"
+            ]
+          },
+          "then": {
+            "required": [
+              "version"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "actorId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "actorType": {
+          "enum": [
+            "human",
+            "tool",
+            "agent",
+            "system"
+          ]
+        },
+        "authority": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "observer",
+            "decision-producer",
+            "reflection-engine",
+            "maintainer",
+            "system-infrastructure"
+          ]
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "actorId",
+        "actorType",
+        "role",
+        "authority"
+      ],
+      "type": "object"
+    },
+    "causation": {
+      "additionalProperties": false,
+      "properties": {
+        "correctsRecordId": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+              "type": "string"
+            }
+          ]
+        },
+        "parentRecordIds": {
+          "items": {
+            "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rootRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "supersedesRecordId": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "parentRecordIds",
+        "rootRecordId",
+        "supersedesRecordId",
+        "correctsRecordId"
+      ],
+      "type": "object"
+    },
+    "confidence": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "calibration": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "value": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "basis",
+        "calibration",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "correctionPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "correctedRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "replacementFacts": {
+          "minProperties": 1,
+          "type": "object"
+        }
+      },
+      "required": [
+        "correctedRecordId",
+        "reason",
+        "replacementFacts"
+      ],
+      "type": "object"
+    },
+    "decisionPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "alternatives": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "decisionType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "disposition": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "observationRecordIds": {
+          "items": {
+            "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "decisionType",
+        "disposition",
+        "observationRecordIds",
+        "alternatives"
+      ],
+      "type": "object"
+    },
+    "evidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "partial",
+            "unavailable",
+            "expired",
+            "redacted"
+          ]
+        },
+        "evidenceId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "excerpt": {
+          "maxLength": 4096,
+          "type": "string"
+        },
+        "kind": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "mediaType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "redaction": {
+          "enum": [
+            "none",
+            "partial",
+            "full"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "uri": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidenceId",
+        "kind",
+        "availability",
+        "authority",
+        "redaction"
+      ],
+      "type": "object"
+    },
+    "expectation": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evaluationCriteria": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "description",
+        "evaluationCriteria"
+      ],
+      "type": "object"
+    },
+    "integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "sha-256"
+        },
+        "canonicalization": {
+          "const": "RFC8785-JCS"
+        },
+        "hashInput": {
+          "const": "record-with-integrity-recordHash-omitted"
+        },
+        "recordHash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonicalization",
+        "algorithm",
+        "recordHash",
+        "hashInput"
+      ],
+      "type": "object"
+    },
+    "knowledgeCandidatePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidateKind": {
+          "enum": [
+            "lesson",
+            "rule",
+            "decision",
+            "constraint",
+            "contract"
+          ]
+        },
+        "evidenceIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "proposalRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "reflectionRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "proposalRecordId",
+        "reflectionRecordId",
+        "evidenceIds",
+        "candidateKind"
+      ],
+      "type": "object"
+    },
+    "observationPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidenceRetrievalStatus": {
+          "enum": [
+            "complete",
+            "partial",
+            "unavailable",
+            "not-applicable"
+          ]
+        }
+      },
+      "required": [
+        "category",
+        "description",
+        "evidenceRetrievalStatus"
+      ],
+      "type": "object"
+    },
+    "outcomePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "decisionRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "confirmed",
+            "rejected",
+            "succeeded",
+            "failed",
+            "inconclusive",
+            "not-executed"
+          ]
+        },
+        "verificationEvidenceIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "decisionRecordId",
+        "status",
+        "description",
+        "verificationEvidenceIds"
+      ],
+      "type": "object"
+    },
+    "proposalPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "applicabilityConditions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "contraindications": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "proposalType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reflectionRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "statement": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "proposalType",
+        "statement",
+        "applicabilityConditions",
+        "contraindications",
+        "reflectionRecordId"
+      ],
+      "type": "object"
+    },
+    "publicationPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidateRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "knowledgeId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "repository": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reviewRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidateRecordId",
+        "reviewRecordId",
+        "knowledgeId",
+        "repository",
+        "path"
+      ],
+      "type": "object"
+    },
+    "reflectionPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "classification": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "decisionRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "outcomeRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decisionRecordId",
+        "outcomeRecordId",
+        "assessment",
+        "classification",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "reviewPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidateRecordId": {
+          "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "disposition": {
+          "enum": [
+            "accepted",
+            "rejected",
+            "deferred",
+            "changes-requested"
+          ]
+        },
+        "rationale": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revisitTrigger": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidateRecordId",
+        "disposition",
+        "rationale"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://prototype-knowledge.local/schemas/decision-ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "observation"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/observationPayload"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "decision"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/decisionPayload"
+          }
+        },
+        "required": [
+          "confidence",
+          "expectation"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "outcome"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/outcomePayload"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "reflection"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/reflectionPayload"
+          }
+        },
+        "required": [
+          "confidence"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "proposal"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/proposalPayload"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "knowledge-candidate"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/knowledgeCandidatePayload"
+          }
+        },
+        "required": [
+          "confidence"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "review"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "actorType": {
+                "const": "human"
+              },
+              "role": {
+                "const": "maintainer"
+              }
+            }
+          },
+          "payload": {
+            "$ref": "#/$defs/reviewPayload"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "publication"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/publicationPayload"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordType": {
+            "const": "correction"
+          }
+        },
+        "required": [
+          "recordType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/correctionPayload"
+          }
+        }
+      }
+    }
+  ],
+  "description": "Structural contract for one immutable lifecycle-event record. Semantic validation remains mandatory.",
+  "properties": {
+    "actor": {
+      "$ref": "#/$defs/actor"
+    },
+    "causation": {
+      "$ref": "#/$defs/causation"
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/evidenceReference"
+      },
+      "type": "array"
+    },
+    "expectation": {
+      "$ref": "#/$defs/expectation"
+    },
+    "integrity": {
+      "$ref": "#/$defs/integrity"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "recordId": {
+      "pattern": "^dlr_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "recordType": {
+      "enum": [
+        "observation",
+        "decision",
+        "outcome",
+        "reflection",
+        "proposal",
+        "knowledge-candidate",
+        "review",
+        "publication",
+        "correction"
+      ]
+    },
+    "recordedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "subjectId": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "transactionId": {
+      "pattern": "^dtx_[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "transactionId",
+    "recordType",
+    "recordedAt",
+    "subjectId",
+    "actor",
+    "causation",
+    "evidence",
+    "payload",
+    "integrity"
+  ],
+  "title": "Accountable Decision Ledger Record",
+  "type": "object"
+}

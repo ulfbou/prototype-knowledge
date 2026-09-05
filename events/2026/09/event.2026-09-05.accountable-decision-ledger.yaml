@@ -1,0 +1,35 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-5-ledger-locked"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-system@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-authority-lifecycle@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-ledger",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-ledger@1",
+    "schemas/decision-ledger.schema.json"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Accepted immutable lifecycle-event records, explicit causation, dual-layer validation, RFC 8785 canonical hashing, local append-only JSONL persistence, privacy boundaries, and disposable transaction projections for the Accountable Decision System proof of concept."
+}
