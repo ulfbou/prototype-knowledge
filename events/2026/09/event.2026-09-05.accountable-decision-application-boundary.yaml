@@ -1,0 +1,40 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-9a-application-boundary-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-ledger@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-reflection@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-knowledge-integration@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-trust-model@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-application-boundary",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-application-boundary@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Accepted a transport-neutral application boundary with explicit commands, queries, ports, one-record transaction boundaries, idempotency, stable errors, and a first vertical slice ending at proposal generation."
+}

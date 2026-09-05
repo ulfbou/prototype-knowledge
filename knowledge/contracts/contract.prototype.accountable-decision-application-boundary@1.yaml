@@ -1,0 +1,336 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "application_does_not_own": [
+      "ledger record semantics",
+      "causal classification",
+      "candidate eligibility",
+      "knowledge acceptance",
+      "trust calculations",
+      "repository mutation policy",
+      "transport serialization",
+      "MCP descriptions"
+    ],
+    "application_owns": [
+      "use-case orchestration",
+      "command and query contracts",
+      "transaction boundaries",
+      "authorization prechecks",
+      "idempotency coordination",
+      "error classification",
+      "result envelopes",
+      "port invocation",
+      "cancellation propagation"
+    ],
+    "architecture": {
+      "cqrs": "Commands and queries have distinct mutation semantics without requiring separate databases, processes, services, a mediator framework, or a message bus.",
+      "dependency_direction": [
+        "hosts depend on application",
+        "application depends on domain and port abstractions",
+        "adapters implement application ports",
+        "domain and application do not import MCP types"
+      ],
+      "style": "lightweight ports and adapters"
+    },
+    "boundary": "Application use cases orchestrate accepted domain operations through explicit ports. They do not weaken domain invariants, infer missing authority, conceal incomplete evidence, or introduce host and transport semantics into the domain model.",
+    "cancellation": [
+      "queries honor cancellation without mutation",
+      "commands check cancellation before append-lock acquisition",
+      "cancellation after append does not undo history",
+      "ambiguous timeout recovery uses the same idempotency key",
+      "reflection timeout appends no partial record"
+    ],
+    "command_contracts": [
+      {
+        "append": "exactly one observation",
+        "id": "CaptureObservation",
+        "idempotency_required": true,
+        "minimum_mode": "OBSERVE_ONLY"
+      },
+      {
+        "append": "exactly one decision",
+        "id": "RecordDecision",
+        "idempotency_required": true,
+        "minimum_mode": "ADVISORY"
+      },
+      {
+        "append": "exactly one outcome",
+        "id": "RecordOutcome",
+        "idempotency_required": true,
+        "minimum_mode": "authority-defined"
+      },
+      {
+        "append": "zero or one reflection",
+        "id": "GenerateReflection",
+        "idempotency_required": true,
+        "minimum_mode": "ADVISORY"
+      },
+      {
+        "append": "zero or one proposal",
+        "id": "GenerateProposal",
+        "idempotency_required": true,
+        "minimum_mode": "REVIEW_REQUIRED"
+      },
+      {
+        "append": "zero or one knowledge candidate",
+        "id": "CreateKnowledgeCandidate",
+        "idempotency_required": true,
+        "minimum_mode": "REVIEW_REQUIRED or separately authorized stricter mode"
+      },
+      {
+        "append": "exactly one review",
+        "id": "RecordCandidateReview",
+        "idempotency_required": true,
+        "minimum_mode": "authenticated human-maintainer authority"
+      },
+      {
+        "append": "none; generated state",
+        "id": "PreparePublicationPlan",
+        "idempotency_required": false,
+        "minimum_mode": "accepted human review"
+      },
+      {
+        "append": "none; generated artifact",
+        "id": "PreparePublicationDelta",
+        "idempotency_required": false,
+        "minimum_mode": "accepted and valid publication plan"
+      },
+      {
+        "append": "exactly one publication",
+        "id": "RecordPublication",
+        "idempotency_required": true,
+        "minimum_mode": "verified completed publication"
+      },
+      {
+        "append": "exactly one correction",
+        "id": "RecordCorrection",
+        "idempotency_required": true,
+        "minimum_mode": "correction authority"
+      },
+      {
+        "append": "none; replaceable projection",
+        "id": "EvaluateCapabilityQuality",
+        "idempotency_required": false,
+        "minimum_mode": "read and evaluation authority"
+      },
+      {
+        "append": "exactly one ordinary capability-operating-mode decision",
+        "id": "ApplyAutomaticDemotion",
+        "idempotency_required": true,
+        "minimum_mode": "active policy permits downward restriction"
+      },
+      {
+        "append": "exactly one ordinary capability-operating-mode decision",
+        "id": "RecordModeDecision",
+        "idempotency_required": true,
+        "minimum_mode": "authenticated human-maintainer authority"
+      }
+    ],
+    "concurrency": [
+      "multiple readers",
+      "one serialized ledger writer",
+      "state changes that invalidate prerequisites cause conflict without append"
+    ],
+    "deferred": [
+      "generic unit of work",
+      "framework-heavy mediator",
+      "message bus",
+      "event-sourcing infrastructure",
+      "separate command and query services",
+      "network deployment",
+      "plugin framework",
+      "general multi-agent runtime"
+    ],
+    "error_categories": [
+      "INVALID_INPUT",
+      "NOT_FOUND",
+      "CONFLICT",
+      "INTEGRITY",
+      "EVIDENCE",
+      "AUTHORITY",
+      "POLICY",
+      "LIFECYCLE",
+      "STORAGE",
+      "EXTERNAL",
+      "CANCELLED",
+      "INTERNAL"
+    ],
+    "first_vertical_slice": {
+      "commands": [
+        "CaptureObservation",
+        "RecordDecision",
+        "RecordOutcome",
+        "GenerateReflection",
+        "GenerateProposal"
+      ],
+      "excluded": [
+        "knowledge-candidate creation",
+        "candidate review",
+        "publication planning",
+        "publication delta generation",
+        "quality-profile calculation",
+        "automatic demotion",
+        "mode restoration",
+        "MCP host",
+        "GitHub mutation",
+        "repository commits"
+      ],
+      "queries": [
+        "GetLedgerRecord",
+        "GetDecisionTransaction",
+        "ListIncompleteTransactions",
+        "FindSimilarFailures",
+        "GetReflectionInputs",
+        "ValidateLedger"
+      ],
+      "required_ports": [
+        "LedgerStore",
+        "EvidenceStore",
+        "FailureClassifier",
+        "ReflectionEngine",
+        "Clock",
+        "IdentityGenerator",
+        "Canonicalizer",
+        "HashProvider",
+        "AuthorizationPolicy"
+      ]
+    },
+    "idempotency": {
+      "index_authority": "generated index is replaceable; ledger record is authoritative",
+      "same_key_different_request": "return ADS_IDEMPOTENCY_CONFLICT and append nothing",
+      "same_key_same_normalized_request": "return prior result and append nothing"
+    },
+    "mode_decision_mapping": "The PoC represents mode decisions as ordinary decision records with decisionType capability-operating-mode; a dedicated record type is deferred.",
+    "modules": [
+      "ledger application",
+      "failure intelligence application",
+      "reflection application",
+      "knowledge publication application",
+      "capability quality application"
+    ],
+    "ports": [
+      "LedgerStore",
+      "EvidenceStore",
+      "ReflectionEngine",
+      "FailureClassifier",
+      "KnowledgeRepository",
+      "PublicationDeltaWriter",
+      "QualityProjector",
+      "OperatingModeStore",
+      "Clock",
+      "IdentityGenerator",
+      "Canonicalizer",
+      "HashProvider",
+      "AuthorizationPolicy"
+    ],
+    "query_contracts": [
+      "GetLedgerRecord",
+      "GetDecisionTransaction",
+      "ListIncompleteTransactions",
+      "FindSimilarFailures",
+      "GetReflectionInputs",
+      "GetCapabilityQuality",
+      "GetPublicationPlan",
+      "ValidateLedger",
+      "ValidatePublicationPlan"
+    ],
+    "result_statuses": {
+      "blocked": "domain or policy gate prevented the requested transition without infrastructure failure",
+      "failed": "validation, infrastructure, storage, integrity, or application failure",
+      "succeeded": "operation completed"
+    },
+    "stable_error_codes": [
+      "ADS_INVALID_REQUEST",
+      "ADS_UNSUPPORTED_SCHEMA_VERSION",
+      "ADS_RECORD_NOT_FOUND",
+      "ADS_TRANSACTION_NOT_FOUND",
+      "ADS_LEDGER_REFERENCE_NOT_FOUND",
+      "ADS_LEDGER_INTEGRITY_FAILURE",
+      "ADS_LEDGER_CAUSATION_CYCLE",
+      "ADS_LEDGER_APPEND_CONFLICT",
+      "ADS_IDEMPOTENCY_CONFLICT",
+      "ADS_EVIDENCE_UNAVAILABLE",
+      "ADS_EVIDENCE_HASH_MISMATCH",
+      "ADS_EVIDENCE_LIMIT_EXCEEDED",
+      "ADS_AUTHORITY_DENIED",
+      "ADS_OPERATING_MODE_RESTRICTED",
+      "ADS_LIFECYCLE_GATE_BLOCKED",
+      "ADS_REFLECTION_INPUT_INCOMPLETE",
+      "ADS_REFLECTION_TAXONOMY_UNAVAILABLE",
+      "ADS_PROPOSAL_GATE_BLOCKED",
+      "ADS_CANDIDATE_GATE_BLOCKED",
+      "ADS_HUMAN_REVIEW_REQUIRED",
+      "ADS_PUBLICATION_PLAN_STALE",
+      "ADS_PUBLICATION_PLAN_INVALID",
+      "ADS_REPOSITORY_BASELINE_MISMATCH",
+      "ADS_PARTIAL_APPLICATION_DETECTED",
+      "ADS_STORAGE_UNAVAILABLE",
+      "ADS_REQUEST_CANCELLED",
+      "ADS_INTERNAL_FAILURE"
+    ],
+    "transaction_rules": [
+      "each ledger-mutating command appends at most one immutable record",
+      "application workflows may chain commands but each command preserves its own authority and persistence boundary",
+      "prerequisites, identity, and idempotency are rechecked under the single-writer append lock",
+      "repository publication planning and artifact preparation do not append publication records"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-application-boundary-change",
+      "application-command-contract-change",
+      "application-port-change",
+      "application-error-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-application-boundary",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-knowledge-integration",
+      "contract.prototype.accountable-decision-trust-model"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-application-boundary"
+    }
+  ],
+  "status": "active",
+  "summary": "The Accountable Decision System uses transport-neutral command, query, and port contracts. Each command crosses one authority-bounded transition and appends at most one ledger record; the first slice ends at proposal generation.",
+  "title": "Application use cases preserve accountable transaction boundaries",
+  "version": 1
+}
