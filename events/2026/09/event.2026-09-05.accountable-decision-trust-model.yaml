@@ -1,0 +1,40 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-8-trust-model-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-authority-lifecycle@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-ledger@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-reflection@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-knowledge-integration@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-trust-model",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-trust-model@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "validation/diagnostics"
+    ]
+  },
+  "summary": "Accepted deterministic context-scoped capability quality profiles, interpretable quality vectors, critical-violation gates, automatic demotion, and human-approved restoration as the Accountable Decision System trust model."
+}

@@ -1,0 +1,403 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "authority_order": [
+      "authority defines the maximum possible action",
+      "policy defines applicable constraints",
+      "trust may reduce the permitted operating mode",
+      "validation determines whether a specific action is admissible"
+    ],
+    "boundary": "Trust is an evidence-backed assessment of demonstrated capability in a bounded context. It is not identity, authority, permission, confidence, validation, or a substitute for repository contracts.",
+    "candidate_gate_relationship": "Phase 6 case-level candidate requirements and the current capability operating mode are independent gates and both must permit candidate generation.",
+    "capability_profile": {
+      "isolation_rules": [
+        "evidence from one task or context does not authorize reliance in another",
+        "scope broadening requires an explicit human decision",
+        "aggregated reports do not silently authorize a specific context"
+      ],
+      "required_context": [
+        "capability ID",
+        "capability version",
+        "operation type",
+        "taxonomy version",
+        "policy version",
+        "repository when repository-specific",
+        "workflow when workflow-specific"
+      ],
+      "subject": "A versioned tool, model configuration, agent configuration, or deterministic component within a declared evaluation context."
+    },
+    "confidence_relationship": [
+      "confidence describes one decision or reflection",
+      "quality describes demonstrated capability performance across comparable evaluated cases",
+      "high confidence does not override a restrictive operating mode",
+      "historical quality does not validate weak current evidence",
+      "neither confidence nor quality grants authority"
+    ],
+    "critical_violations": {
+      "gating_dimensions": [
+        "authority compliance",
+        "privacy compliance",
+        "artifact integrity",
+        "evidence fabrication",
+        "unauthorized mutation",
+        "human-acceptance bypass"
+      ],
+      "immediate_observe_only_triggers": [
+        "attempted authority escalation",
+        "attempted self-acceptance",
+        "attempted durable knowledge publication without accepted human review",
+        "fabricated evidence reference",
+        "intentional omission of known contradictory evidence",
+        "integrity mismatch in produced ledger records",
+        "exposure or persistence of prohibited secret material",
+        "unauthorized repository or GitHub mutation",
+        "repeated output after a mandatory authority stop"
+      ],
+      "rule": "Critical violations are reported separately and cannot be averaged away by statistical performance."
+    },
+    "degraded_behavior": {
+      "conflicting_human_reviews": "Mark affected samples disputed, exclude them from conclusive agreement metrics, and require maintainer resolution.",
+      "corrupted_projection": "Regenerate from the ledger without changing authority or mode history.",
+      "insufficient_evidence": "Retain the current safe mode, suppress upward recommendations, and report uncertainty.",
+      "missing_policy_version": "Perform no new mode calculation, retain the last explicitly accepted mode, and stop capabilities whose policy requires current validation.",
+      "unavailable_ledger_evidence": "Mark the profile incomplete and suppress upward recommendation; demote only when an independent critical condition requires it."
+    },
+    "demotion": {
+      "automatic": true,
+      "quality_triggers": [
+        "material decline in outcome agreement",
+        "false-positive rate above policy tolerance",
+        "constraint compliance below required tolerance",
+        "materially poor confidence calibration",
+        "repeated human overrides attributable to capability error",
+        "materially high capability-caused inconclusive rate"
+      ],
+      "record_fields": [
+        "capability identity and version",
+        "prior mode",
+        "new mode",
+        "trigger",
+        "applicable metrics",
+        "supporting record IDs",
+        "effective time",
+        "recovery requirements",
+        "policy version"
+      ],
+      "rule": "Automatic demotion is permitted because it reduces risk and must remain visible and reviewable."
+    },
+    "evaluation_windows": {
+      "initial_sufficiency_guidance": "Fewer than 10 eligible samples normally remains insufficient evidence; this is a versioned PoC policy rather than a universal statistical claim.",
+      "lifetime": {
+        "purpose": "context and long-term stability only"
+      },
+      "recent": {
+        "initial_policy": "last 20 eligible samples",
+        "purpose": "detect regressions and govern demotion recommendations"
+      }
+    },
+    "initial_mode": {
+      "default": "ADVISORY",
+      "observe_only_when": [
+        "outputs are not structurally validated",
+        "ledger integrity is uncertain",
+        "applicable evidence contracts are incomplete",
+        "the classification domain is newly introduced",
+        "a serious unresolved policy violation exists"
+      ],
+      "rule": "New capabilities do not begin in REVIEW_REQUIRED or POLICY_BOUNDED_AUTOMATION without explicit human decision backed by evidence."
+    },
+    "operating_modes": [
+      {
+        "id": "OBSERVE_ONLY",
+        "may": [
+          "collect observations",
+          "attach evidence",
+          "calculate non-authoritative diagnostics",
+          "produce evaluation reports"
+        ],
+        "may_not": [
+          "create operational recommendation decisions",
+          "generate proposals",
+          "generate knowledge candidates",
+          "prepare publication plans"
+        ],
+        "rank": 0
+      },
+      {
+        "id": "ADVISORY",
+        "may": [
+          "create decision records",
+          "provide classifications and recommendations",
+          "create reflections",
+          "identify proposal eligibility"
+        ],
+        "may_not": [
+          "generate knowledge-candidate records",
+          "prepare approval-ready publication plans",
+          "perform mutations"
+        ],
+        "rank": 1
+      },
+      {
+        "id": "REVIEW_REQUIRED",
+        "may": [
+          "perform advisory operations",
+          "generate proposals",
+          "generate candidate-gate-compliant knowledge candidates",
+          "prepare draft publication plans"
+        ],
+        "may_not": [
+          "accept its own candidate",
+          "publish durable knowledge",
+          "commit, push, create pull requests, or merge",
+          "expand authority"
+        ],
+        "rank": 2
+      },
+      {
+        "id": "POLICY_BOUNDED_AUTOMATION",
+        "may": [
+          "perform only deterministic operations named by a separately accepted operation-specific policy within existing authority"
+        ],
+        "may_not": [
+          "accept durable knowledge",
+          "commit, push, create pull requests, merge, or mutate GitHub",
+          "expand authority"
+        ],
+        "poc_availability": "Defined for compatibility but unavailable without a separate explicit human decision and versioned operation-specific policy.",
+        "rank": 3
+      }
+    ],
+    "poc_scope": {
+      "deferred": [
+        "universal agent reputation",
+        "cross-capability trust transfer",
+        "organization-wide trust ranking",
+        "model-provider reputation",
+        "financial, token, or automatic resource-budget penalties",
+        "automatic upward mode changes",
+        "trust-based authority grants",
+        "autonomous repository privileges",
+        "probabilistic Bayesian trust models",
+        "machine-learned threshold optimization",
+        "distributed trust synchronization"
+      ],
+      "included": [
+        "versioned capability identity",
+        "context-scoped quality profiles",
+        "deterministic metric calculations",
+        "eligible, excluded, and inconclusive sample handling",
+        "four operating modes",
+        "automatic downward restriction",
+        "human-approved restoration",
+        "independent policy versioning",
+        "critical-violation gates",
+        "generated disposable projections",
+        "immutable mode decisions"
+      ]
+    },
+    "policy_separation": {
+      "owns": [
+        "minimum eligible samples",
+        "metric thresholds",
+        "critical violations",
+        "demotion rules",
+        "restoration requirements",
+        "profile context dimensions",
+        "evaluation windows",
+        "eligible outcome classes"
+      ],
+      "policy_id_example": "trust-policy@1",
+      "rule": "Changing policy reevaluates immutable evidence and never rewrites historical samples."
+    },
+    "prohibitions": [
+      "grant new authority",
+      "expand repository access",
+      "bypass human acceptance",
+      "permit an otherwise prohibited action",
+      "promote durable knowledge",
+      "override repository contracts",
+      "convert confidence into permission",
+      "infer competence outside the evaluated context",
+      "automatically restore or increase an operating mode"
+    ],
+    "projection_model": {
+      "authoritative_inputs": [
+        "decisions",
+        "outcomes",
+        "reflections",
+        "human review records",
+        "validated publication results",
+        "correction records",
+        "evidence availability"
+      ],
+      "generated_path": ".dx/ads/projections/capability-quality.json",
+      "rule": "Quality profiles are disposable deterministic projections over immutable ledger records and never become an opaque mutable trust balance."
+    },
+    "quality_vector": {
+      "metrics": [
+        {
+          "definition": "verified correct decisions divided by eligible conclusive decisions",
+          "id": "outcome-agreement"
+        },
+        {
+          "definition": "false positive decisions divided by eligible positive decisions",
+          "id": "false-positive-rate"
+        },
+        {
+          "definition": "missed applicable conditions divided by eligible verified actual conditions",
+          "id": "false-negative-rate"
+        },
+        {
+          "definition": "mean absolute difference between confidence and observed agreement across declared confidence buckets",
+          "id": "mean-calibration-error"
+        },
+        {
+          "definition": "decisions satisfying the required evidence contract divided by eligible decisions",
+          "id": "evidence-completeness"
+        },
+        {
+          "definition": "compliant evaluated records divided by eligible evaluated records",
+          "id": "constraint-compliance"
+        },
+        {
+          "definition": "capability-attributable material human overrides divided by eligible reviewed decisions",
+          "id": "human-override-rate"
+        },
+        {
+          "definition": "separate assessment of sample count, outcome coverage, context coverage, recency, unresolved corrections, and class distribution",
+          "id": "evidence-sufficiency"
+        }
+      ],
+      "rules": [
+        "the PoC does not collapse quality into one opaque universal score",
+        "metric denominators include only known eligible cases",
+        "human overrides count against quality only when attributable to capability error",
+        "confidence calibration is reported independently from outcome agreement"
+      ]
+    },
+    "restoration": {
+      "automatic": false,
+      "flow": [
+        "corrective action",
+        "new evaluated samples",
+        "quality profile recalculation",
+        "restoration recommendation",
+        "human maintainer review",
+        "explicit mode decision"
+      ],
+      "requirements": [
+        "resolution of the original demotion cause",
+        "defined reevaluation window",
+        "sufficient eligible samples",
+        "acceptable constraint compliance",
+        "acceptable evidence completeness",
+        "no unresolved critical violations",
+        "explicit human-maintainer approval"
+      ],
+      "rule": "Automated evidence may reduce operating privilege, but only explicit human authority may restore or increase an operating mode."
+    },
+    "sample_eligibility": {
+      "excluded_from_scored_metrics": [
+        "decisions without outcomes",
+        "synthetic demonstrations unless reported separately",
+        "duplicate retries of the same logical decision",
+        "outcomes caused by unrelated environmental failure",
+        "records with unresolved integrity failures",
+        "manually altered or unverifiable artifacts",
+        "samples outside the declared capability context"
+      ],
+      "inconclusive": [
+        "remain visible in audit history",
+        "contribute to coverage and evidence-sufficiency reporting",
+        "count as neither success nor failure",
+        "may support restriction when capability behavior causes materially high inconclusive rates"
+      ],
+      "required": [
+        "known capability identity and version",
+        "known evaluation context",
+        "decision with recorded outcome",
+        "independently verifiable or explicitly human-evaluated outcome",
+        "recorded evidence availability",
+        "resolved corrections and superseding records",
+        "non-duplicate logical decision",
+        "applicable metric definition"
+      ]
+    },
+    "version_isolation": {
+      "major": "Starts untrusted within its declared context.",
+      "material_configuration_changes": [
+        "prompt",
+        "model identity",
+        "retrieval policy",
+        "classification behavior",
+        "thresholds",
+        "tool availability",
+        "authority interpretation",
+        "evidence selection"
+      ],
+      "minor": "Starts a new profile; earlier evidence is historical context unless explicit compatibility evaluation permits reuse.",
+      "patch": "May retain historical evidence only when demonstrated not to affect decision semantics."
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-trust-boundary-change",
+      "capability-quality-metric-change",
+      "operating-mode-policy-change",
+      "accountable-decision-authority-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-trust-model",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-knowledge-integration",
+      "decision.prototype.accountable-decision-system"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "validation/diagnostics"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-trust-model"
+    }
+  ],
+  "status": "active",
+  "summary": "The Accountable Decision System derives deterministic context-scoped quality profiles from immutable outcomes. Quality may automatically restrict an operating mode but cannot grant authority, and restoration requires explicit human-maintainer approval.",
+  "title": "Capability quality narrows but never expands authority",
+  "version": 1
+}
