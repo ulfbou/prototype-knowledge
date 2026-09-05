@@ -1,0 +1,47 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-10-decision-10.1-primary-user-and-product-job-accepted"
+    },
+    {
+      "conversation_decision": "accountable-decision-system-phase-10-decision-10.2-canonical-successful-failure-reflection-journey-accepted"
+    },
+    {
+      "conversation_decision": "accountable-decision-system-phase-10-decision-10.3-blocked-and-degraded-journeys-accepted"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-application-boundary@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-authority-lifecycle@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-reflection@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-phase-10-scenarios-10-1-through-10-3",
+  "kind": "product-scenario-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "decision.prototype.accountable-decision-phase-10-scenarios@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "product",
+      "planning",
+      "architecture/authority",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Accepted Phase 10 Decisions 10.1 through 10.3: the delivery-operator persona and product job, the canonical successful failure-reflection journey, and safe blocked and degraded product journeys."
+}

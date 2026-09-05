@@ -1,0 +1,238 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "blocked_and_degraded_journeys": [
+      {
+        "code": "ADS_LIFECYCLE_INCOMPLETE",
+        "condition": "Required upstream lifecycle record is missing.",
+        "id": "J3.1",
+        "mutation": "none by evaluated operation",
+        "next_action": "Provide the specifically identified missing lifecycle record.",
+        "terminal_class": "BLOCKED"
+      },
+      {
+        "code": "ADS_PROPOSAL_EVIDENCE_INSUFFICIENT",
+        "condition": "Proposal basis contains only correlation or unverified assertions.",
+        "id": "J3.2",
+        "mutation": "no proposal record; existing reflection remains immutable",
+        "next_action": "Record newly available verified evidence through an applicable immutable operation, then request a new reflection when permitted, or retain the bounded reflection.",
+        "terminal_class": "BLOCKED"
+      },
+      {
+        "code": "ADS_OPERATING_MODE_RESTRICTED",
+        "condition": "Current operating mode does not permit the requested operation.",
+        "id": "J3.3",
+        "mutation": "none by evaluated operation",
+        "next_action": "Use permitted inspection or follow the separately authorized operating-mode recovery process.",
+        "terminal_class": "BLOCKED"
+      },
+      {
+        "code": "ADS_ROLE_AUTHORITY_DENIED",
+        "condition": "Active runtime role lacks authority for the requested operation.",
+        "id": "J3.4",
+        "mutation": "none by evaluated operation",
+        "next_action": "Submit through an independently established authorized role context without automated escalation.",
+        "terminal_class": "BLOCKED"
+      },
+      {
+        "code": "ADS_INTEGRITY_FAILURE",
+        "condition": "A hash, schema, reference, or causation-integrity rule fails.",
+        "id": "J3.5",
+        "mutation": "none by evaluated operation",
+        "next_action": "Follow controlled diagnostic and safe-repair procedures; dependent learning claims remain blocked.",
+        "terminal_class": "FAILED"
+      }
+    ],
+    "canonical_successful_journey": {
+      "explicit_non_results": [
+        "no knowledge candidate created",
+        "no knowledge accepted",
+        "no publication authorized",
+        "no correction executed",
+        "no operating mode restored",
+        "no repository or GitHub mutation",
+        "no MCP integration required"
+      ],
+      "requirements": [
+        "complete valid lifecycle chain",
+        "material conclusions linked to retained evidence",
+        "exactly one primary reflection classification",
+        "causal, contributing, and correlation findings distinguished",
+        "at least one evidenced causal or contributing finding supports the proposal",
+        "proposal gates satisfied",
+        "each successful mutating command appends at most one immutable record",
+        "idempotent retry does not duplicate history",
+        "operator comprehension without raw JSONL or source inspection",
+        "proposal remains explicitly non-authoritative"
+      ],
+      "sequence": [
+        "Establish Investigation Context",
+        "Capture Observation",
+        "Record Decision and Expectation",
+        "Record Failed or Rejected Outcome",
+        "Review Transaction Completeness",
+        "Generate Evidence-Bounded Reflection",
+        "Evaluate Proposal Eligibility",
+        "Create Non-Authoritative Corrective Proposal",
+        "Present Terminal Result and Next Permissible Action"
+      ],
+      "terminal_outcome": "PROPOSAL_CREATED"
+    },
+    "decision_status": {
+      "accepted_and_locked": [
+        "10.1 Primary User and Product Job",
+        "10.2 Canonical Successful Failure-Reflection Journey",
+        "10.3 Blocked and Degraded Journeys"
+      ],
+      "phase": "10 Product Scenarios and Acceptance Model",
+      "remaining": [
+        "10.4 Product Result and Diagnostic Expectations",
+        "10.5 Acceptance Evidence Matrix",
+        "10.6 Minimum Demonstration Boundary",
+        "10.7 Explicit Phase 10 Deferrals",
+        "10.8 Phase 10 Review and Lock"
+      ]
+    },
+    "degraded_state_invariants": [
+      "An operation terminating BLOCKED or FAILED appends no record as part of that operation.",
+      "Previously completed immutable records remain intact.",
+      "Missing, redacted, contradictory, or unverified evidence remains explicit and is never fabricated.",
+      "New evidence creates new immutable lifecycle material rather than editing an existing reflection.",
+      "Authority responses do not grant, request, or initiate escalation.",
+      "Equivalent retries under unchanged ledger state, authority context, operating mode, command semantics, and idempotency conditions return the same terminal class and stable code without side effects.",
+      "Changed prerequisites may legitimately change a later result.",
+      "Invalid history is not skipped, silently repaired, or used for dependent learning claims.",
+      "Bounded read-only diagnostics may remain available when policy permits and must not present an affected chain as fully valid."
+    ],
+    "initial_proof_boundary": {
+      "excluded": [
+        "Knowledge Candidate",
+        "Human Review",
+        "Publication",
+        "Trust Profile Calculation",
+        "MCP Client Integration",
+        "Repository Mutation",
+        "GitHub Mutation"
+      ],
+      "included_path": [
+        "Failure",
+        "Observation",
+        "Decision",
+        "Outcome",
+        "Reflection",
+        "Proposal or Explicit Block"
+      ]
+    },
+    "phase_boundaries": [
+      "No runtime topology or transport endpoint is selected.",
+      "No repository or technology selection is made.",
+      "No storage repair mechanism or exact test infrastructure is selected.",
+      "Decisions 10.4 through 10.8 remain unresolved."
+    ],
+    "primary_product_job": "Turn a bounded operational failure into a traceable, evidence-limited reflection and, only when justified, a non-authoritative corrective proposal while preserving uncertainty, immutable history, and authority boundaries.",
+    "primary_user": {
+      "authority_rule": "Delivery operator is a product persona, not an authority class. The persona acquires no maintainer authority and acts only through an independently established runtime role.",
+      "goals": [
+        "identify what failed",
+        "understand available and missing evidence",
+        "understand the decision and actual outcome",
+        "distinguish causal, contributing, and correlated findings",
+        "determine whether a corrective proposal is justified",
+        "understand unknowns, blocks, and the next permissible action"
+      ],
+      "persona": "A technical delivery operator investigating a failed software delivery, workflow, test, or validation outcome and determining whether retained evidence supports a reusable corrective proposal.",
+      "runtime_roles": [
+        "observer",
+        "decision-producer",
+        "maintainer"
+      ]
+    },
+    "proposal_gate": [
+      "outcome is failed or rejected",
+      "reflection is complete and valid",
+      "at least one retained-evidence-supported causal or contributing finding exists",
+      "proposed correction addresses an established finding",
+      "applicability conditions and contraindications are explicit",
+      "runtime authority and operating mode permit proposal creation",
+      "idempotency and append preconditions are satisfied"
+    ],
+    "reflection_rules": [
+      "Use only bounded retained immutable inputs selected for the transaction.",
+      "Select exactly one primary classification from the accepted taxonomy.",
+      "Prefer unknown-or-unclassified over unsupported specificity.",
+      "Identify every material finding as causal, contributing, or correlation.",
+      "Similarity remains advisory correlation unless causality is independently established.",
+      "Reflection completion and proposal eligibility are separate product outcomes."
+    ],
+    "supporting_actors": {
+      "automated_observer": "Captures bounded facts and evidence references.",
+      "decision_producer": "Records a classification, recommendation, selected action, or decision not to act.",
+      "human_maintainer": "Retains exclusive authority over later knowledge acceptance, publication authorization, and operating-mode restoration.",
+      "outcome_producer": "Records a mechanically verified or human-evaluated outcome under applicable authority.",
+      "reflection_engine": "Produces evidence-bounded post-outcome analysis and gains no acceptance or publication authority."
+    },
+    "terminal_classes": {
+      "BLOCKED": "A lifecycle, evidence, authority, policy, or operating-mode gate prevented the operation without infrastructure failure.",
+      "FAILED": "Validation, integrity, storage, dependency, cancellation, or unexpected execution failed.",
+      "SUCCEEDED": "Requested operation completed."
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-10-scenario-change",
+      "accountable-decision-product-persona-change",
+      "accountable-decision-acceptance-model-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.accountable-decision-phase-10-scenarios",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "decision.prototype.accountable-decision-system",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-trust-model"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "assess"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "product",
+      "planning",
+      "architecture/authority",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-phase-10-scenarios-10-1-through-10-3"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 10 Decisions 10.1 through 10.3 define the delivery-operator persona without granting authority, the canonical evidence-bounded failure-to-proposal journey, and safe blocked or failed journeys with zero mutation by the evaluated operation.",
+  "title": "Accountable Decision System Phase 10 product journeys",
+  "version": 1
+}
