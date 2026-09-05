@@ -1,0 +1,263 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "actor_identity": [
+      "MCP request metadata does not establish ADS actor authority",
+      "server configuration and host authentication establish actor context",
+      "model-supplied actor roles are non-authoritative",
+      "human approval cannot be inferred from tool invocation or input-required continuation",
+      "credentials never enter ledger records"
+    ],
+    "boundary": "MCP is a replaceable host adapter over the transport-neutral application layer. Protocol discovery, metadata, descriptions, resources, prompts, client behavior, and model output never grant authority or alter application transaction semantics.",
+    "cancellation": [
+      "propagate MCP cancellation to the application invocation",
+      "check before append lock",
+      "append no partial reflection",
+      "do not undo completed appends",
+      "resolve ambiguous completion using the same idempotency key"
+    ],
+    "capabilities": {
+      "prompts": "not declared in the first executable slice",
+      "resources": {
+        "listChanged": false,
+        "subscribe": false
+      },
+      "tools": {
+        "listChanged": false
+      }
+    },
+    "deferred_resources": [
+      "ads://capabilities/{capabilityId}/{version}/quality",
+      "ads://publication-plans/{planId}"
+    ],
+    "deferred_tools": [
+      "CreateKnowledgeCandidate",
+      "RecordCandidateReview",
+      "PreparePublicationPlan",
+      "PreparePublicationDelta",
+      "RecordPublication",
+      "EvaluateCapabilityQuality",
+      "ApplyAutomaticDemotion",
+      "RecordModeDecision",
+      "RecordCorrection"
+    ],
+    "discovery": [
+      "list implemented tools in deterministic order",
+      "keep discovery stable across operating-mode changes",
+      "recheck authority and mode for every call",
+      "return ADS_OPERATING_MODE_RESTRICTED when a listed tool is unavailable in the current mode",
+      "omit a tool only when disclosure itself is unauthorized"
+    ],
+    "initial_resources": [
+      "ads://server/capabilities",
+      "ads://server/health",
+      "ads://ledger/records/{recordId}",
+      "ads://transactions/{transactionId}",
+      "ads://transactions/{transactionId}/reflection-inputs",
+      "ads://diagnostics/codes/{code}"
+    ],
+    "initial_tools": [
+      {
+        "minimum_mode": "OBSERVE_ONLY",
+        "mutation": "one observation",
+        "name": "ads_capture_observation",
+        "use_case": "CaptureObservation"
+      },
+      {
+        "minimum_mode": "ADVISORY",
+        "mutation": "one decision",
+        "name": "ads_record_decision",
+        "use_case": "RecordDecision"
+      },
+      {
+        "minimum_mode": "authority-defined",
+        "mutation": "one outcome",
+        "name": "ads_record_outcome",
+        "use_case": "RecordOutcome"
+      },
+      {
+        "minimum_mode": "ADVISORY",
+        "mutation": "zero or one reflection",
+        "name": "ads_generate_reflection",
+        "use_case": "GenerateReflection"
+      },
+      {
+        "discovery": "listed deterministically even when invocation is mode-restricted",
+        "minimum_mode": "REVIEW_REQUIRED",
+        "mutation": "zero or one proposal",
+        "name": "ads_generate_proposal",
+        "use_case": "GenerateProposal"
+      },
+      {
+        "mutation": "none",
+        "name": "ads_list_incomplete_transactions",
+        "use_case": "ListIncompleteTransactions"
+      },
+      {
+        "causality": "all matches explicitly remain correlations",
+        "mutation": "none",
+        "name": "ads_find_similar_failures",
+        "use_case": "FindSimilarFailures"
+      },
+      {
+        "mutation": "none",
+        "name": "ads_validate_ledger",
+        "use_case": "ValidateLedger"
+      }
+    ],
+    "input_required_boundary": [
+      "may request bounded factual input or explicit non-authoritative selection",
+      "must not obtain credentials",
+      "must not synthesize maintainer review, authority escalation, publication approval, candidate-gate bypass, or mode restoration"
+    ],
+    "poc_scope": {
+      "deferred": [
+        "Streamable HTTP",
+        "remote authentication",
+        "multi-session hosting",
+        "resource subscriptions",
+        "dynamic list notifications",
+        "prompts",
+        "knowledge publication tools",
+        "trust-administration tools",
+        "repository and GitHub mutation",
+        "remote evidence retrieval",
+        "arbitrary filesystem resources",
+        "custom transports",
+        "multi-agent aggregation"
+      ],
+      "included": [
+        "local stdio",
+        "tools and resources",
+        "stable discovery",
+        "application mappings",
+        "structured ADS envelopes",
+        "blocked-versus-failed distinction",
+        "server-established actor identity",
+        "mode and authority enforcement",
+        "resource templates",
+        "idempotency",
+        "cancellation",
+        "bounded progress",
+        "protocol conformance tests"
+      ]
+    },
+    "primitive_rules": {
+      "prompt": "Optional explicit user-selected workflow aid that adds no authority or mutation; omitted initially.",
+      "resource": "Expose bounded identifiable read-only application context through an ads URI.",
+      "tool": "Invoke an application command or model-selected computed query with structured arguments and authorization enforcement."
+    },
+    "progress": [
+      "progress is bounded telemetry rather than ledger history",
+      "semantic phases may include resolving-inputs, validating-evidence, executing-reflection, validating-result, appending-record, and complete",
+      "never expose private reasoning, unrestricted evidence, secrets, or unstable internals"
+    ],
+    "proposal_discovery_decision": "ads_generate_proposal remains discoverable in ADVISORY mode and returns ADS_OPERATING_MODE_RESTRICTED until REVIEW_REQUIRED is explicitly established.",
+    "protocol": {
+      "custom_transport": "deferred",
+      "deferred_transport": "Streamable HTTP",
+      "initial_transport": "stdio",
+      "target": "2026-07-28"
+    },
+    "resource_rules": [
+      "resource reads append no ledger records",
+      "projections identify themselves as non-authoritative",
+      "evidence remains bounded and redaction-preserving",
+      "dynamic objects use templates rather than exhaustive listing",
+      "results are deterministic for equal state, policy, authorization, and arguments",
+      "arbitrary local file access is prohibited"
+    ],
+    "resource_scheme": "ads",
+    "result_mapping": {
+      "application_failure": "tool execution error retaining stable ADS code and mutation status",
+      "blocked": "MCP successful exchange with ADS blocked envelope, isError false, and mutationsPerformed false",
+      "json_rpc_error": "reserved for malformed protocol messages, unknown MCP methods, invalid framing, protocol incompatibility, or adapter failure before application invocation",
+      "succeeded": "MCP successful tool result with structured ADS envelope and isError false"
+    },
+    "security": [
+      "repository roots and ADS storage paths are configured rather than model supplied",
+      "all paths are normalized and containment checked",
+      "CR, LF, NUL, traversal, arbitrary HTTP retrieval, and arbitrary filesystem resources are rejected",
+      "only LedgerStore writes JSONL",
+      "record identities, timestamps, hashes, and actor context are server established",
+      "descriptions and annotations are advisory and never replace enforcement"
+    ],
+    "server_identity": {
+      "initial_version": "0.1.0",
+      "name": "accountable-decision-system",
+      "rule": "server version and underlying capability versions remain distinct",
+      "title": "Accountable Decision System"
+    },
+    "testing": [
+      "capability declaration matches handlers",
+      "tool order and schemas are deterministic",
+      "deferred tools and prompts are absent",
+      "each command maps to one use case and appends at most one record",
+      "blocked results are not MCP errors",
+      "idempotency and cancellation preserve mutation truth",
+      "resource reads are bounded and non-mutating",
+      "operating modes and authority are enforced",
+      "stdio stdout contains protocol messages only and diagnostics use stderr"
+    ],
+    "tool_naming": "ads_<verb>_<object>"
+  },
+  "freshness": {
+    "invalidated_by": [
+      "mcp-protocol-baseline-change",
+      "accountable-decision-application-boundary-change",
+      "mcp-tool-mapping-change",
+      "mcp-resource-mapping-change",
+      "mcp-authorization-boundary-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-mcp-mapping",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-trust-model",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-mcp-mapping"
+    }
+  ],
+  "status": "active",
+  "summary": "The Accountable Decision System maps Phase 9A to a local stdio MCP adapter with stable tool discovery, bounded read-only resources, no prompts, explicit authority enforcement, and no repository or GitHub mutation.",
+  "title": "MCP exposes application contracts without becoming authority",
+  "version": 1
+}

@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-9b-mcp-mapping-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-application-boundary@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-trust-model@1"
+    },
+    {
+      "specification": "Model Context Protocol 2026-07-28"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-mcp-mapping",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-mcp-mapping@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Accepted a replaceable local stdio MCP adapter with stable tool discovery, bounded read-only resources, no prompts, server-established actor identity, application-preserving result mapping, and no repository or GitHub mutation."
+}
