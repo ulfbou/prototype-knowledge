@@ -1,0 +1,252 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "actor_permissions": {
+      "decision_producer": {
+        "may": [
+          "create decision",
+          "create ledger entry",
+          "record confidence"
+        ],
+        "may_not": [
+          "accept knowledge",
+          "modify authority",
+          "escalate trust"
+        ]
+      },
+      "maintainer": {
+        "may": [
+          "review candidate",
+          "accept candidate",
+          "reject candidate",
+          "defer candidate",
+          "retire or supersede knowledge"
+        ],
+        "may_not": [
+          "rewrite or delete immutable history"
+        ]
+      },
+      "observer": {
+        "may": [
+          "create observation",
+          "attach evidence"
+        ],
+        "may_not": [
+          "create or accept durable knowledge"
+        ]
+      },
+      "reflection_engine": {
+        "may": [
+          "create reflection",
+          "generate proposal",
+          "suggest constraint",
+          "suggest knowledge candidate"
+        ],
+        "may_not": [
+          "accept or publish durable knowledge"
+        ]
+      },
+      "system_infrastructure": {
+        "may": [
+          "persist records",
+          "index records",
+          "query records",
+          "generate proposal"
+        ],
+        "may_not": [
+          "grant authority",
+          "accept proposal",
+          "publish durable knowledge"
+        ]
+      }
+    },
+    "applicability": {
+      "pre_development": "During architecture and specification phases, the principal architect owns synchronization of accepted decisions into each applicable repository.",
+      "runtime": "After implementation begins, automated actors and MCP-mediated workflows must obey this contract's proposal, acceptance, and publication boundaries."
+    },
+    "architectural_invariants": [
+      {
+        "id": "non-disruptive-non-regressive",
+        "override": "Only strong operational evidence that the invariant materially prevents the system mission may justify a bounded, reviewed exception.",
+        "rule": "Prefer backward-compatible, scope-preserving changes and do not weaken existing authority, traceability, recoverability, validation, or repository contracts."
+      },
+      {
+        "id": "accountability-first",
+        "override": "Only strong operational evidence that the invariant materially prevents the system mission may justify a bounded, reviewed exception.",
+        "rule": "Every learning claim must remain traceable through observation, evidence, decision, outcome, and reflection."
+      },
+      {
+        "id": "human-governed-durable-knowledge",
+        "override": "Only strong operational evidence that the invariant materially prevents the system mission may justify a bounded, reviewed exception.",
+        "rule": "No automated actor may promote its own output into durable knowledge or expand its own authority."
+      }
+    ],
+    "canonical_flow": [
+      "Observation",
+      "Decision",
+      "Outcome",
+      "Reflection",
+      "Proposal",
+      "KnowledgeCandidate",
+      "HumanAcceptance",
+      "DurableKnowledge"
+    ],
+    "gates": [
+      {
+        "id": "reflection",
+        "on_failure": "await missing records; reflection synthesis is forbidden",
+        "requires": [
+          "Observation",
+          "Decision",
+          "Outcome"
+        ]
+      },
+      {
+        "id": "candidate",
+        "on_failure": "proposal may be retained, but knowledge-candidate creation is forbidden",
+        "requires": [
+          "Reflection",
+          "EvidenceLinkage",
+          "Confidence",
+          "Proposal"
+        ]
+      },
+      {
+        "id": "knowledge",
+        "on_failure": "durable knowledge publication is forbidden",
+        "requires": [
+          "KnowledgeCandidate",
+          "ExplicitHumanReview",
+          "PositiveAcceptanceDecision"
+        ]
+      }
+    ],
+    "lifecycle_states": [
+      {
+        "artifact": "Observation",
+        "id": "OBSERVED"
+      },
+      {
+        "artifact": "Decision and LedgerEntry",
+        "id": "DECIDED"
+      },
+      {
+        "artifact": "Outcome",
+        "id": "EVALUATED"
+      },
+      {
+        "artifact": "Reflection",
+        "id": "REFLECTED"
+      },
+      {
+        "artifact": "Proposal",
+        "id": "PROPOSED"
+      },
+      {
+        "artifact": "KnowledgeCandidate",
+        "id": "CANDIDATE"
+      },
+      {
+        "artifact": "HumanReview",
+        "id": "UNDER_REVIEW"
+      },
+      {
+        "artifact": "DurableKnowledge",
+        "id": "PUBLISHED"
+      },
+      {
+        "artifact": "RejectionRecord",
+        "id": "REJECTED"
+      },
+      {
+        "artifact": "DeferralRecord and RevisitTrigger",
+        "id": "DEFERRED"
+      }
+    ],
+    "storage_model": {
+      "append_only": [
+        "Observation",
+        "Evidence",
+        "Decision",
+        "LedgerEntry",
+        "Outcome",
+        "Reflection"
+      ],
+      "versioned": [
+        "KnowledgeCandidate",
+        "Constraint",
+        "DurableDecision",
+        "Rule",
+        "Lesson",
+        "Contract"
+      ]
+    },
+    "transition_rules": [
+      "A decision without an outcome is incomplete and cannot support reflection or learning.",
+      "Operational history moves forward by append, supersession, or version creation, never by silent rewrite.",
+      "Insufficient evidence may permit reflection but blocks knowledge-candidate creation.",
+      "Confidence below the applicable threshold may permit a proposal but blocks knowledge-candidate creation.",
+      "No state may bypass the reflection boundary or the human acceptance boundary."
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-authority-change",
+      "accountable-decision-lifecycle-change",
+      "knowledge-publication-authority-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-authority-lifecycle",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-system",
+      "decision.prototype.explainable-decision-support",
+      "rule.governance.knowledge-capture-checkpoint"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "assess",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer",
+      "user"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-system-direction"
+    },
+    {
+      "event": "event.2026-09-05.accountable-decision-authority-lifecycle"
+    }
+  ],
+  "status": "active",
+  "summary": "The Accountable Decision System uses forward-only evidence and decision records, separates proposal from acceptance, and requires explicit human approval before durable knowledge publication.",
+  "title": "Accountable decision authority and lifecycle",
+  "version": 1
+}

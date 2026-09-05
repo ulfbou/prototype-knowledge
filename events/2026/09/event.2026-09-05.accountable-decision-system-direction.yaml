@@ -1,0 +1,32 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-direction"
+    },
+    {
+      "observation": "Existing prototype-knowledge structures provide durable rules, decisions, lessons, governance, diagnostics, and recovery concepts but do not provide a runtime accountable decision lifecycle."
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-system-direction",
+  "kind": "architecture-direction-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "decision.prototype.accountable-decision-system@1",
+    "work.prototype.accountable-decision-system"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "knowledge/capture",
+      "recovery",
+      "validation/diagnostics",
+      "planning"
+    ]
+  },
+  "summary": "Accepted Accountable Decision System as the architectural direction and locked Failure Intelligence and Reflection as the initial proof-of-concept slice."
+}

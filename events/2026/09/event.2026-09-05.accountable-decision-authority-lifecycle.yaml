@@ -1,0 +1,33 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-3-authority-model-accepted"
+    },
+    {
+      "conversation_decision": "accountable-decision-system-phase-4-lifecycle-model-accepted"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-system@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-authority-lifecycle",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-authority-lifecycle@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Accepted the authority model and forward-only lifecycle for the Accountable Decision System, including separation of duties, explicit human publication authority, and evidence-gated transitions from observation to durable knowledge."
+}

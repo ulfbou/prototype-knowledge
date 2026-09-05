@@ -1,0 +1,97 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "architectural_invariants": [
+      "non-regressive-by-default",
+      "accountability-first",
+      "human-governed-knowledge"
+    ],
+    "domain_flow": [
+      "Observation",
+      "Decision",
+      "Outcome",
+      "Reflection",
+      "KnowledgeCandidate"
+    ],
+    "entity_model": [
+      "Observation",
+      "Evidence",
+      "Decision",
+      "LedgerEntry",
+      "Outcome",
+      "Reflection",
+      "Constraint",
+      "KnowledgeCandidate"
+    ],
+    "proof_of_concept_scope": [
+      "Failure Intelligence",
+      "Decision Ledger",
+      "Outcome Tracking",
+      "Reflection",
+      "Knowledge Candidate Generation"
+    ],
+    "explicit_non_goals": [
+      "autonomous repository mutation",
+      "autonomous GitHub mutation",
+      "automatic rule acceptance",
+      "automatic lesson acceptance",
+      "automatic knowledge promotion",
+      "self-modifying prompts",
+      "self-granted authority",
+      "autonomous repair execution",
+      "multi-agent orchestration"
+    ],
+    "governance_rule": "Architectural invariants remain active unless strong operational evidence demonstrates they materially prevent achieving the system mission."
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-system-architecture-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.accountable-decision-system",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "decision.prototype.explainable-decision-support",
+      "decision.prototype.anti-ceremony"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "maintainer"
+    ],
+    "topics": [
+      "evidence/decision-support",
+      "recovery",
+      "knowledge/capture",
+      "planning"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-system-direction"
+    }
+  ],
+  "status": "active",
+  "summary": "The prototype ecosystem will evaluate operational decisions through an accountable lifecycle consisting of Observation, Decision, Outcome, Reflection, and Knowledge Candidate stages. Human approval remains mandatory for durable knowledge promotion.",
+  "title": "Accountable Decision System",
+  "version": 1
+}
