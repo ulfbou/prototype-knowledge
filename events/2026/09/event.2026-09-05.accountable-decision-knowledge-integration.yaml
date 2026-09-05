@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-7-knowledge-integration-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-authority-lifecycle@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-ledger@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-reflection@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-knowledge-integration",
+  "kind": "architecture-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-knowledge-integration@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality",
+      "dx/codec"
+    ]
+  },
+  "summary": "Accepted the publication boundary between runtime decision-ledger records and durable prototype knowledge, including human review, validated publication plans, transactional event-and-knowledge deltas, and post-verification publication records."
+}

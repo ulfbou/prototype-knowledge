@@ -1,0 +1,255 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "authority_domains": {
+      "decision_ledger": {
+        "does_not_own": [
+          "accepted knowledge versions",
+          "knowledge schemas",
+          "maintained knowledge registries"
+        ],
+        "owns": [
+          "observations",
+          "decisions",
+          "outcomes",
+          "reflections",
+          "proposals",
+          "knowledge candidates",
+          "reviews",
+          "publication records",
+          "ledger corrections"
+        ]
+      },
+      "development_coordination": "Owns coordination state according to its repository-local contracts. Planning claims require accepted planning evidence and current repository structure; implementation and conformance claims require proportionate executable evidence.",
+      "prototype_knowledge": {
+        "does_not_own": [
+          "complete execution logs",
+          "mutable transaction state",
+          "private reasoning",
+          "runtime projection caches"
+        ],
+        "owns": [
+          "immutable acceptance events",
+          "versioned durable knowledge",
+          "knowledge schemas",
+          "maintained registries",
+          "retrieval queries",
+          "cross-repository knowledge authority"
+        ]
+      }
+    },
+    "candidate_mapping": {
+      "constraint": {
+        "mapping": "rule when normative; contract when defining an actor, component, lifecycle, or repository boundary",
+        "standalone_collection": false
+      },
+      "contract": {
+        "collection": "knowledge/contracts",
+        "event_kind": "contract-accepted"
+      },
+      "decision": {
+        "collection": "knowledge/decisions",
+        "event_kind": "decision-accepted"
+      },
+      "lesson": {
+        "collection": "knowledge/lessons",
+        "event_kind": "lesson-accepted"
+      },
+      "rule": {
+        "collection": "knowledge/rules",
+        "event_kind": "rule-accepted"
+      }
+    },
+    "claim_evidence_rule": "Evidence must be proportional to the claim: accepted planning evidence can support planning state, while implementation or runtime-conformance claims require executable evidence.",
+    "failure_behavior": {
+      "identifier_conflict": "Classify as duplicate, new version, supersession, or unrelated collision; never rename automatically.",
+      "partial_application": "Detect and stop for explicit recovery; never claim publication.",
+      "repository_validation_failure": "Perform no repository mutation, append no publication record, retain diagnostics, and request changes or prepare a corrected publication plan.",
+      "stale_repository_state": "Stop, refresh repository evidence, and regenerate the plan."
+    },
+    "poc_scope": {
+      "deferred": [
+        "automatic commits",
+        "automatic pushes",
+        "automatic pull requests",
+        "automatic merges",
+        "autonomous registry mutation",
+        "dynamic knowledge-kind creation",
+        "cross-repository distributed transactions",
+        "direct MCP publication tools",
+        "automatic conflict resolution"
+      ],
+      "included": [
+        "accepted-review validation",
+        "publication-plan generation",
+        "mapping to existing knowledge kinds",
+        "acceptance event and knowledge-version generation",
+        "complete DX delta preparation",
+        "repository-local validation",
+        "publication provenance",
+        "verified publication recording"
+      ]
+    },
+    "provenance_chain": [
+      "KnowledgeItem",
+      "AcceptanceEvent",
+      "AcceptedReview",
+      "KnowledgeCandidate",
+      "Proposal",
+      "Reflection",
+      "OutcomeAndDecision",
+      "ObservationAndEvidence"
+    ],
+    "publication_flow": [
+      "KnowledgeCandidate",
+      "HumanReview",
+      "AcceptedReview",
+      "PublicationPlan",
+      "RepositoryValidation",
+      "KnowledgeArtifactAndAcceptanceEvent",
+      "VerifiedPublicationRecord"
+    ],
+    "publication_plan": {
+      "operations": [
+        "create-version",
+        "supersede-version",
+        "append-event",
+        "update-maintained-registry",
+        "defer"
+      ],
+      "required_fields": [
+        "schemaVersion",
+        "candidateRecordId",
+        "reviewRecordId",
+        "targetRepository",
+        "knowledgeKind",
+        "knowledgeId",
+        "targetVersion",
+        "operation",
+        "targetPath",
+        "eventPath",
+        "sourceEvidence",
+        "supersedes",
+        "validationRequirements"
+      ],
+      "rules": [
+        "accepted human-maintainer review is required",
+        "maintained-registry updates require separate explicit human authorization",
+        "the plan is not durable knowledge and performs no mutation"
+      ]
+    },
+    "publication_record": {
+      "required_evidence": [
+        "accepted review",
+        "knowledge identifier and version",
+        "target repository",
+        "committed path",
+        "artifact SHA-256",
+        "repository commit SHA when committed",
+        "validation result"
+      ],
+      "timing": "Append only after repository application and validation are verified."
+    },
+    "review_semantics": {
+      "accepted": "Authorizes preparation and validation of a publication plan; it does not itself publish knowledge.",
+      "changes_requested": "Requires a new proposal or candidate record; the original record remains immutable.",
+      "deferred": "Requires a reason, revisit trigger, and responsible human authority.",
+      "rejected": "Closes the reviewed candidate form while preserving candidate and review history."
+    },
+    "transactionality": [
+      "prepare a complete acceptance event and knowledge version together",
+      "include an explicitly authorized maintained-registry change only when required",
+      "emit no correction carrier when a complete valid delta cannot be prepared",
+      "never claim publication from a partial or unapplied delta"
+    ],
+    "validation": {
+      "artifact": [
+        "generated JSON parses",
+        "repository validation passes",
+        "UTF-8 and LF requirements pass",
+        "DX carrier reparses",
+        "decoded bytes equal intended content",
+        "only intended files are present"
+      ],
+      "authority": [
+        "review actor is a human maintainer",
+        "review disposition is accepted",
+        "candidate and review belong to the expected transaction",
+        "automated actors did not approve their own outputs"
+      ],
+      "provenance": [
+        "candidate, proposal, reflection, outcome, decision, observation, and evidence references resolve",
+        "candidate evidence gate remains satisfied",
+        "ledger record hashes validate"
+      ],
+      "repository": [
+        "target repository and path are permitted",
+        "identifier and version are unique or form a valid supersession",
+        "recognized registries are used",
+        "events are append-only",
+        "accepted versions are not silently rewritten"
+      ]
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "knowledge-publication-boundary-change",
+      "decision-ledger-publication-change",
+      "prototype-knowledge-mutation-policy-change",
+      "knowledge-source-schema-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-knowledge-integration",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "rule.governance.knowledge-capture-checkpoint",
+      "contract.dx.canonical-carrier"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer",
+      "user"
+    ],
+    "topics": [
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture",
+      "workflow/transactionality",
+      "dx/codec"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-knowledge-integration"
+    }
+  ],
+  "status": "active",
+  "summary": "Runtime ledger candidacy and durable repository knowledge remain separate authority domains. Human acceptance authorizes a validated publication plan, while durable publication requires a complete repository-valid event-and-knowledge delta and post-application verification.",
+  "title": "Accountable decisions cross a validated knowledge publication boundary",
+  "version": 1
+}
