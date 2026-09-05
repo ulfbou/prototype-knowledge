@@ -1,0 +1,148 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "authoritative_remaining_sequence": [
+      {
+        "name": "Product Scenarios and Acceptance Model",
+        "phase": 10
+      },
+      {
+        "name": "Runtime Architecture and Deployment Boundaries",
+        "phase": 11
+      },
+      {
+        "name": "Repository and Technology Selection",
+        "phase": 12
+      },
+      {
+        "name": "Detailed Component and Adapter Design",
+        "phase": 13
+      },
+      {
+        "name": "Security, Privacy, and Threat Model",
+        "phase": 14
+      },
+      {
+        "name": "Verification and Conformance Strategy",
+        "phase": 15
+      },
+      {
+        "name": "Documentation and Operational Model",
+        "phase": 16
+      },
+      {
+        "name": "Vertical Slice Delivery Specification",
+        "phase": 17
+      },
+      {
+        "name": "Development Readiness Review",
+        "phase": 18
+      }
+    ],
+    "development_start_rule": "Development begins only after Phase 18 concludes READY or an explicitly accepted READY_WITH_BOUNDED_RISKS.",
+    "next_phase": "Phase 10: Product Scenarios and Acceptance Model",
+    "rationale": [
+      "The original Architecture Review phase grouped materially independent decisions that require explicit review.",
+      "A vertical slice cannot be implementation-ready before runtime topology, repository ownership, technology, security, verification, documentation, and operational decisions are established.",
+      "A development start package requires an explicit readiness outcome rather than document assembly alone.",
+      "The additional phases improve completeness without expanding the proof-of-concept product scope."
+    ],
+    "retained": [
+      "Phase 0: North Star and problem definition",
+      "Phase 1: Product definition",
+      "Phase 2: Domain model",
+      "Phase 3: Authority model",
+      "Phase 4: Lifecycle model",
+      "Phase 5: Decision ledger",
+      "Phase 6: Reflection and taxonomy",
+      "Phase 7: Knowledge integration",
+      "Phase 8: Trust model",
+      "Phase 9A: Application boundary and use-case contracts",
+      "Phase 9B: MCP mapping"
+    ],
+    "scope_lock": {
+      "excluded": [
+        "autonomous repository mutation",
+        "autonomous GitHub mutation",
+        "automatic durable knowledge acceptance",
+        "automatic authority expansion",
+        "automatic operating-mode restoration",
+        "autonomous repair",
+        "multi-agent orchestration",
+        "remote MCP deployment"
+      ],
+      "first_proof": "Failure Intelligence and Reflection",
+      "initial_path": [
+        "Observation",
+        "Decision",
+        "Outcome",
+        "Reflection",
+        "Proposal"
+      ],
+      "product": "Accountable Decision System"
+    },
+    "superseded_remaining_sequence": [
+      "Original Phase 10: Architecture Review",
+      "Original Phase 11: Vertical Slice Definition",
+      "Original Phase 12: Development Start Package"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-predevelopment-plan-change",
+      "accountable-decision-poc-scope-change",
+      "development-readiness-process-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.accountable-decision-predevelopment-plan",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-system",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-mcp-mapping",
+      "decision.prototype.anti-ceremony",
+      "decision.prototype.adaptive-planning"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "planning",
+      "architecture",
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-05.accountable-decision-predevelopment-rebaseline"
+    }
+  ],
+  "status": "active",
+  "summary": "Phases 0 through 9B remain accepted. The original remaining Phases 10 through 12 are superseded by a complete Phase 10 through Phase 18 sequence covering product acceptance, runtime architecture, repository and technology selection, detailed design, security, verification, documentation and operations, delivery specification, and development readiness.",
+  "title": "Rebaseline remaining Accountable Decision System pre-development phases",
+  "version": 1
+}

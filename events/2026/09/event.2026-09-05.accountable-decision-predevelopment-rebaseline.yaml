@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-predevelopment-phase-plan-rebaselined"
+    },
+    {
+      "observation": "The original Phase 10 through Phase 12 sequence combined unresolved product, runtime, repository, technology, security, verification, documentation, operations, and readiness concerns too coarsely for an implementation-ready proof of concept."
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-application-boundary@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-mcp-mapping@1"
+    }
+  ],
+  "id": "event.2026-09-05.accountable-decision-predevelopment-rebaseline",
+  "kind": "planning-baseline-accepted",
+  "occurred_on": "2026-09-05",
+  "resulted_in": [
+    "decision.prototype.accountable-decision-predevelopment-plan@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "planning",
+      "architecture",
+      "architecture/authority",
+      "evidence/decision-support",
+      "knowledge/capture"
+    ]
+  },
+  "summary": "Rebaselined the remaining Accountable Decision System pre-development process: accepted Phases 0 through 9B remain unchanged, while the original Phases 10 through 12 are replaced by implementation-readiness Phases 10 through 18."
+}
