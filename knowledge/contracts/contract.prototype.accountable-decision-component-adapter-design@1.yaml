@@ -1,0 +1,500 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_naming": "knowledge-phase-<phase-id>-<description>.dx",
+    "component_authority": {
+      "App": "trusted runtime context, concrete composition, lifecycle, admission, draining, and runtime disposition",
+      "Application": "operations, product semantics, evaluation, ports, mutation intent, product results, and diagnostics",
+      "Domain": "semantic meaning and domain invariants",
+      "Host.Mcp": "MCP protocol translation only",
+      "Infrastructure": "bounded technical execution and technical facts"
+    },
+    "decisions": [
+      {
+        "id": "13.1",
+        "locked": [
+          "Domain owns semantic meaning and domain invariants",
+          "Application owns operations, product semantics, evaluation, ports, mutation intent, terminal results, and diagnostics",
+          "Infrastructure performs bounded technical operations and reports technical facts",
+          "Host.Mcp maps MCP protocol interactions to and from Application contracts",
+          "App establishes trusted runtime context, composes the process, and controls lifecycle and runtime disposition",
+          "technical capability never implies semantic authority",
+          "Phase 12 project dependency direction remains unchanged"
+        ],
+        "name": "Component Responsibility and Authority Boundaries"
+      },
+      {
+        "id": "13.2",
+        "locked": [
+          "each initial operation has one ADS-owned request, one explicit handler, one operation-specific policy, and one ADS-owned result",
+          "initial commands are CaptureObservation, RecordDecision, RecordOutcome, GenerateReflection, and GenerateProposal",
+          "initial queries are GetLedgerRecord, GetDecisionTransaction, ListIncompleteTransactions, FindSimilarFailures, GetReflectionInputs, and ValidateLedger",
+          "successful new commands append exactly one record and queries append zero records",
+          "applicable gates execute in the locked eight-step precedence",
+          "caller input cannot establish authority, mode, ledger, evidence root, executable, network endpoint, hash algorithm, canonicalization contract, or writer version",
+          "identical replay returns the original record with zero append and conflicting key reuse appends nothing",
+          "cancellation preserves confirmed zero, confirmed one, or unresolved completion"
+        ],
+        "name": "Application Operation and Handler Contracts"
+      },
+      {
+        "id": "13.3",
+        "locked": [
+          "Application owns ledger inspection, validated read, and single-record append ports",
+          "Infrastructure owns physical JSONL persistence and reports technical facts",
+          "ledger classifications are VALID_COMPLETE, VALID_WITH_INCOMPLETE_TRAILING_FRAGMENT, INVALID_COMPLETE_RECORD, UNSUPPORTED_VERSION, UNAVAILABLE, and IDENTITY_MISMATCH",
+          "reads return only validated ADS-owned records and explicit boundaries",
+          "an append request contains exactly one complete proposed record",
+          "persistence returns ConfirmedNoAppend, ConfirmedAppend, or Unresolved",
+          "ordinary ledger ports expose no recovery, rewrite, deletion, migration, or arbitrary append capability",
+          "derived indexes and projections are disposable and non-authoritative"
+        ],
+        "name": "Authoritative Ledger Port and Adapter Boundary"
+      },
+      {
+        "id": "13.4",
+        "locked": [
+          "one configured authoritative ledger has one owning writer process, one active append attempt, and multiple coherent readers",
+          "coordination layers are process-level writer ownership, process-local append serialization, and append-time authoritative revalidation",
+          "logical ledger identity, physical ledger identity, and validated boundary remain distinct",
+          "replacement, recreation, rename, redirection, or stale identity produces IDENTITY_MISMATCH before mutation",
+          "timeout or stale-looking metadata never authorizes ownership takeover",
+          "evidence acquisition and reflection generation remain outside append serialization",
+          "the critical section rechecks runtime writability, ownership, identity, boundary, idempotency, authority, mode, policy, lifecycle, references, material evidence, record validity, canonical bytes, persistence, and mutation truth",
+          "once physical persistence may begin cancellation cannot invent zero mutation",
+          "confirmed append requires full record write, one LF, accepted flush, known resulting boundary, and resolvable record identity",
+          "unresolved completion requires authoritative same-key resolution"
+        ],
+        "name": "Append Serialization and Writer-Ownership Coordination"
+      },
+      {
+        "id": "13.5",
+        "locked": [
+          "record construction stages are semantic construction, canonical integrity construction, and independent persisted-record verification",
+          "Domain and Application own record meaning while Infrastructure owns standards-conformant bytes",
+          "only integrity.recordHash is omitted from the SHA-256 input",
+          "hash input is RFC 8785 canonical UTF-8 bytes",
+          "integrity uses System.Security.Cryptography.SHA256 and 64 lowercase hexadecimal digits",
+          "the final complete record is canonicalized after hash insertion",
+          "persisted framing is canonical UTF-8 JSON followed by exactly one LF excluded from the digest",
+          "each record is independently hashed and no hash chain exists",
+          "duplicate members, BOM, CR framing, unsupported algorithms, noncanonical complete bytes, and hash mismatch are rejected",
+          "ordinary System.Text.Json output is not proof of RFC 8785 conformance",
+          "canonicalization dependencies must pass ADS-owned known-answer fixtures"
+        ],
+        "name": "Canonicalization, Integrity, and Record Construction"
+      },
+      {
+        "id": "13.6",
+        "locked": [
+          "evidence ports are Application-owned, read-only, server-configured, bounded, containment-validated, integrity-aware, and drift-aware",
+          "requests may reference evidence but cannot expand roots, paths, URLs, executables, credentials, limits, or network endpoints",
+          "availability states are AVAILABLE, PARTIAL, UNAVAILABLE, EXPIRED, REDACTED, UNAUTHORIZED, INTEGRITY_INVALID, DRIFT_DETECTED, LIMIT_EXCEEDED, and UNSUPPORTED",
+          "mutable evidence requires stable acquisition or explicit drift detection",
+          "hash mismatch is integrity failure rather than unavailability",
+          "Reflection Generator receives only selected retained evidence and has no ledger, append, arbitrary filesystem, network, process, authority, acceptance, publication, or mode-restoration capability",
+          "generated reflection output is untrusted until ADS validates structure, taxonomy, findings, evidence references, confidence, limitations, and proposal-gate assessment",
+          "similarity remains correlation absent independent causal evidence",
+          "a valid Reflection may be appended without proposal eligibility",
+          "mandatory reflection behavior remains network-independent"
+        ],
+        "name": "Evidence Access and Reflection Adapter Boundary"
+      },
+      {
+        "id": "13.7",
+        "locked": [
+          "Host.Mcp is a replaceable local stdio protocol adapter and cannot access Infrastructure or ledger ports",
+          "stdin and stdout are protocol-only and operational diagnostics use stderr or another non-protocol sink",
+          "tools and resources are registered explicitly without reflection scanning, plugins, prompts, subscriptions, or network listeners",
+          "each tool maps one-to-one to one Application operation",
+          "MCP input cannot establish actor authority, operating mode, policy, ledger, evidence root, executable, network endpoint, canonicalization, hashing, or writer version",
+          "BLOCKED is a successful MCP exchange with isError false",
+          "FAILED preserves structured ADS diagnostics and mutation disclosure without becoming a generic JSON-RPC error",
+          "protocol, product, persistence, and result-delivery outcomes remain distinct",
+          "resources are bounded, read-only, non-authoritative where derived, and append zero records",
+          "confirmed append remains confirmed after response-delivery failure"
+        ],
+        "name": "MCP Host, Tool, Resource, and Result Mapping"
+      },
+      {
+        "id": "13.8",
+        "locked": [
+          "App exclusively owns explicit composition and runtime lifecycle",
+          "configuration is versioned, operator-controlled, server-validated, fully resolved before readiness, and cannot be overridden by ordinary requests",
+          "authority-bearing configuration cannot hot reload",
+          "startup lifecycle is CREATED, INITIALIZING, READY, DRAINING, STOPPED with INITIALIZATION_FAILED and TERMINATION_UNCLEAN exceptional outcomes",
+          "startup appends zero lifecycle records",
+          "READY requires configuration, runtime context, host, ledger identity, writer ownership where needed, valid history, handlers, registries, stream isolation, and open admission",
+          "draining atomically closes admission before waiting",
+          "EOF, supported OS signals, and operator shutdown converge on one App-owned draining workflow",
+          "platform callbacks perform only safe notification and cancellation signaling",
+          "writer ownership is released only after append capability is closed",
+          "degraded inspection is a restricted non-mutating runtime condition rather than a lifecycle state or operating mode",
+          "protocol-safe diagnostic routing is established before dependency initialization"
+        ],
+        "name": "Configuration, Composition, and Runtime Lifecycle Coordination"
+      },
+      {
+        "id": "13.9",
+        "locked": [
+          "protocol outcome, product outcome, persistence completion, and runtime disposition remain independently represented",
+          "failure domains are HOST_PROTOCOL, PRODUCT_GATE, APPLICATION_EXECUTION, AUTHORITATIVE_PERSISTENCE, LEDGER_INTEGRITY, EVIDENCE_OR_DEPENDENCY, RESULT_DELIVERY, and RUNTIME_COORDINATION",
+          "runtime dispositions are CONTINUE, RESTRICT_MUTATION, ENTER_DEGRADED_INSPECTION, BEGIN_DRAINING, and TERMINATE_UNCLEAN",
+          "disposition precedence is TERMINATE_UNCLEAN over BEGIN_DRAINING over ENTER_DEGRADED_INSPECTION over RESTRICT_MUTATION over CONTINUE",
+          "mutation certainty is RESOLVED_ZERO, RESOLVED_ONE, or UNRESOLVED",
+          "certainty evolves only from UNRESOLVED to RESOLVED_ZERO or RESOLVED_ONE and resolved certainty never regresses",
+          "unresolved completion resolves only from authoritative history using the same operation identity, idempotency key, normalized request identity, and proposed record identity",
+          "mutation-sensitive failures prevent new mutation",
+          "trailing fragments and invalid complete records are preserved as diagnostic evidence and never automatically repaired",
+          "recovery is separately authorized, requires closed admission and exclusive ownership, preserves source evidence, and does not restore authority automatically",
+          "restart trusts only re-established persisted authority"
+        ],
+        "name": "Failure, Cancellation, Recovery, and Mutation-Certainty Coordination"
+      },
+      {
+        "id": "13.10",
+        "locked": [
+          "Dx.Domain is conditionally selected for internal typed outcomes and analyzer governance",
+          "the official C# MCP SDK is conditionally selected for protocol mechanics within Host.Mcp",
+          "no RFC 8785 package is selected until it passes ADS-owned fixture qualification",
+          "SHA-256 uses System.Security.Cryptography.SHA256",
+          "JSON uses System.Text.Json with explicit source-generated metadata but not as canonicalization proof",
+          "composition uses explicit constructors without an external dependency-injection container",
+          "operational diagnostics use an ADS-owned bounded BCL-based sink",
+          "append serialization uses a repository-owned adapter over the simplest qualified BCL asynchronous primitive",
+          "writer ownership uses a repository-owned cross-platform adapter over verified OS mechanisms",
+          "xUnit is conditionally selected and every xUnit test class includes explicit using Xunit;",
+          "qualification outcomes are QUALIFIED, QUALIFIED_WITH_BOUNDED_LIMITATIONS, REJECTED, or DEFERRED_FOR_MISSING_EVIDENCE",
+          "package versions are exact, locked, purpose-bounded, isolated, trim-aware, AOT-tested, and replaceable",
+          "no package owns ADS lifecycle, authority, product outcomes, mutation certainty, diagnostics, ledger validity, evidence states, runtime disposition, or recovery authority"
+        ],
+        "name": "Dependency Qualification and Concrete Adapter Selections"
+      },
+      {
+        "id": "13.11",
+        "locked": [
+          "Decisions 13.1 through 13.10 are mutually consistent and accepted as one baseline",
+          "Phase 13 preserves all locked product, runtime, repository, technology, authority, mutation, integrity, compatibility, and scope constraints through Phase 12",
+          "PHASE_13_COMPLETE",
+          "development remains unauthorized until Phase 18 returns READY or an explicitly accepted READY_WITH_BOUNDED_RISKS",
+          "the consolidated carrier uses the knowledge-phase-13- prefix",
+          "next phase is Phase 14 Security, Privacy, and Threat Model",
+          "Phase 14 may define enforcement mechanisms but cannot silently reassign product semantics or runtime authority"
+        ],
+        "name": "Phase 13 Review and Lock"
+      }
+    ],
+    "dependencies": {
+      "Dx.Domain": "conditionally selected",
+      "JSON": "System.Text.Json with explicit source-generated metadata",
+      "RFC 8785 implementation": "deferred pending ADS fixture qualification",
+      "SHA-256": "System.Security.Cryptography.SHA256",
+      "append serialization": "repository-owned qualified BCL primitive adapter",
+      "composition": "explicit constructor composition",
+      "diagnostics": "ADS-owned bounded BCL-based sink",
+      "official C# MCP SDK": "conditionally selected",
+      "qualification_outcomes": [
+        "QUALIFIED",
+        "QUALIFIED_WITH_BOUNDED_LIMITATIONS",
+        "REJECTED",
+        "DEFERRED_FOR_MISSING_EVIDENCE"
+      ],
+      "testing": "xUnit conditionally selected; every xUnit test class explicitly includes using Xunit;",
+      "writer ownership": "repository-owned verified OS mechanism adapter"
+    },
+    "dependency_direction": [
+      "Domain -> no production project",
+      "Application -> Domain",
+      "Infrastructure -> Application, Domain",
+      "Host.Mcp -> Application, Domain",
+      "App -> Infrastructure, Host.Mcp, Application, Domain"
+    ],
+    "downstream": {
+      "phase_14": [
+        "authentication and authorization mechanisms",
+        "filesystem containment and link-race defenses",
+        "permissions, secrets, redaction, disclosure, limits, sandboxing, denial-of-service, and network prohibition enforcement"
+      ],
+      "phase_15": [
+        "exact test framework versions",
+        "fixtures and process harnesses",
+        "fault injection and concurrency tests",
+        "cross-platform and Native AOT conformance",
+        "Phase 10 acceptance mapping",
+        "CI selection"
+      ],
+      "phase_16": [
+        "operator configuration and lifecycle guidance",
+        "degraded inspection and recovery runbooks",
+        "diagnostic and incident reference"
+      ],
+      "phase_17": [
+        "exact work packages, repository paths, concrete types, interfaces, scripts, delivery order, acceptance commands, and packaging artifacts"
+      ],
+      "phase_18": [
+        "cross-phase consistency",
+        "qualification and residual-risk review",
+        "development-entry decision"
+      ]
+    },
+    "evidence": {
+      "boundary": [
+        "server-configured",
+        "read-only at source",
+        "bounded",
+        "containment-validated",
+        "integrity-aware",
+        "drift-aware",
+        "non-authoritative"
+      ],
+      "mandatory_network_dependency": false,
+      "reflection_output_untrusted_until_validated": true,
+      "similarity_establishes_causality": false,
+      "states": [
+        "AVAILABLE",
+        "PARTIAL",
+        "UNAVAILABLE",
+        "EXPIRED",
+        "REDACTED",
+        "UNAUTHORIZED",
+        "INTEGRITY_INVALID",
+        "DRIFT_DETECTED",
+        "LIMIT_EXCEEDED",
+        "UNSUPPORTED"
+      ]
+    },
+    "integrity": {
+      "algorithm": "sha-256",
+      "canonicalization": "RFC8785-JCS",
+      "digest": "64 lowercase hexadecimal characters",
+      "encoding": "UTF-8 without BOM",
+      "framing": "one LF excluded from digest",
+      "hash_chain": false,
+      "hash_input": "record-with-integrity-recordHash-omitted",
+      "implementation": "System.Security.Cryptography.SHA256"
+    },
+    "ledger": {
+      "coordination": [
+        "process-level writer ownership",
+        "process-local append serialization",
+        "append-time authoritative revalidation"
+      ],
+      "identity": [
+        "logical ledger identity",
+        "physical ledger identity",
+        "validated ledger boundary"
+      ],
+      "ordinary_recovery_capability": false,
+      "persistence_completions": [
+        "ConfirmedNoAppend",
+        "ConfirmedAppend",
+        "Unresolved"
+      ],
+      "ports": [
+        "inspection",
+        "validated reads",
+        "transaction reconstruction",
+        "idempotency resolution",
+        "single-record append"
+      ],
+      "states": [
+        "VALID_COMPLETE",
+        "VALID_WITH_INCOMPLETE_TRAILING_FRAGMENT",
+        "INVALID_COMPLETE_RECORD",
+        "UNSUPPORTED_VERSION",
+        "UNAVAILABLE",
+        "IDENTITY_MISMATCH"
+      ]
+    },
+    "mcp": {
+      "blocked_is_error": false,
+      "network_listener": false,
+      "prompts": false,
+      "stderr": "bounded operational diagnostics",
+      "stdin": "protocol input only",
+      "stdout": "protocol output only",
+      "subscriptions": false,
+      "tools": [
+        "ads_capture_observation",
+        "ads_record_decision",
+        "ads_record_outcome",
+        "ads_generate_reflection",
+        "ads_generate_proposal",
+        "ads_list_incomplete_transactions",
+        "ads_find_similar_failures",
+        "ads_validate_ledger"
+      ],
+      "transport": "local stdio"
+    },
+    "mutation_certainty": {
+      "permitted_transitions": [
+        "UNRESOLVED -> RESOLVED_ZERO",
+        "UNRESOLVED -> RESOLVED_ONE"
+      ],
+      "resolved_regression_prohibited": true,
+      "same_key_resolution_required": true,
+      "states": [
+        "RESOLVED_ZERO",
+        "RESOLVED_ONE",
+        "UNRESOLVED"
+      ]
+    },
+    "operations": {
+      "commands": [
+        "CaptureObservation",
+        "RecordDecision",
+        "RecordOutcome",
+        "GenerateReflection",
+        "GenerateProposal"
+      ],
+      "evaluation_precedence": [
+        "request and schema validity",
+        "ledger integrity and reference validity",
+        "authoritative actor context",
+        "operating mode and policy",
+        "lifecycle prerequisites",
+        "evidence and operation-specific gates",
+        "append preconditions and idempotency",
+        "mutation"
+      ],
+      "queries": [
+        "GetLedgerRecord",
+        "GetDecisionTransaction",
+        "ListIncompleteTransactions",
+        "FindSimilarFailures",
+        "GetReflectionInputs",
+        "ValidateLedger"
+      ]
+    },
+    "phase": {
+      "development_authorized": false,
+      "id": 13,
+      "name": "Detailed Component and Adapter Design",
+      "next_phase": "Phase 14: Security, Privacy, and Threat Model",
+      "result": "PHASE_13_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "preserved_exclusions": [
+      "mediator framework",
+      "generic command bus",
+      "event bus",
+      "workflow engine",
+      "service locator",
+      "generic repository pattern",
+      "ORM",
+      "database",
+      "distributed lock",
+      "network service",
+      "remote MCP",
+      "runtime plugins",
+      "arbitrary process execution",
+      "arbitrary filesystem access",
+      "automatic recovery",
+      "automatic restart",
+      "multi-record transaction",
+      "automatic proposal generation",
+      "knowledge publication",
+      "repository mutation",
+      "Git mutation",
+      "GitHub mutation"
+    ],
+    "runtime": {
+      "authority_bearing_hot_reload": false,
+      "disposition_precedence": [
+        "TERMINATE_UNCLEAN",
+        "BEGIN_DRAINING",
+        "ENTER_DEGRADED_INSPECTION",
+        "RESTRICT_MUTATION",
+        "CONTINUE"
+      ],
+      "dispositions": [
+        "CONTINUE",
+        "RESTRICT_MUTATION",
+        "ENTER_DEGRADED_INSPECTION",
+        "BEGIN_DRAINING",
+        "TERMINATE_UNCLEAN"
+      ],
+      "exceptional": [
+        "INITIALIZATION_FAILED",
+        "TERMINATION_UNCLEAN"
+      ],
+      "lifecycle": [
+        "CREATED",
+        "INITIALIZING",
+        "READY",
+        "DRAINING",
+        "STOPPED"
+      ],
+      "startup_lifecycle_appends": 0
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-13-reopened",
+      "accountable-decision-component-boundary-change",
+      "accountable-decision-ledger-adapter-change",
+      "accountable-decision-mutation-coordination-change",
+      "accountable-decision-mcp-adapter-change",
+      "accountable-decision-runtime-coordination-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-component-adapter-design",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-mcp-mapping",
+      "contract.prototype.accountable-decision-trust-model"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "evidence/decision-support",
+      "recovery",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-component-adapter-design"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 13 defines explicit ADS component authority, operation and port boundaries, deterministic single-record persistence, canonical integrity, bounded evidence and reflection, stdio MCP mapping, lifecycle and failure coordination, and qualified dependency boundaries without authorizing implementation before Phase 18.",
+  "title": "Accountable Decision System detailed component and adapter design",
+  "version": 1
+}
