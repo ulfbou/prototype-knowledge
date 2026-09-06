@@ -1,0 +1,472 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "acceptance_implications": [
+      "caller-controlled input cannot grant authority or switch ledger or evidence roots",
+      "one process activates only one top-level host mode",
+      "MCP stdout remains protocol-only",
+      "host framing failures do not invoke application logic",
+      "only the ledger boundary appends ordinary records",
+      "queries and evaluations append zero lifecycle records",
+      "equivalent concurrent commands create one append and one replay",
+      "a second writer process is prevented",
+      "startup validation precedes readiness",
+      "draining closes admission and preserves irreversible append truth",
+      "uncertain completion uses the same idempotency key",
+      "trailing fragments are not records and are never silently truncated",
+      "invalid complete records are never skipped or rewritten",
+      "degraded inspection permits no mutation",
+      "mutable evidence drift is detected",
+      "mandatory proof behavior completes offline",
+      "arbitrary executables and network endpoints cannot be introduced by requests",
+      "result-delivery failure cannot roll back a completed append",
+      "no repository or GitHub mutation occurs"
+    ],
+    "compatibility": {
+      "preserved": [
+        "Phase 10 persona-authority separation",
+        "five-operation initial product lifecycle",
+        "transport-neutral application boundary",
+        "local append-only JSONL persistence",
+        "RFC 8785 and independent per-record SHA-256",
+        "three terminal classes",
+        "mutation and idempotency truth",
+        "local stdio MCP direction",
+        "no repository or GitHub mutation"
+      ],
+      "prior_phases": "No contradiction remains with accepted Phases 0 through 10."
+    },
+    "concurrency": {
+      "abandoned_ownership": "Elapsed time alone cannot authorize takeover; positive evidence that the previous owner cannot append is required.",
+      "conflicting_key": "The same idempotency key with different normalized content returns ADS_IDEMPOTENCY_CONFLICT and appends nothing.",
+      "critical_rechecks": [
+        "ledger identity and expected boundary",
+        "idempotency key and normalized request",
+        "references and transaction membership",
+        "lifecycle and causation eligibility",
+        "mutable policy and operating mode",
+        "final record validity and integrity"
+      ],
+      "duplicate_race": "Equivalent concurrent requests produce one append and one idempotent replay.",
+      "initial_process_ownership": "one writer process per configured ledger",
+      "readers": "multiple concurrent readers consuming coherent validated record boundaries",
+      "second_writer": "Prevented unless a later proven inter-process exclusion design is explicitly accepted.",
+      "writer": "one authoritative append at a time"
+    },
+    "decisions": [
+      {
+        "id": "11.1",
+        "locked": [
+          "one configured authoritative ledger per runtime instance",
+          "one authoritative actor context per operation",
+          "product persona grants no runtime authority",
+          "operating mode and actor authority are independent",
+          "hosts preserve application result semantics"
+        ],
+        "name": "Runtime Instance and Authority Boundary"
+      },
+      {
+        "id": "11.2",
+        "locked": [
+          "one local OS process per active runtime instance",
+          "one active top-level host mode",
+          "required initial host is MCP over stdio",
+          "direct in-process application invocation",
+          "stdout contains protocol output only and stderr contains bounded non-protocol diagnostics"
+        ],
+        "name": "Initial Process and Host Topology"
+      },
+      {
+        "id": "11.3",
+        "locked": [
+          "persisted evidence, validated history, and derived state remain distinct",
+          "only the ledger boundary performs ordinary appends",
+          "incomplete valid transactions remain authoritative",
+          "per-record RFC 8785 canonicalization and SHA-256 integrity",
+          "derived indexes and projections never override validated ledger history"
+        ],
+        "name": "Authoritative State and Persistence Ownership"
+      },
+      {
+        "id": "11.4",
+        "locked": [
+          "multiple readers and one authoritative append at a time",
+          "initial proof enforces one writer process per configured ledger",
+          "state-dependent prerequisites rechecked under ledger-scoped exclusion",
+          "equivalent concurrent requests produce one append and one replay",
+          "process-local synchronization does not prove multi-process safety"
+        ],
+        "name": "Concurrency and Serialization Boundary"
+      },
+      {
+        "id": "11.5",
+        "locked": [
+          "CREATED to INITIALIZING to READY to DRAINING to STOPPED",
+          "INITIALIZATION_FAILED and TERMINATION_UNCLEAN are exceptional outcomes",
+          "admission occurs only while READY",
+          "stdio EOF initiates graceful shutdown",
+          "restart reconstructs from persisted authority rather than transient memory"
+        ],
+        "name": "Runtime Lifetime and Lifecycle Management"
+      },
+      {
+        "id": "11.6",
+        "locked": [
+          "seven failure domains remain distinct",
+          "persistence certainty is zero, one, or unresolved mutation",
+          "trailing fragments require authorized evidence-preserving recovery",
+          "invalid complete records are never skipped or truncated automatically",
+          "degraded inspection is a restricted runtime condition, not a lifecycle state or fifth operating mode"
+        ],
+        "name": "Failure Isolation and Degraded Operation"
+      },
+      {
+        "id": "11.7",
+        "locked": [
+          "evidence sources are server-authorized and bounded",
+          "requests cannot expand paths, roots, URLs, executables, or credentials",
+          "source access is read-only and mutable sources require stable acquisition or drift detection",
+          "hash mismatch is integrity failure rather than unavailability",
+          "mandatory proof behavior requires no network or arbitrary process execution"
+        ],
+        "name": "Evidence Access and External Dependency Boundary"
+      },
+      {
+        "id": "11.8",
+        "locked": [
+          "one locally launched process with stdio MCP",
+          "one configured local JSONL ledger and one writer process",
+          "network-independent initial proof with no listener",
+          "distributed, multi-tenant, daemon, remote MCP, and external database topologies excluded from initial proof",
+          "remaining work assigned to Phases 12 through 18"
+        ],
+        "name": "Deployment Scope and Explicit Deferrals"
+      },
+      {
+        "id": "11.9",
+        "locked": [
+          "Decisions 11.1 through 11.8 are mutually consistent",
+          "no contradiction remains with Phases 0 through 10",
+          "PHASE_11_COMPLETE",
+          "next phase is Phase 12 Repository and Technology Selection"
+        ],
+        "name": "Phase 11 Review and Lock"
+      }
+    ],
+    "deferrals": {
+      "phase_12": [
+        "implementation repository",
+        "programming language and version",
+        "runtime and SDK",
+        "supported operating systems",
+        "build and packaging",
+        "dependency policy and compatibility targets"
+      ],
+      "phase_13": [
+        "concrete components and types",
+        "configuration and serialization implementation",
+        "ledger and evidence adapters",
+        "MCP handlers and optional CLI",
+        "exclusion and file-identity mechanisms",
+        "lifecycle coordination and recovery contracts"
+      ],
+      "phase_14": [
+        "authentication and authorization mechanisms",
+        "filesystem containment and link threats",
+        "permissions, secrets, redaction, disclosure, sandboxing, denial-of-service, and network enforcement"
+      ],
+      "phase_15": [
+        "test framework and harness",
+        "lifecycle, concurrency, corruption, drift, protocol-purity, fault-injection, offline, and platform conformance"
+      ],
+      "phase_16": [
+        "operator configuration, startup, shutdown, degraded inspection, recovery, evidence, and incident-response guidance"
+      ],
+      "phase_17": [
+        "exact work packages, repository paths, source and test files, build and acceptance commands, packaging, and delivery order"
+      ],
+      "phase_18": [
+        "cross-phase consistency, residual-risk disposition, and READY, READY_WITH_BOUNDED_RISKS, or NOT_READY decision"
+      ]
+    },
+    "deployment": {
+      "excluded_initial_proof": [
+        "network daemon or web service",
+        "remote MCP transport",
+        "separate host and application processes",
+        "multiple writer processes",
+        "distributed or replicated ledger",
+        "multi-tenant service hosting",
+        "installed daemon or OS service",
+        "container-orchestration dependency",
+        "external authoritative database"
+      ],
+      "exclusion_semantics": "Excluded forms are not implemented, required, or anticipated through speculative abstraction in the initial slice. Later introduction requires explicit architectural reconsideration.",
+      "network": "Mandatory operations and Phase 10 demonstrations are network-independent; no listener, remote API, remote evidence store, remote authentication, or cloud inference provider is required.",
+      "required": [
+        "one locally launched OS process",
+        "one active stdio MCP host",
+        "direct in-process application invocation",
+        "server-controlled actor, policy, evidence, and ledger configuration",
+        "one configured local append-only JSONL ledger",
+        "one writer process for that ledger",
+        "disposable projections",
+        "no required network access"
+      ]
+    },
+    "evidence_access": {
+      "categories": [
+        "retained local evidence",
+        "authorized local source evidence",
+        "embedded bounded evidence",
+        "unavailable or restricted evidence",
+        "configured dependency output"
+      ],
+      "hash_rule": "Expected hashes are verified before evidence is treated as verified; mismatch is integrity failure, not ordinary unavailability.",
+      "limits": [
+        "item count",
+        "bytes per item",
+        "aggregate bytes",
+        "excerpt length",
+        "traversal depth",
+        "retrieval duration",
+        "process output",
+        "concurrent acquisition"
+      ],
+      "port": "Evidence access occurs through the accepted application evidence port.",
+      "process_rule": "Arbitrary shell and process execution is excluded. Any later local tool adapter is server-configured, non-shell by default, argument-safe, bounded, environment-constrained, non-mutating, and non-authoritative.",
+      "read_only": "ADS does not mutate source evidence, repository state, file metadata, refs, worktrees, or hooks.",
+      "reflection_rule": "Reflection implementation receives bounded retained input and its output is structurally and semantically validated; dependency failure appends no partial reflection.",
+      "source_authority": "Trusted runtime configuration establishes permitted evidence sources; ordinary requests can reference but cannot expand them.",
+      "stable_acquisition": "Acquire a stable bounded representation or detect source drift; never hash one version and evaluate another.",
+      "states": [
+        "available",
+        "partial",
+        "unavailable",
+        "expired",
+        "redacted",
+        "unauthorized",
+        "integrity-invalid"
+      ]
+    },
+    "failure_isolation": {
+      "domains": [
+        "host and protocol framing",
+        "application product gates",
+        "application execution",
+        "authoritative persistence",
+        "ledger integrity",
+        "external evidence or dependency access",
+        "result delivery"
+      ],
+      "product_blocks": "Recognized authority, policy, lifecycle, evidence, and idempotency gates remain BLOCKED product outcomes and append nothing.",
+      "request_local": "A request-local failure does not terminate a safe runtime.",
+      "runtime_affecting": "Failure affecting ledger integrity, writer ownership, ledger identity, policy coherence, actor-context resolution, storage containment, or mutation enforcement restricts or stops ordinary operation."
+    },
+    "lifecycle": {
+      "admission": "Operations are admitted and tracked only while READY; transition to DRAINING atomically closes admission.",
+      "exceptional": [
+        "INITIALIZATION_FAILED",
+        "TERMINATION_UNCLEAN"
+      ],
+      "mcp_eof": "Clean stdin EOF initiates graceful shutdown; incomplete framing at EOF never invokes the application.",
+      "restart": "A new process re-establishes configuration, ownership, validation, and derived state from persisted authority; prior transient memory has no authority.",
+      "shutdown": "Bounded draining cancels safely cancellable work, preserves append truth at irreversible boundaries, releases resources in ownership-safe order, and distinguishes clean from unclean termination.",
+      "startup": [
+        "load trusted configuration",
+        "validate configuration and storage boundaries",
+        "establish actor, mode, and policy context",
+        "establish writer ownership",
+        "open and validate ledger",
+        "reconstruct derived state",
+        "initialize active host",
+        "enter READY"
+      ],
+      "states": [
+        "CREATED",
+        "INITIALIZING",
+        "READY",
+        "DRAINING",
+        "STOPPED"
+      ]
+    },
+    "mutation_certainty": {
+      "confirmed_append": {
+        "certainty": "resolved",
+        "count": 1,
+        "performed": true
+      },
+      "post_append_failure": "Projection, index, rendering, output, shutdown, or client-delivery failure cannot roll back or duplicate a confirmed append.",
+      "pre_append_failure": {
+        "certainty": "resolved",
+        "count": 0,
+        "performed": false
+      },
+      "uncertain_append": {
+        "certainty": "unresolved",
+        "rule": "Do not claim zero mutation or append speculatively; resolve from authoritative ledger evidence using the same idempotency key."
+      }
+    },
+    "persistence": {
+      "integrity": "independent per-record RFC 8785 canonicalization and SHA-256; no hash chain or distributed integrity structure",
+      "ordinary_append": [
+        "validate proposed record",
+        "canonicalize using RFC 8785",
+        "calculate independent SHA-256 record hash",
+        "revalidate complete record",
+        "acquire ledger-scoped exclusion",
+        "recheck mutable prerequisites and idempotency",
+        "append exactly one complete LF-terminated line",
+        "complete accepted flush boundary",
+        "capture mutation truth",
+        "release exclusion"
+      ],
+      "ordinary_owner": "authoritative ledger boundary through the application persistence port",
+      "prohibitions": [
+        "direct host write",
+        "in-place complete-record modification",
+        "complete-record deletion",
+        "reordering",
+        "insertion before ledger end",
+        "silent normalization",
+        "silent truncation",
+        "projection override"
+      ]
+    },
+    "phase": {
+      "id": 11,
+      "name": "Runtime Architecture and Deployment Boundaries",
+      "next_phase": "Phase 12: Repository and Technology Selection",
+      "result": "PHASE_11_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "process_and_host": {
+      "active_host": "exactly one top-level host mode per process",
+      "framing_rule": "Host-framing failures occur before application invocation. After valid invocation, SUCCEEDED, BLOCKED, and FAILED remain ADS product results.",
+      "invocation": "direct in-process mapping to transport-neutral application operations",
+      "process": "one locally launched OS process per active runtime instance",
+      "required_host": "local MCP over stdio",
+      "streams": {
+        "stderr": "bounded non-protocol operational diagnostics",
+        "stdin": "MCP and JSON-RPC input",
+        "stdout": "MCP and JSON-RPC output only"
+      }
+    },
+    "recovery": {
+      "degraded_inspection": "A diagnostic-only restricted runtime condition, not a lifecycle state and not a fifth capability operating mode; all mutation is disabled.",
+      "fragment_recovery": [
+        "preserve exact recoverable diagnostic evidence",
+        "verify last complete LF-terminated boundary",
+        "prove no complete record is removed",
+        "obtain recovery authority and writer exclusion",
+        "truncate only the incomplete fragment",
+        "revalidate complete remaining ledger",
+        "invalidate or rebuild derived state"
+      ],
+      "invalid_complete_record": "Never skipped, rewritten, normalized, or automatically truncated.",
+      "recovery_authority": "Diagnosis and automatic restriction do not grant authority to rewrite history, break ownership, restore mode, or declare recovery complete.",
+      "trailing_fragment": "An incomplete final fragment is persisted diagnostic evidence, not a record. Ordinary startup does not silently truncate it.",
+      "validated_prefix": "May be inspected when authorized but must identify the last validated boundary and never be presented as the complete ledger."
+    },
+    "runtime_instance": {
+      "authority_rules": [
+        "technical delivery operator remains a product persona",
+        "caller input, prompts, MCP arguments, model output, requested roles, and arbitrary environment variables do not grant authority",
+        "outcome recording is a responsibility requiring authority for RecordOutcome; outcome-producer is not automatically a canonical runtime role",
+        "operating mode, policy, actor authority, lifecycle, evidence, integrity, and idempotency remain independent gates"
+      ],
+      "definition": "A locally composed single-authority application environment operating over exactly one configured authoritative ledger, one coherent authorization and policy context, one authoritative actor context per operation, and one serialized mutation boundary."
+    },
+    "state_authority": {
+      "categories": [
+        "persisted authoritative evidence",
+        "validated authoritative history",
+        "derived non-authoritative state"
+      ],
+      "derived_state": [
+        "indexes",
+        "transaction projections",
+        "completeness views",
+        "idempotency acceleration",
+        "similarity views",
+        "cached validation results",
+        "telemetry"
+      ],
+      "persisted_source": "exact bytes and ordered complete records of the configured append-only JSONL ledger",
+      "projection_rule": "Derived state is disposable, reconstructible, and cannot override validated ledger history.",
+      "record_scope": "Incomplete but valid transactions remain authoritative; recognized future record types do not authorize their creation in the initial proof.",
+      "validation_rule": "Persisted bytes prove what storage contains; structural, integrity, reference, authority, lifecycle, causation, and semantic validation determine which history may support claims."
+    },
+    "status_separation": {
+      "process": "clean or unclean termination representation",
+      "product": "SUCCEEDED, BLOCKED, or FAILED",
+      "protocol": "host framing outcome",
+      "rule": "These statuses remain distinct and cannot silently redefine one another.",
+      "runtime": "lifecycle and readiness state"
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-runtime-architecture-change",
+      "accountable-decision-deployment-boundary-change",
+      "accountable-decision-concurrency-model-change",
+      "accountable-decision-runtime-lifecycle-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-runtime-architecture",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-product-acceptance",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-mcp-mapping",
+      "contract.prototype.accountable-decision-trust-model",
+      "decision.prototype.accountable-decision-predevelopment-plan"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "recovery",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-runtime-architecture"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 11 defines the Accountable Decision System as one locally launched stdio MCP process over one configured JSONL ledger with server-established per-operation authority, one writer process, bounded evidence access, explicit lifecycle and mutation certainty, controlled degraded inspection, offline mandatory behavior, and no distributed or network-service topology in the initial proof.",
+  "title": "Accountable Decision System runtime architecture and deployment boundaries",
+  "version": 1
+}

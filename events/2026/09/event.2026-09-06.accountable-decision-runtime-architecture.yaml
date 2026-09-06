@@ -1,0 +1,45 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-11-decisions-11.1-through-11.9-accepted-and-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-product-acceptance@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-application-boundary@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-ledger@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-mcp-mapping@1"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    }
+  ],
+  "id": "event.2026-09-06.accountable-decision-runtime-architecture",
+  "kind": "runtime-architecture-baseline-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-runtime-architecture@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "recovery",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Completed and locked Accountable Decision System Phase 11, defining the local single-process runtime, stdio MCP host, authoritative JSONL ownership, concurrency, lifecycle, failure isolation, evidence access, deployment exclusions, and downstream deferrals."
+}
