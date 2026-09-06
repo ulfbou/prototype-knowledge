@@ -1,0 +1,568 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "acceptance_claims": [
+      {
+        "direct_evidence": "A technical delivery operator acting with observer runtime authority is blocked from proposal creation with ADS_ROLE_AUTHORITY_DENIED and zero appends.",
+        "id": "E10-01",
+        "name": "Persona does not grant authority"
+      },
+      {
+        "direct_evidence": "Observation, decision, failed or rejected outcome, reflection, and proposal form a valid chain with exactly five appends and terminal outcome PROPOSAL_CREATED.",
+        "id": "E10-02",
+        "name": "Canonical successful journey"
+      },
+      {
+        "direct_evidence": "The same normalized request and key return the original record with idempotent replay true and zero new appends.",
+        "id": "E10-03",
+        "name": "Identical idempotent replay"
+      },
+      {
+        "direct_evidence": "Reflection requested without an outcome is blocked with ADS_LIFECYCLE_INCOMPLETE and zero appends.",
+        "id": "E10-04",
+        "name": "Incomplete reflection transaction"
+      },
+      {
+        "direct_evidence": "Correlation-only reflection succeeds with one append; subsequent proposal creation is blocked with ADS_PROPOSAL_EVIDENCE_INSUFFICIENT and zero proposal appends.",
+        "id": "E10-05",
+        "name": "Correlation-only proposal block"
+      },
+      {
+        "direct_evidence": "Sufficient actor authority does not override a restrictive capability mode; ADS_OPERATING_MODE_RESTRICTED is a POLICY block with zero appends.",
+        "id": "E10-06",
+        "name": "Operating-mode restriction"
+      },
+      {
+        "direct_evidence": "Controlled invalid history yields ADS_INTEGRITY_FAILURE or an accepted specific integrity code, a safe locator, zero appends, and no silent repair.",
+        "id": "E10-07",
+        "name": "Ledger integrity failure"
+      },
+      {
+        "direct_evidence": "Representative results expose contract version, operation, terminal class, outcome, mutation disclosure, context, evidence, limitations, and next action.",
+        "id": "E10-08",
+        "name": "Result-envelope completeness"
+      },
+      {
+        "direct_evidence": "The same key with a different normalized request yields ADS_IDEMPOTENCY_CONFLICT and zero appends.",
+        "id": "E10-09",
+        "name": "Conflicting idempotency reuse"
+      },
+      {
+        "direct_evidence": "Uncertain completion remains unresolved until the same key resolves authoritative mutation truth without duplicate or partial history.",
+        "id": "E10-10",
+        "name": "Ambiguous completion recovery"
+      },
+      {
+        "direct_evidence": "Insufficient or contradictory evidence produces a successful unknown-or-unclassified reflection, one append, and no unsupported proposal eligibility.",
+        "id": "E10-11",
+        "name": "Unknown classification"
+      },
+      {
+        "direct_evidence": "Failed, rejected, inconclusive, and not-executed remain semantically distinct; only failed or rejected outcomes enter the proposal-producing path.",
+        "id": "E10-12",
+        "name": "Outcome-status distinctions"
+      },
+      {
+        "direct_evidence": "Completeness review, proposal eligibility, and valid-ledger validation each complete with zero appends and no sequence change.",
+        "id": "E10-13",
+        "name": "Read-only evaluation purity"
+      },
+      {
+        "direct_evidence": "Compound-invalid cases prove the locked eight-step gate order and exactly one primary diagnostic.",
+        "id": "E10-14",
+        "name": "Evaluation precedence"
+      },
+      {
+        "direct_evidence": "All implemented structured and human presentations agree on stable outcome, diagnostic, mutation, identity, replay, and next-action semantics.",
+        "id": "E10-15",
+        "name": "Presentation consistency"
+      },
+      {
+        "direct_evidence": "A compound proposal block reports one primary diagnostic and all safe independent reasons while appending nothing.",
+        "id": "E10-16",
+        "name": "Multiple gate reasons"
+      },
+      {
+        "direct_evidence": "A created proposal is visibly not accepted knowledge, publication authority, permission to execute, or authority expansion, and causes no excluded side effects.",
+        "id": "E10-17",
+        "name": "Non-authoritative proposal"
+      }
+    ],
+    "acceptance_rules": [
+      "Every material claim maps to direct executable evidence.",
+      "Capture authoritative state before and after each mutation-capable operation.",
+      "Ledger count alone is insufficient; verify record type, identity, immutable content, references, and ledger validity.",
+      "Aggregate repository validation or broad suite success cannot replace direct claim evidence.",
+      "After successful scenarios validate resulting history.",
+      "Verify material excluded records and side effects are absent."
+    ],
+    "canonical_journey": {
+      "evaluative_stages": [
+        {
+          "append_count": 0,
+          "stage": "Investigation Context"
+        },
+        {
+          "append_count": 0,
+          "stage": "Completeness Review"
+        },
+        {
+          "append_count": 0,
+          "stage": "Proposal Eligibility"
+        },
+        {
+          "append_count": 0,
+          "stage": "Terminal Presentation"
+        }
+      ],
+      "mutating_stages": [
+        {
+          "append_count": 1,
+          "stage": "Observation"
+        },
+        {
+          "append_count": 1,
+          "stage": "Decision and Expectation"
+        },
+        {
+          "append_count": 1,
+          "stage": "Failed or Rejected Outcome"
+        },
+        {
+          "append_count": 1,
+          "stage": "Evidence-Bounded Reflection"
+        },
+        {
+          "append_count": 1,
+          "stage": "Non-Authoritative Corrective Proposal"
+        }
+      ],
+      "requirements": [
+        "valid transaction and causation references",
+        "truthful lifecycle ordering",
+        "exactly one primary reflection classification",
+        "material findings linked to retained evidence",
+        "causal, contributing, and correlation findings distinguished",
+        "at least one verified causal or contributing finding supports a created proposal",
+        "limitations and unknowns remain visible",
+        "proposal remains explicitly non-authoritative"
+      ],
+      "terminal_outcome": "PROPOSAL_CREATED",
+      "total_append_count": 5
+    },
+    "deferrals": {
+      "phase_11": [
+        "process and deployment topology",
+        "host composition and lifetime",
+        "concurrency placement",
+        "runtime ownership and failure isolation"
+      ],
+      "phase_12": [
+        "owning implementation repository",
+        "programming language and runtime",
+        "SDK, frameworks, libraries, build, packaging, and supported platforms"
+      ],
+      "phase_13": [
+        "components, types, interfaces, ports, and adapters",
+        "concrete result and diagnostic schemas",
+        "serialization contracts",
+        "ledger, evidence, MCP, and optional CLI adapter design"
+      ],
+      "phase_14": [
+        "complete security, privacy, and threat model",
+        "authentication and authorization mechanics",
+        "secret, redaction, containment, abuse, disclosure, and retention controls"
+      ],
+      "phase_15": [
+        "test framework, runner, fixtures, harness, conformance package, CI, and E10 execution mapping"
+      ],
+      "phase_16": [
+        "operator guidance, diagnostics reference, recovery procedures, runbooks, and support model"
+      ],
+      "phase_17": [
+        "exact vertical-slice work packages, repository paths, delivery sequence, acceptance commands, and artifacts"
+      ],
+      "phase_18": [
+        "cross-phase readiness assessment, residual-risk disposition, and development-entry decision"
+      ]
+    },
+    "demonstration_portfolio": {
+      "aggregate_results": [
+        "PHASE_10_PRODUCT_DEMONSTRATION_PASS",
+        "PHASE_10_PRODUCT_DEMONSTRATION_FAIL"
+      ],
+      "isolation": "Each scenario begins from known authoritative ledger, authority, mode, policy, evidence, and idempotency state; integrity scenarios use disposable isolated state.",
+      "pass_rule": "PASS requires direct evidence for E10-01 through E10-17, exact mutation accounting, valid resulting history, consistent presentations, preserved authority and mode separation, and absence of prohibited side effects.",
+      "primary": "D10-P1",
+      "scenarios": [
+        {
+          "claims": "E10-02, E10-08, E10-17",
+          "focus": "Canonical evidence-bounded failure-to-proposal journey",
+          "id": "D10-P1"
+        },
+        {
+          "claims": "E10-01",
+          "focus": "Persona and authority separation",
+          "id": "D10-S1"
+        },
+        {
+          "claims": "E10-03",
+          "focus": "Identical idempotent replay",
+          "id": "D10-S2"
+        },
+        {
+          "claims": "E10-04",
+          "focus": "Incomplete lifecycle",
+          "id": "D10-S3"
+        },
+        {
+          "claims": "E10-05",
+          "focus": "Correlation-only reflection and blocked proposal",
+          "id": "D10-S4"
+        },
+        {
+          "claims": "E10-06",
+          "focus": "Operating-mode restriction",
+          "id": "D10-S5"
+        },
+        {
+          "claims": "E10-07",
+          "focus": "Integrity detection on isolated state",
+          "id": "D10-S6"
+        },
+        {
+          "claims": "E10-09",
+          "focus": "Conflicting idempotency-key reuse",
+          "id": "D10-S7"
+        },
+        {
+          "claims": "E10-10",
+          "focus": "Ambiguous completion resolution",
+          "id": "D10-S8"
+        },
+        {
+          "claims": "E10-11",
+          "focus": "Unknown classification",
+          "id": "D10-S9"
+        },
+        {
+          "claims": "E10-12",
+          "focus": "Outcome-status distinctions",
+          "id": "D10-S10"
+        },
+        {
+          "claims": "E10-13",
+          "focus": "Read-only evaluation purity",
+          "id": "D10-S11"
+        },
+        {
+          "claims": "E10-14",
+          "focus": "Evaluation precedence",
+          "id": "D10-S12"
+        },
+        {
+          "claims": "E10-08, E10-15",
+          "focus": "Presentation consistency",
+          "id": "D10-S13"
+        },
+        {
+          "claims": "E10-16",
+          "focus": "Multiple safe gate reasons",
+          "id": "D10-S14"
+        },
+        {
+          "claims": "E10-17",
+          "focus": "Proposal non-authority",
+          "id": "D10-S15"
+        }
+      ]
+    },
+    "diagnostics": {
+      "categories": [
+        "INVALID_INPUT",
+        "NOT_FOUND",
+        "CONFLICT",
+        "INTEGRITY",
+        "EVIDENCE",
+        "AUTHORITY",
+        "POLICY",
+        "LIFECYCLE",
+        "STORAGE",
+        "EXTERNAL",
+        "CANCELLED",
+        "INTERNAL"
+      ],
+      "compatibility_rule": "A Phase 10 code may specialize a broader Phase 9A condition, but each concrete result has one canonical primary code. ADS_OPERATING_MODE_RESTRICTED remains a policy condition and does not specialize ADS_AUTHORITY_DENIED.",
+      "journeys": [
+        {
+          "category": "LIFECYCLE",
+          "code": "ADS_LIFECYCLE_INCOMPLETE",
+          "condition": "Required upstream lifecycle stages are absent.",
+          "mutation_count": 0,
+          "terminal_class": "BLOCKED"
+        },
+        {
+          "category": "EVIDENCE",
+          "code": "ADS_PROPOSAL_EVIDENCE_INSUFFICIENT",
+          "condition": "The proposal gate lacks verified causal or contributing evidence.",
+          "mutation_count": 0,
+          "terminal_class": "BLOCKED"
+        },
+        {
+          "category": "POLICY",
+          "code": "ADS_OPERATING_MODE_RESTRICTED",
+          "condition": "The active capability mode prohibits the operation independently of actor authority.",
+          "mutation_count": 0,
+          "terminal_class": "BLOCKED"
+        },
+        {
+          "category": "AUTHORITY",
+          "code": "ADS_ROLE_AUTHORITY_DENIED",
+          "condition": "The authoritative runtime role lacks permission for the operation.",
+          "mutation_count": 0,
+          "terminal_class": "BLOCKED"
+        },
+        {
+          "category": "INTEGRITY",
+          "code": "ADS_INTEGRITY_FAILURE",
+          "condition": "Ledger material fails structural or semantic integrity and cannot support the operation.",
+          "mutation_count": 0,
+          "terminal_class": "FAILED"
+        }
+      ],
+      "multiple_reasons": "Return one primary diagnostic plus all safely detectable independent reasons without exposing unauthorized evidence."
+    },
+    "evaluation_precedence": [
+      "request and schema validity",
+      "ledger integrity and reference validity",
+      "authoritative actor context",
+      "operating mode and policy",
+      "lifecycle prerequisites",
+      "evidence and operation-specific gates",
+      "append preconditions and idempotency",
+      "mutation"
+    ],
+    "guardrails": [
+      "Do not merge product persona with runtime authority.",
+      "Do not turn product blocks into failures for transport convenience.",
+      "Do not conceal completed mutation after interrupted response delivery.",
+      "Do not treat correlation as causality.",
+      "Do not make successful reflection depend on proposal eligibility.",
+      "Do not make proposal creation imply acceptance, publication, or execution.",
+      "Do not weaken the locked evaluation precedence, evidence claims, or immutable-history guarantees.",
+      "Do not move excluded external mutations into the initial proof.",
+      "A later infeasibility must return the affected decision for explicit reconsideration rather than silently redefining it."
+    ],
+    "mutation_rules": {
+      "ambiguous_completion": "Report unresolved certainty while truth is unknown, then use the same idempotency key to resolve authoritative state before claiming a new append.",
+      "blocked_failed_or_read_only": {
+        "count": 0,
+        "delta": 0,
+        "performed": false
+      },
+      "general": [
+        "Each successful mutating command appends at most one immutable record.",
+        "A blocked or failed operation appends no record as part of that operation.",
+        "Previously completed immutable records remain intact.",
+        "No partial record is retained."
+      ],
+      "idempotent_replay": {
+        "count": 0,
+        "delta": 0,
+        "idempotent_replay": true,
+        "identity_rule": "returned record identity equals original identity",
+        "performed": false
+      },
+      "successful_new_mutation": {
+        "count": 1,
+        "delta": 1,
+        "performed": true
+      }
+    },
+    "phase": {
+      "id": 10,
+      "name": "Product Scenarios and Acceptance Model",
+      "next_phase": "Phase 11: Runtime Architecture and Deployment Boundaries",
+      "result": "PHASE_10_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "preserved_constraints": [
+      "local append-only JSONL proof-of-concept ledger",
+      "UTF-8 and LF records",
+      "RFC 8785 canonicalization and SHA-256 record integrity",
+      "disposable non-authoritative transaction projections",
+      "transport-neutral command and query contracts",
+      "one serialized ledger writer and multiple readers",
+      "local stdio MCP architectural direction",
+      "server-established actor identity",
+      "stable MCP discovery does not imply permission",
+      "no repository or GitHub mutation"
+    ],
+    "primary_user": {
+      "authority_rule": "Persona membership grants no runtime capability. Every operation uses an independently established authoritative runtime context.",
+      "goals": [
+        "understand what failed and what evidence exists",
+        "trace the decision and actual outcome",
+        "distinguish causal, contributing, and correlated findings",
+        "determine whether a corrective proposal is justified",
+        "understand unknowns, blocks, and the next permissible action"
+      ],
+      "job": "Turn a bounded operational failure into a traceable, evidence-limited reflection and, only when justified, a non-authoritative corrective proposal while preserving uncertainty, immutable history, and authority boundaries.",
+      "persona": "technical delivery operator"
+    },
+    "product_boundary": {
+      "excluded": [
+        "Knowledge Candidate",
+        "Human Review",
+        "Durable Knowledge Acceptance",
+        "Publication",
+        "Trust Profile Calculation",
+        "Automatic Mode Restoration",
+        "Corrective Execution",
+        "Repository Mutation",
+        "Git Mutation",
+        "GitHub Mutation",
+        "Remote MCP Deployment",
+        "Autonomous Repair",
+        "Multi-Agent Orchestration"
+      ],
+      "included": [
+        "Failure",
+        "Observation",
+        "Decision and Expectation",
+        "Failed or Rejected Outcome",
+        "Completeness Review",
+        "Evidence-Bounded Reflection",
+        "Proposal Eligibility",
+        "Non-Authoritative Proposal or Explicit Block",
+        "Terminal Presentation"
+      ]
+    },
+    "reflection_and_proposal": {
+      "proposal_gate": [
+        "outcome is failed or rejected",
+        "reflection is complete and valid",
+        "at least one retained-evidence-supported causal or contributing finding exists",
+        "correction addresses an established finding",
+        "applicability conditions and contraindications are explicit",
+        "authority and operating mode permit proposal creation",
+        "idempotency and append preconditions pass"
+      ],
+      "rules": [
+        "Use only bounded retained immutable inputs selected for the transaction.",
+        "Prefer unknown-or-unclassified over unsupported specificity.",
+        "Similarity remains correlation unless causality is independently established.",
+        "Reflection completion and proposal eligibility are separate outcomes.",
+        "New evidence creates new immutable lifecycle material and never edits an existing reflection."
+      ]
+    },
+    "result_envelope": {
+      "consistency": "Every implemented structured, human-readable, and transport-specific presentation agrees on stable product semantics; exact human prose is not an automation contract.",
+      "mutation_disclosure": [
+        "mutation performed boolean",
+        "mutation count zero or one",
+        "record type and identity when applicable",
+        "idempotent replay boolean",
+        "completion certainty"
+      ],
+      "required_semantics": [
+        "result-contract version",
+        "operation identity",
+        "terminal class",
+        "product outcome",
+        "one primary diagnostic when blocked or failed",
+        "explicit mutation disclosure",
+        "subject and transaction context when applicable",
+        "created or returned record state",
+        "bounded evidence summary when material",
+        "limitations and unknowns",
+        "zero or one primary next permissible action"
+      ]
+    },
+    "supporting_actors": {
+      "automated_observer": "Captures bounded facts and evidence references.",
+      "decision_producer": "Records a classification, recommendation, action, or decision not to act.",
+      "human_maintainer": "Retains exclusive later authority for knowledge acceptance, publication authorization, and operating-mode restoration.",
+      "outcome_recording": "A supporting responsibility performed only under independently established authority permitting RecordOutcome; outcome-producer is not automatically a canonical runtime role.",
+      "reflection_engine": "Produces evidence-bounded analysis and proposals without acceptance or publication authority."
+    },
+    "terminal_model": {
+      "classes": {
+        "BLOCKED": "A recognized product gate prevented completion without infrastructure or execution failure.",
+        "FAILED": "Validation, integrity, storage, dependency, cancellation, or unexpected application execution prevented completion.",
+        "SUCCEEDED": "The requested operation completed."
+      },
+      "success_does_not_imply": [
+        "underlying operational success",
+        "proposal creation",
+        "knowledge acceptance",
+        "publication",
+        "corrective execution",
+        "authority expansion"
+      ]
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-product-acceptance-change",
+      "accountable-decision-phase-10-reopened",
+      "accountable-decision-initial-proof-scope-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-product-acceptance",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "decision.prototype.accountable-decision-system",
+      "contract.prototype.accountable-decision-authority-lifecycle",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-mcp-mapping",
+      "contract.prototype.accountable-decision-trust-model"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "product",
+      "planning",
+      "architecture/authority",
+      "architecture/determinism",
+      "evidence/decision-support",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-product-acceptance"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 10 defines the Accountable Decision System product persona, canonical and degraded failure-reflection journeys, terminal results, diagnostic and mutation truth, seventeen direct acceptance claims, sixteen deterministic demonstrations, and downstream deferrals while ending the initial proof at a non-authoritative proposal or explicit block.",
+  "title": "Accountable Decision System product scenarios and acceptance model",
+  "version": 1
+}
