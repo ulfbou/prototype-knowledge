@@ -1,0 +1,113 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "accountable_decision_application": {
+      "accepted_and_locked_after_reconciliation": [
+        "14.1 Threat Model Scope, Protected Assets, and Security Objectives",
+        "14.2 Runtime Identity, Authentication, and Authorization Enforcement",
+        "14.3 Filesystem Containment, Ledger Protection, and Link-Race Defenses",
+        "14.4 Secrets, Sensitive Data, Redaction, and Diagnostic Disclosure",
+        "14.5 Resource Limits, Denial-of-Service Resistance, and Bounded Execution"
+      ],
+      "development_state": "Implementation and code generation remain unauthorized until Phase 18 produces an explicitly accepted readiness verdict.",
+      "disregarded_claim": "The premature claim that Decision 14.6 had been accepted and locked.",
+      "next_unresolved_decision": "14.6 Dependency Trust, Supply-Chain Security, and Runtime Capability Restriction",
+      "phase_state": "Phase 14 remains active."
+    },
+    "distinctions": [
+      "An explicit state reconciliation may establish whether a decision is proposed, accepted, or locked.",
+      "A state reconciliation does not authorize invention of decision content that is unavailable from the conversation or accepted baseline.",
+      "A correction to one decision number does not invalidate other accepted decisions unless the user explicitly says so.",
+      "Disregarding an erroneous claim removes that claim only and does not reopen unrelated accepted decisions.",
+      "The current explicit user instruction outranks an assistant-maintained conversational status summary."
+    ],
+    "failure_observed": [
+      "The assistant reconstructed phase decision state from locally maintained summaries instead of accepting the user's explicit reconciliation of the conversation state.",
+      "The assistant repeatedly treated already reconciled decisions as unresolved, creating avoidable workflow friction and risking accidental reopening of accepted decisions."
+    ],
+    "recovery_pattern": [
+      "Identify the specific status or numbering conflict.",
+      "Apply the user's explicit correction to the affected decision.",
+      "Preserve all unaffected accepted and locked decisions.",
+      "Separate decision disposition from availability of the decision's complete text.",
+      "Publish one corrected authoritative decision register.",
+      "Continue from the next unresolved bounded decision without additional confirmation."
+    ],
+    "required_behavior": [
+      "Maintain a concise decision register containing each exact decision number, title, disposition, and carrier status.",
+      "Update the register immediately after every explicit proposal, acceptance, correction, lock, or withdrawal.",
+      "When the user explicitly reconciles the complete decision state, treat that reconciliation as authoritative unless it contradicts a higher-authority immutable repository constraint.",
+      "Apply a correction narrowly to the identified decision instead of resetting or reopening adjacent decisions.",
+      "Do not repeatedly ask the user to reconfirm a state that the user has already explicitly reconciled.",
+      "Before declaring a sequence gap, inspect the complete available conversation and accepted baseline rather than relying only on the latest assistant summary.",
+      "If exact decision content is required but unavailable, preserve the reconciled disposition while identifying the missing content separately.",
+      "Never claim to have reread or verified conversational material that was not actually available to inspect.",
+      "After reconciliation, restate the corrected authoritative register once and proceed directly to the next bounded decision."
+    ],
+    "rule": "When the user explicitly reconciles the accepted decision state of a bounded workflow, update the authoritative decision register once, preserve unaffected decisions, distinguish state from content availability, and continue without repeatedly challenging the reconciled state."
+  },
+  "freshness": {
+    "invalidated_by": [
+      "bounded-decision-state-workflow-change",
+      "conversation-state-precedence-change",
+      "decision-acceptance-evidence-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "lesson.workflow.explicit-decision-state-reconciliation",
+  "kind": "lesson",
+  "relationships": {
+    "related": [
+      "decision.prototype.adaptive-planning",
+      "lesson.workflow.evidence-first-baseline",
+      "lesson.workflow.failure-classification",
+      "lesson.workflow.phase-separated-delivery",
+      "lesson.workflow.state-aware-repository-finalization",
+      "contract.collab.continuity"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "assess",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab"
+    ],
+    "roles": [
+      "user",
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "planning",
+      "evidence",
+      "workflow",
+      "workflow/handoff",
+      "workflow/transactionality",
+      "recovery",
+      "knowledge/capture"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.explicit-decision-state-reconciliation"
+    }
+  ],
+  "status": "active",
+  "summary": "An explicit user reconciliation of bounded decision state overrides an assistant-maintained conversational status summary. Apply corrections narrowly, preserve unaffected accepted decisions, distinguish disposition from content availability, and continue without repeated reconfirmation.",
+  "title": "Explicit decision-state reconciliation restores workflow continuity",
+  "version": 1
+}
