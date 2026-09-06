@@ -1,0 +1,348 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_naming": "phase-<phase-id>-<description>.dx.txt",
+    "completion": {
+      "compatible_states": [
+        "DEFINED",
+        "DEFINED_WITH_BOUNDED_DEPENDENCY",
+        "justified DEFERRED_BY_ACCEPTED_SCOPE"
+      ],
+      "current_assessment": "No INCOMPLETE or BLOCKED_BY_ARCHITECTURAL_CONFLICT concern exists; exact implementation identities are Phase 17 new deliverables.",
+      "dimensions": [
+        "authority",
+        "lifecycle",
+        "mutation",
+        "ledger integrity",
+        "security and privacy",
+        "ordinary operations",
+        "diagnostics",
+        "operational evidence",
+        "supported platforms",
+        "verification",
+        "documentation maintenance",
+        "explicit deferrals"
+      ],
+      "future_execution_results": [
+        "PHASE_16_DOCUMENTATION_PASS",
+        "PHASE_16_DOCUMENTATION_FAIL"
+      ],
+      "planning_states": [
+        "DEFINED",
+        "DEFINED_WITH_BOUNDED_DEPENDENCY",
+        "DEFERRED_BY_ACCEPTED_SCOPE",
+        "BLOCKED_BY_ARCHITECTURAL_CONFLICT",
+        "INCOMPLETE"
+      ]
+    },
+    "decisions": [
+      {
+        "id": "16.1",
+        "locked": [
+          "documentation explains accepted contracts and executable behavior but grants no authority and cannot redefine product semantics, runtime authority, mutation truth, recovery authority, or validation",
+          "technical delivery operator, authorized maintainer, developer and verifier, and support investigator are documentation audiences and responsibilities rather than new runtime roles",
+          "the logical documentation set covers overview, configuration, installation and launch, lifecycle, diagnostics, degraded inspection, recovery, security and privacy, verification, and troubleshooting and support",
+          "task-oriented and condition-oriented navigation use stable operation, diagnostic, lifecycle, disposition, certainty, verification, security, and recovery identifiers",
+          "every procedure states authority, prerequisites, affected assets, mutation expectations, prohibited effects, verification, stop conditions, and one permissible next action",
+          "exact files, tooling, commands, and repository paths remain Phase 17 deliverables"
+        ],
+        "name": "Documentation Authority, Audience, and Information Architecture"
+      },
+      {
+        "id": "16.2",
+        "locked": [
+          "authority-bearing configuration is operator-controlled, complete, validated before readiness, immutable for one runtime instance, and not overridable by ordinary requests",
+          "configuration separately identifies runtime, principal and actor, operating mode and policy, ledger, evidence, resource limits, privacy and diagnostics, dependency and executable, lifecycle, and recovery domains",
+          "launch validates supported output, identities, roots, permissions, ownership, dependencies, stream separation, offline availability, and network and arbitrary-execution prohibitions",
+          "launch follows CREATED then INITIALIZING, establishes trusted context, containment, ownership, complete ledger validity, derived state and stdio isolation, and only then enters READY",
+          "startup appends zero lifecycle records and failures cannot trigger silent repair, alternate ledger selection, authority changes, or storage fallback",
+          "configuration changes create a new fully validated runtime instance; exact representation and launch commands remain Phase 17 deliverables"
+        ],
+        "name": "Trusted Configuration and Secure Launch Guidance"
+      },
+      {
+        "id": "16.3",
+        "locked": [
+          "App exclusively owns lifecycle and admission across CREATED, INITIALIZING, READY, DRAINING, STOPPED, INITIALIZATION_FAILED, and TERMINATION_UNCLEAN",
+          "draining atomically closes admission before waiting and admitted operations retain authority, policy, idempotency, cancellation, and mutation-certainty semantics",
+          "graceful shutdown closes append capability before releasing writer ownership and reports STOPPED only when clean termination criteria are proven",
+          "in-flight mutation is RESOLVED_ZERO before possible persistence, RESOLVED_ONE after confirmed append, or UNRESOLVED while authoritative truth is unknown",
+          "unclean termination grants no recovery, ownership-takeover, readiness, authority, or operating-mode restoration",
+          "restart creates a new runtime instance and re-establishes configuration, authority, ownership, ledger validity, unresolved completion, projections, host isolation, and readiness from persisted authority"
+        ],
+        "name": "Runtime Lifecycle, Shutdown, and Restart Operations"
+      },
+      {
+        "id": "16.4",
+        "locked": [
+          "degraded inspection is a bounded non-mutating runtime condition, not a lifecycle state, operating mode, recovery workflow, alternate authority, or readiness bypass",
+          "entry requires closed mutation admission, trusted configuration and executable identity sufficient for inspection, containment, resource bounds, output isolation, and preservation of source evidence",
+          "inspection may expose only registered bounded read-only configuration, lifecycle, ledger identity, ownership, validation, fragment, evidence, dependency, diagnostic, recovery-prerequisite, and verification facts",
+          "a validated prefix is explicitly not the complete ledger and cannot establish absent later records, mutation truth, current transaction state, or authority for new mutation",
+          "invalid complete records are preserved and never skipped or repaired; incomplete trailing fragments are separately identified and preserved but not truncated",
+          "inspection ends with ordinary restart, further inspection, authorized recovery, manual disposition, or termination, and never restores READY, writer authority, actor authority, mutation admission, or operating mode"
+        ],
+        "name": "Degraded Inspection and Authoritative Diagnostic Operations"
+      },
+      {
+        "id": "16.5",
+        "locked": [
+          "recovery is separately authenticated, explicitly authorized, asset-scoped, action-scoped, evidence-preserving, exclusive, and distinct from runtime, restart, degraded inspection, maintainer activity, and MCP",
+          "the only initial ledger-content recovery mutation is exact truncation of proven bytes after the final valid complete LF-terminated record",
+          "invalid complete records, ambiguous boundaries, identity drift, ownership ambiguity, unavailable preservation, and missing plan or validation capability block recovery without mutation",
+          "complete source bytes are preserved and verified before mutation, and a machine-readable single-use plan binds identities, hashes, boundaries, expected result, certainty, validations, and prohibited effects",
+          "recovery certainty is RESOLVED_ZERO, RESOLVED_ONE, or UNRESOLVED; confirmed success proves exact retained-prefix byte identity and complete semantic ledger validity",
+          "successful technical recovery appends zero ADS lifecycle records and does not restore readiness, ordinary writer ownership, actor authority, operating mode, or unrelated uncertain operations"
+        ],
+        "name": "Authorized Recovery and Post-Recovery Validation"
+      },
+      {
+        "id": "16.6",
+        "locked": [
+          "diagnostic ownership follows Application product semantics, Host.Mcp pre-invocation protocol semantics, Infrastructure technical facts, and App runtime coordination",
+          "product outcome, protocol outcome, persistence completion, lifecycle, runtime disposition, mutation certainty, and security classification remain independently represented",
+          "each stable diagnostic defines identity, meaning, result mapping, safe facts, evidence, prohibited actions, retry classification, one continuation, and Phase 15 verification mapping",
+          "multiple conditions produce one primary diagnostic according to accepted evaluation precedence plus safe independent contributing conditions",
+          "incidents are request-local, mutation-restriction, degraded-inspection, draining, or unclean-termination conditions and security response prioritizes authoritative truth, safe mutation, certainty, containment, protocol safety, and evidence",
+          "support handoff preserves bounded facts, artifact identity, unresolved questions, required receiving authority, and one continuation but transfers no runtime or recovery authority"
+        ],
+        "name": "Diagnostic Reference, Incident Classification, and Support Handoff"
+      },
+      {
+        "id": "16.7",
+        "locked": [
+          "completion covers authority, lifecycle, mutation, ledger, security and privacy, operations, diagnostics, evidence, platforms, verification, maintenance, and deferrals",
+          "planning states are DEFINED, DEFINED_WITH_BOUNDED_DEPENDENCY, DEFERRED_BY_ACCEPTED_SCOPE, BLOCKED_BY_ARCHITECTURAL_CONFLICT, and INCOMPLETE",
+          "only DEFINED, DEFINED_WITH_BOUNDED_DEPENDENCY, and justified DEFERRED_BY_ACCEPTED_SCOPE are compatible with Phase 16 completion",
+          "documentation ownership follows the authority of documented information; material contract changes require impact assessment and stale applicability is version-identifiable",
+          "copy-ready examples and procedures require risk-proportionate executable verification and future aggregate execution is PHASE_16_DOCUMENTATION_PASS or PHASE_16_DOCUMENTATION_FAIL",
+          "Phase 17 owns exact artifacts, schemas, paths, commands, mechanisms, tooling, work packages, order, and acceptance commands; Phase 18 owns readiness and residual-risk disposition"
+        ],
+        "name": "Operational Documentation Completion Criteria, Maintenance, and Explicit Deferrals"
+      },
+      {
+        "id": "16.8",
+        "locked": [
+          "Decisions 16.1 through 16.7 are mutually consistent, accepted, and locked as one documentation and operational baseline",
+          "all prior product, authority, runtime, persistence, evidence, mutation, protocol, repository, security, privacy, and verification constraints through Phase 15 remain preserved",
+          "all mandatory Phase 16 concerns are DEFINED or DEFINED_WITH_BOUNDED_DEPENDENCY and none are INCOMPLETE or BLOCKED_BY_ARCHITECTURAL_CONFLICT",
+          "PHASE_16_DOCUMENTATION_MODEL_COMPLETE",
+          "development remains unauthorized until Phase 18 returns READY or an explicitly accepted READY_WITH_BOUNDED_RISKS",
+          "the next phase is Phase 17: Vertical Slice Delivery Specification"
+        ],
+        "name": "Phase 16 Documentation and Operational Model Review and Lock"
+      }
+    ],
+    "degraded_inspection": {
+      "authoritative": false,
+      "lifecycle_state": false,
+      "mutating": false,
+      "operating_mode": false,
+      "recovery_authority": false,
+      "validated_prefix_is_complete_ledger": false
+    },
+    "diagnostics": {
+      "categories": [
+        "INVALID_INPUT",
+        "NOT_FOUND",
+        "CONFLICT",
+        "INTEGRITY",
+        "EVIDENCE",
+        "AUTHORITY",
+        "POLICY",
+        "LIFECYCLE",
+        "STORAGE",
+        "EXTERNAL",
+        "CANCELLED",
+        "INTERNAL"
+      ],
+      "disposition_precedence": [
+        "TERMINATE_UNCLEAN",
+        "BEGIN_DRAINING",
+        "ENTER_DEGRADED_INSPECTION",
+        "RESTRICT_MUTATION",
+        "CONTINUE"
+      ],
+      "maximum_primary_next_actions": 1,
+      "one_primary_diagnostic": true,
+      "runtime_dispositions": [
+        "CONTINUE",
+        "RESTRICT_MUTATION",
+        "ENTER_DEGRADED_INSPECTION",
+        "BEGIN_DRAINING",
+        "TERMINATE_UNCLEAN"
+      ]
+    },
+    "documentation": {
+      "audiences": [
+        "technical delivery operator",
+        "authorized maintainer",
+        "developer and verifier",
+        "support investigator"
+      ],
+      "authority": "operational projection of accepted contracts and executable behavior; never an authority source",
+      "logical_set": [
+        "system overview",
+        "configuration reference",
+        "installation and launch guide",
+        "lifecycle operations guide",
+        "product result and diagnostic reference",
+        "degraded-inspection guide",
+        "recovery runbook",
+        "security and privacy operations guide",
+        "verification operations guide",
+        "troubleshooting and support guide"
+      ]
+    },
+    "lifecycle": {
+      "exceptional": [
+        "INITIALIZATION_FAILED",
+        "TERMINATION_UNCLEAN"
+      ],
+      "normal": [
+        "CREATED",
+        "INITIALIZING",
+        "READY",
+        "DRAINING",
+        "STOPPED"
+      ],
+      "restart_rule": "new runtime instance reconstructs authority from persisted state and performs no silent recovery",
+      "shutdown_rule": "close admission before waiting and close append capability before releasing writer ownership",
+      "startup_appends": 0
+    },
+    "mutation_certainty": {
+      "resolved_regression_prohibited": true,
+      "same_key_resolution_required": true,
+      "states": [
+        "RESOLVED_ZERO",
+        "RESOLVED_ONE",
+        "UNRESOLVED"
+      ]
+    },
+    "phase": {
+      "development_authorized": false,
+      "id": 16,
+      "name": "Documentation and Operational Model",
+      "next_phase": "Phase 17: Vertical Slice Delivery Specification",
+      "result": "PHASE_16_DOCUMENTATION_MODEL_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "phase_17_obligations": [
+      "exact documentation paths and filenames",
+      "configuration files and schemas",
+      "executable and launch commands",
+      "Windows x64 and Linux x64 procedures",
+      "lifecycle and shutdown commands",
+      "diagnostic catalog and result schemas",
+      "degraded-inspection surface",
+      "recovery authorization and plan schemas",
+      "recovery command surface",
+      "evidence-package schemas and paths",
+      "permission and ownership procedures",
+      "retention configuration",
+      "documentation generation and validation tooling",
+      "conformance mappings and CI integration",
+      "distribution inclusion rules",
+      "work packages, delivery order, and exact acceptance commands"
+    ],
+    "preserved_prohibitions": [
+      "caller-selected authority, operating mode, ledger, evidence root, executable, network endpoint, canonicalizer, hash provider, writer version, or recovery capability",
+      "silent complete-record rewrite, skip, normalization, deletion, or truncation",
+      "automatic recovery, restart, readiness restoration, authority expansion, or operating-mode restoration",
+      "runtime arbitrary process or shell execution",
+      "network listener or outbound runtime dependency",
+      "repository, Git, or GitHub mutation",
+      "automatic durable knowledge acceptance or publication"
+    ],
+    "recovery": {
+      "automatic_readiness_or_authority_restoration": false,
+      "initial_authorized_ledger_mutation": "truncate only a proven incomplete final fragment after exact source preservation and independently validated plan",
+      "invalid_complete_record_repair": false,
+      "ordinary_maintainer_authority_sufficient": false,
+      "post_action_requirement": "exact retained-prefix byte identity plus complete ledger validation"
+    },
+    "residual_risks": [
+      "privileged host administrator compromise",
+      "incomplete secret detection",
+      "pending exact dependency qualification",
+      "bounded Windows and Linux filesystem differences",
+      "local launch-bound authentication limits",
+      "no selected encryption-at-rest baseline",
+      "no cryptographic audit signatures or trusted timestamps",
+      "full-ledger startup validation availability cost",
+      "exceptional secret remediation in immutable history",
+      "no automatic invalid-complete-record repair",
+      "operator-governed incident response and recovery",
+      "documentation correctness requires later executable conformance evidence"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-16-reopened",
+      "documentation-authority-change",
+      "trusted-configuration-or-launch-change",
+      "runtime-operations-change",
+      "degraded-inspection-change",
+      "authorized-recovery-change",
+      "diagnostic-or-support-model-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-documentation-operational-model",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-verification-conformance-strategy",
+      "contract.prototype.accountable-decision-security-privacy-threat-model",
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "devops",
+      "devops/artifacts",
+      "evidence",
+      "planning",
+      "recovery",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-documentation-operational-model"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 16 defines authority-preserving documentation, trusted configuration and launch, lifecycle and restart operations, non-mutating degraded inspection, separately authorized fragment recovery, diagnostic and incident support, maintenance, verification, deferrals, and completion criteria without authorizing development before Phase 18.",
+  "title": "Accountable Decision System documentation and operational model",
+  "version": 1
+}
