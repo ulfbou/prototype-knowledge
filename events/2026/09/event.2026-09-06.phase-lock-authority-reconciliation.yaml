@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-14-accepted-and-locked-with-all-phase-decisions"
+    },
+    {
+      "observation": "The assistant treated the final phase-review decision as still pending after the user had explicitly stated that Phase 14 and all its decisions were accepted and locked, which delayed an already authorized carrier."
+    },
+    {
+      "correction": "Treat the explicit phase-level acceptance and lock as authoritative for the phase and all decisions the user says it includes, then produce an authorized carrier when no blocker exists."
+    }
+  ],
+  "id": "event.2026-09-06.phase-lock-authority-reconciliation",
+  "kind": "lesson-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "lesson.workflow.phase-lock-authority-reconciliation@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab"
+    ],
+    "topics": [
+      "planning",
+      "evidence",
+      "workflow",
+      "workflow/handoff",
+      "workflow/transactionality",
+      "recovery",
+      "knowledge/capture"
+    ]
+  },
+  "summary": "Accepted a workflow lesson that an explicit user phase-level acceptance and lock reconciles the included decision register and authorizes an already approved carrier when no genuine blocker remains."
+}

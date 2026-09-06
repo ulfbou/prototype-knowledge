@@ -1,0 +1,116 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "accountable_decision_application": {
+      "blockers": [],
+      "carrier_authorization": "The consolidated Phase 14 carrier was authorized.",
+      "correct_action": "Produce the authorized Phase 14 carrier and proceed to Phase 15 while keeping development unauthorized until Phase 18.",
+      "development_state": "Implementation remains unauthorized until Phase 18 returns READY or an explicitly accepted READY_WITH_BOUNDED_RISKS.",
+      "phase": "Phase 14: Security, Privacy, and Threat Model",
+      "reconciled_state": "Phase 14 and Decisions 14.1 through 14.8 are accepted and locked."
+    },
+    "authority_rule": [
+      "A current explicit user statement that a phase is accepted and locked is authoritative for the phase state.",
+      "When the user also states that all decisions made for that phase are accepted and locked, the statement reconciles the included decision register without requiring separate repeated acceptance of the final review decision.",
+      "An assistant-maintained register is a working projection and cannot override the user’s explicit phase-state reconciliation.",
+      "Carrier authorization and phase lock remain conceptually distinct, but when both are explicitly present and no genuine prerequisite is unavailable, carrier production must proceed."
+    ],
+    "blocker_test": [
+      "A blocker must identify a concrete unavailable existing prerequisite required to produce or verify the requested artifact.",
+      "An assistant status mismatch that the user has explicitly reconciled is not a blocker.",
+      "A missing repeated confirmation is not a blocker when the user has already accepted and locked the complete phase and its decisions.",
+      "A carrier must not be withheld merely because the assistant expected a more granular acceptance phrase."
+    ],
+    "failure_observed": [
+      "The user explicitly stated that Phase 14 was accepted and locked and that all Phase 14 decisions were accepted and locked.",
+      "The assistant nevertheless treated Decision 14.8 as pending because its local decision register had not recorded a separate acceptance statement.",
+      "The assistant incorrectly separated the phase-level lock from the included decision state after the user had explicitly reconciled both.",
+      "The assistant delayed production of an authorized carrier even though the user stated that no blockers existed."
+    ],
+    "recovery_pattern": [
+      "Identify the discrepancy between the assistant projection and the user’s explicit phase statement.",
+      "Replace the stale projected phase and decision dispositions with the explicit reconciled state.",
+      "Preserve unaffected decisions, carrier naming rules, and implementation-authorization boundaries.",
+      "Run the blocker test using actual prerequisite availability.",
+      "When blockers are empty, perform the already authorized delivery without another confirmation cycle.",
+      "Record the misunderstanding as a workflow lesson when requested."
+    ],
+    "required_behavior": [
+      "Maintain a decision register as a recoverable projection, not as an authority superior to current explicit user instructions.",
+      "On an explicit phase-level reconciliation, update the phase state and every included decision state immediately.",
+      "Apply the user’s scope words exactly, including statements such as all decisions made for Phase 14 are accepted and locked.",
+      "Preserve any explicitly excluded, withdrawn, or disregarded decision claim without reopening unrelated accepted decisions.",
+      "Check for concrete blockers after reconciliation instead of manufacturing a procedural confirmation requirement.",
+      "If the carrier is authorized, the phase is locked, and blockers are empty, produce and verify the carrier immediately.",
+      "Do not restate an already satisfied acceptance step as the next required action.",
+      "Report the corrected authoritative state once, then continue with delivery or the next unresolved bounded decision."
+    ],
+    "rule": "When the user explicitly accepts and locks a phase and states that all decisions in that phase are accepted and locked, reconcile the complete included decision register to that state. If its carrier is authorized and no concrete existing prerequisite is unavailable, produce the carrier without demanding another granular confirmation."
+  },
+  "freshness": {
+    "invalidated_by": [
+      "phase-lock-workflow-change",
+      "decision-state-precedence-change",
+      "carrier-authorization-workflow-change",
+      "blocker-classification-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "lesson.workflow.phase-lock-authority-reconciliation",
+  "kind": "lesson",
+  "relationships": {
+    "related": [
+      "decision.prototype.adaptive-planning",
+      "lesson.workflow.evidence-first-baseline",
+      "lesson.workflow.failure-classification",
+      "lesson.workflow.phase-separated-delivery",
+      "lesson.workflow.state-aware-repository-finalization",
+      "contract.collab.continuity"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "assess",
+      "deliver",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab"
+    ],
+    "roles": [
+      "user",
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "planning",
+      "evidence",
+      "workflow",
+      "workflow/handoff",
+      "workflow/transactionality",
+      "recovery",
+      "knowledge/capture"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.phase-lock-authority-reconciliation"
+    }
+  ],
+  "status": "active",
+  "summary": "An explicit user phase-level acceptance and lock reconciles the included decision register when the user says all phase decisions are locked. A stale assistant status projection is not a blocker, and an authorized carrier must be produced when no concrete prerequisite is unavailable.",
+  "title": "Phase-level acceptance reconciles included decision state",
+  "version": 1
+}
