@@ -1,0 +1,240 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "blockers": [],
+    "carrier_naming": "phase-<phase-id>-<description>.dx.txt",
+    "decisions": [
+      {
+        "id": "18.1",
+        "locked": [
+          "Accepted Phases 0 through 17 form a mutually consistent architectural and delivery baseline.",
+          "No later accepted phase silently changes an earlier authority, product, persistence, mutation, integrity, lifecycle, evidence, recovery, verification, or scope decision.",
+          "The reviewed baseline consistently preserves persona-authority separation, Application ownership of product semantics, exactly-zero-or-one append accounting, three-way mutation certainty, immutable complete records, incomplete trailing-fragment evidence, independent RFC 8785 and SHA-256 record integrity without a hash chain, one-process one-host one-ledger one-writer topology, bounded read-only evidence, proposal non-authority, local stdio MCP, passive packaging, and the twelve ordered work packages.",
+          "Exact dependency identities, platform mechanisms, and future executable conformance are qualification concerns rather than cross-phase contradictions.",
+          "Result: CONSISTENT_BASELINE_WITH_QUALIFICATION_ITEMS."
+        ],
+        "name": "Baseline and Cross-Phase Consistency Review",
+        "status": "accepted-with-corrections-and-locked"
+      },
+      {
+        "id": "18.2",
+        "locked": [
+          "The specified C# 14, .NET 10, net10.0, AccountableDecisionSystem.slnx, five-production-project, seven-test-project implementation model is feasible.",
+          "The production dependency direction is Domain to none, Application to Domain, Infrastructure to Application and Domain, Host.Mcp to Application and Domain, and App to all production projects, with no required circular production dependency.",
+          "Local JSONL persistence, one-writer coordination, deterministic reflection, bounded evidence, stdio MCP, lifecycle coordination, passive packaging, locked NuGet restore, PowerShell 7, POSIX shell, deterministic builds, and offline mandatory runtime behavior are technically achievable within the selected platform.",
+          "Feasibility does not claim completed dependency qualification, locked restore, containment proof, writer-ownership proof, trimming success, Native AOT success, supported-platform execution, offline-runtime conformance, or release qualification.",
+          "Result: REPOSITORY_AND_TOOL_MODEL_FEASIBLE_WITH_DIRECT_QUALIFICATION_REQUIRED."
+        ],
+        "name": "Repository and Tool Feasibility",
+        "status": "accepted-with-corrections-and-locked"
+      },
+      {
+        "id": "18.3",
+        "locked": [
+          ".NET SDK 10.0.400 feature band is QUALIFIED_WITH_BOUNDED_LIMITATIONS and must be pinned by global.json before WP17-01 passes.",
+          "xunit.v3 4.0.0 is QUALIFIED_WITH_BOUNDED_LIMITATIONS; exact supporting runner and analyzer identities must be fixed and locked in WP17-01, and every xUnit test class explicitly includes using Xunit;.",
+          "The official MCP C# SDK v2 line is QUALIFIED_WITH_BOUNDED_LIMITATIONS for protocol mechanics only; its exact package and patch version must be pinned before first use, and failure of stdio, deterministic registration, cancellation, trimming, Native AOT, platform, offline, dependency, or type-isolation qualification activates the repository-owned fallback.",
+          "Dx.Domain is REJECTED for the initial Robust Prototype dependency graph because repository-owned bounded outcomes and analyzer rules are sufficient.",
+          "An external RFC 8785 package is REJECTED for the initial implementation baseline; WP17-04 owns a repository implementation behind ICanonicalJson, verified by ADS-owned known-answer fixtures and independent oracles.",
+          "System.Security.Cryptography.SHA256 is QUALIFIED for SHA-256 mechanics only.",
+          "System.Text.Json is QUALIFIED_WITH_BOUNDED_LIMITATIONS and does not itself prove RFC 8785 conformance or duplicate-member enforcement.",
+          "Explicit constructor composition and an ADS-owned bounded BCL diagnostic sink are QUALIFIED.",
+          "Writer ownership and filesystem containment are repository-owned platform mechanisms, not external dependencies, and receive direct Windows x64 and Linux x64 qualification at their first claiming work packages.",
+          "Native AOT remains a qualification target with RID-specific self-contained output as the accepted bounded fallback.",
+          "No mandatory external dependency remains deferred merely to begin WP17-01; floating versions are prohibited.",
+          "Result: INITIAL_DEPENDENCY_DIRECTION_QUALIFIED_WITH_BOUNDED_FIRST_USE_CONDITIONS."
+        ],
+        "name": "Exact Dependency Qualification",
+        "status": "accepted-with-corrections-and-locked"
+      },
+      {
+        "id": "18.4",
+        "locked": [
+          "WP17-01 through WP17-12 are implementable in their accepted order without circular package dependency, placeholder dependency, or undefined ownership.",
+          "WP17-01 is the foundation; WP17-02 depends on WP17-01; WP17-03 depends on WP17-02; WP17-04 depends on WP17-02 and WP17-03; WP17-05 depends on WP17-04; WP17-06 depends on WP17-03 through WP17-05; WP17-07 depends on WP17-03 through WP17-06; WP17-08 depends on WP17-03 and WP17-07; WP17-09 depends on WP17-04, WP17-05, and WP17-07; WP17-10 depends on WP17-01 through WP17-09; WP17-11 depends on WP17-10; WP17-12 depends on WP17-11 and all earlier package results.",
+          "The accepted delivery order remains WP17-01 through WP17-12 even where semantic dependencies are not a simple linear chain.",
+          "First-use gates are: exact SDK and test graph in WP17-01; repository RFC 8785 and independent oracle in WP17-04; writer ownership and real persistence in WP17-05; physical containment in WP17-06; exact MCP SDK or fallback and stdio qualification in WP17-08; complete direct conformance in WP17-10; platform, outputs, Native AOT disposition, packaging, and documentation in WP17-11.",
+          "Every package leaves a buildable, placeholder-free repository, passes applicable checks, preserves accepted boundaries, and avoids claiming a physical property through only a test double.",
+          "Result: ALL_TWELVE_WORK_PACKAGES_IMPLEMENTABLE_WITH_EXPLICIT_DEPENDENCIES_AND_FIRST_USE_GATES."
+        ],
+        "name": "Work-Package Implementability Review",
+        "status": "accepted-with-corrections-and-locked"
+      },
+      {
+        "id": "18.5",
+        "locked": [
+          "Solution files, projects, production code, tests, schemas, fixtures, oracles, scripts, adapters, documentation, outputs, archives, evidence, and release-candidate artifacts are NEW_DELIVERABLE items owned by WP17-01 through WP17-12 and are not blockers.",
+          "Existing prerequisites include an accepted .NET 10 SDK, exact package sources, Git and a writable local repository, the existing Python-based knowledge workflow, PowerShell 7 for Windows qualification, a POSIX-compatible shell for Linux qualification, and supported Windows x64 and Linux x64 environments before their claims may pass.",
+          "No supplied evidence establishes that an existing prerequisite required merely to begin WP17-01 is unavailable.",
+          "Later writer-ownership, containment, RFC 8785, MCP, supported-platform, and Native AOT requirements are bounded package gates or accepted fallbacks rather than current development-entry blockers.",
+          "Convenience dashboards, additional portable targets, extended optimization, and optional integrations are OPTIONAL_FOLLOW_UP.",
+          "Remote MCP, network services, distributed or multi-writer persistence, multi-tenancy, plugins, arbitrary execution, autonomous repository or knowledge mutation, automatic authority or mode restoration, automatic invalid-record repair, installers, daemons, updates, release signing, and Stable Full Release certification are OUT_OF_SCOPE.",
+          "Result: NO_CURRENT_DEVELOPMENT_ENTRY_BLOCKER_IDENTIFIED."
+        ],
+        "name": "Existing Prerequisites and Blockers",
+        "status": "accepted-and-locked"
+      },
+      {
+        "id": "18.6",
+        "locked": [
+          "No reviewed residual risk blocks development entry.",
+          "Fully privileged host-administrator compromise, application-level encryption at rest, cryptographic audit signatures, trusted timestamps, remote authentication, and distributed trust or persistence are outside the Robust Prototype scope and must not be implicitly claimed.",
+          "Incomplete secret detection is acceptable only after WP17-06 prevention, classification, prohibited-content rejection, deterministic redaction, secret non-persistence, bounded detection, and leakage tests; absence of detection never proves secret-free content.",
+          "Dependency provenance, license, advisory, graph, trimming, Native AOT, platform, offline, capability, isolation, and replacement evidence is mandatory before first package use.",
+          "Windows and Linux writer ownership, identity, containment, recovery, and archive properties are mandatory at WP17-05, WP17-06, WP17-09, and WP17-11 as applicable and require real platform evidence.",
+          "Local launch-bound authentication is acceptable only with trusted composition, deny-by-default operation authorization, reserved-field rejection, append-critical recheck, and separately authorized recovery.",
+          "Full-ledger validation cost is acceptable provided WP17-07 prevents READY before complete validation and later packages measure and document supported bounds without weakening validation.",
+          "Secret material in immutable history requires prevention, restricted propagation, operator-governed exceptional disposition, and no silent in-place repair or misuse of fragment recovery.",
+          "Recovery remains operator-governed, separately authorized, evidence-preserving, fragment-only, fully revalidated, and incapable of automatically restoring readiness or authority.",
+          "Documentation correctness is a WP17-11 executable conformance gate bound to actual artifacts and evidence.",
+          "Native AOT qualification failure is acceptable when explicitly recorded and the RID-specific self-contained fallback passes all mandatory applicable conformance.",
+          "Result: RESIDUAL_RISKS_BOUNDED_WITH_NO_DEVELOPMENT_ENTRY_BLOCKER."
+        ],
+        "name": "Residual-Risk Disposition",
+        "status": "accepted-and-locked"
+      },
+      {
+        "id": "18.7",
+        "locked": [
+          "The development-entry verdict is READY_WITH_BOUNDED_RISKS.",
+          "Phase 18 is complete, the pre-development sequence is complete, and development is authorized only within the accepted Robust Prototype scope and ordered WP17-01 through WP17-12 sequence.",
+          "The first authorized development package is WP17-01 in ulfbou/accountable-decision-system; no broad multi-package implementation dump is authorized.",
+          "Every package must start from verified prerequisites, deliver complete placeholder-free files, pass applicable validation and tests, preserve exact scope, report only evidence that ran, and reach WP_PASS before dependent completion.",
+          "External dependencies require exact identity, source, locked graph, purpose, license, provenance, advisory, isolation, applicable trimming and AOT, offline behavior, and replacement evidence before first use.",
+          "Physical persistence, ownership, containment, link-race, platform, archive-permission, process-lifecycle, and protocol-purity claims require proportionate real-adapter, actual-executable, or supported-platform evidence rather than only test doubles.",
+          "Implementation may not weaken persona-authority separation, Application product authority, terminal classes, mutation accounting, idempotency, three-way certainty, immutable records, fragment semantics, RFC 8785 and SHA-256 integrity, no-hash-chain semantics, evidence limits, causality distinctions, proposal non-authority, recovery separation, offline behavior, or repository/Git/GitHub mutation prohibitions.",
+          "Contradictory implementation evidence returns work to the earliest affected accepted decision rather than weakening a valid contract or test.",
+          "Native AOT remains conditional with self-contained output as a bounded fallback.",
+          "This readiness verdict is not PHASE_15_VERIFICATION_PASS, a release decision, publication authority, Stable Full Release readiness, or runtime authority expansion.",
+          "Result: PHASE_18_DEVELOPMENT_READINESS_COMPLETE."
+        ],
+        "name": "Development-Entry Verdict",
+        "status": "accepted-and-locked"
+      }
+    ],
+    "development_entry_conditions": [
+      "Begin with WP17-01 and preserve the ordered WP17-01 through WP17-12 program.",
+      "Apply package-specific first-use dependency and physical-mechanism qualification gates.",
+      "Require WP_PASS before dependent package completion.",
+      "Preserve all accepted product, authority, mutation, integrity, evidence, recovery, protocol, security, privacy, platform, packaging, and scope boundaries.",
+      "Return to the earliest affected decision if implementation evidence contradicts the accepted baseline.",
+      "Do not infer release approval, publication, or Stable Full Release readiness from development readiness."
+    ],
+    "phase": {
+      "development_authorized": true,
+      "first_authorized_package": "WP17-01",
+      "id": 18,
+      "implementation_repository": "ulfbou/accountable-decision-system",
+      "name": "Development Readiness Review",
+      "next": "WP17-01: Repository and deterministic build foundation",
+      "result": "PHASE_18_DEVELOPMENT_READINESS_COMPLETE",
+      "status": "accepted-and-locked",
+      "verdict": "READY_WITH_BOUNDED_RISKS"
+    },
+    "preserved_invariants": [
+      "persona does not grant runtime authority",
+      "authority is independently established per operation",
+      "Application owns product semantics",
+      "SUCCEEDED, BLOCKED, and FAILED remain distinct",
+      "successful new mutating commands append at most one record",
+      "blocked, failed, read-only, replay, and conflicting-key operations append zero records",
+      "mutation certainty is RESOLVED_ZERO, RESOLVED_ONE, or UNRESOLVED",
+      "complete records are immutable",
+      "incomplete trailing fragments are evidence not records",
+      "invalid complete records are never silently repaired, skipped, rewritten, normalized, or truncated",
+      "per-record RFC 8785 and SHA-256 with no hash chain",
+      "one local process, one stdio MCP host, one configured JSONL ledger, one writer process",
+      "mandatory behavior is network-independent",
+      "proposal is non-authoritative",
+      "runtime repository, Git, and GitHub mutation is prohibited"
+    ],
+    "residual_risk_rule": "Every accepted residual risk is either bounded by a named work-package mitigation gate, covered by an accepted fallback, or explicitly outside the Robust Prototype scope; none authorizes weaker semantics.",
+    "work_packages": [
+      "WP17-01",
+      "WP17-02",
+      "WP17-03",
+      "WP17-04",
+      "WP17-05",
+      "WP17-06",
+      "WP17-07",
+      "WP17-08",
+      "WP17-09",
+      "WP17-10",
+      "WP17-11",
+      "WP17-12"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-18-reopened",
+      "development-readiness-verdict-change",
+      "robust-prototype-development-entry-condition-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.accountable-decision-development-readiness",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-vertical-slice-delivery-specification",
+      "contract.prototype.accountable-decision-verification-conformance-strategy",
+      "contract.prototype.accountable-decision-security-privacy-threat-model",
+      "contract.prototype.accountable-decision-documentation-operational-model",
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "devops/artifacts",
+      "evidence",
+      "evidence/decision-support",
+      "planning",
+      "product",
+      "recovery",
+      "testing",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-development-readiness"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 18 completes the Accountable Decision System pre-development process with a READY_WITH_BOUNDED_RISKS verdict, no development-entry blocker, explicit dependency and work-package gates, bounded residual risks, and authorization to begin only WP17-01 within the locked Robust Prototype program.",
+  "title": "Accountable Decision System development readiness",
+  "version": 1
+}
