@@ -1,0 +1,47 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-14-decisions-14.1-through-14.8-accepted-and-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-component-adapter-design@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-repository-technology@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-runtime-architecture@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-product-acceptance@1"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    }
+  ],
+  "id": "event.2026-09-06.accountable-decision-security-privacy-threat-model",
+  "kind": "security-privacy-baseline-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-security-privacy-threat-model@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "evidence/decision-support",
+      "recovery",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Completed and locked Accountable Decision System Phase 14, defining threat scope, runtime identity and authorization, filesystem containment, privacy and redaction, bounded execution, dependency trust, security response, recovery authorization, audit evidence, residual risks, and Phase 15 obligations."
+}

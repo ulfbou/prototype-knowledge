@@ -1,0 +1,497 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_naming": "phase-<phase-id>-<description>.dx.txt",
+    "decisions": [
+      {
+        "id": "14.1",
+        "locked": [
+          "the threat model covers the initial local single-process stdio MCP proof and does not speculate about deferred network, distributed, multi-tenant, remote-authentication, service-hosting, or autonomous-execution architectures",
+          "protected assets are authoritative ledger bytes, ledger semantics and integrity, authority-bearing runtime state, mutation truth, bounded evidence, secrets and sensitive information, protocol and diagnostic channels, executable and dependency integrity, and application-owned product semantics",
+          "mandatory objectives SO14-01 through SO14-10 prohibit unauthorized mutation and authority injection, require fail-closed pre-persistence enforcement, evidence preservation, disclosure minimization, bounded resources, offline operation, protocol isolation, secret non-persistence, and semantic truth under hostile input",
+          "untrusted input is data and never configuration or authority",
+          "security failures before persistence produce RESOLVED_ZERO; possible persistence keeps UNRESOLVED; confirmed persistence remains RESOLVED_ONE",
+          "security controls may restrict but cannot expand authority or silently change ADS product semantics"
+        ],
+        "name": "Threat Model Scope, Protected Assets, and Security Objectives"
+      },
+      {
+        "id": "14.2",
+        "locked": [
+          "OS process identity, runtime-instance identity, configured local principal identity, ADS actor identity, operation identity, idempotency identity, and recovery principal identity remain distinct",
+          "authentication is local, launch-bound, single-principal, and stdio-only with no network login, token, API key, password prompt, cookie, remote identity provider, or loopback listener",
+          "caller claims, MCP metadata, prompts, model output, evidence, and request-supplied environment variable names cannot establish identity, role, authority, policy, operating mode, or recovery capability",
+          "accepted runtime roles remain observer, decision-producer, reflection-engine, maintainer, and system-infrastructure; technical delivery operator is a persona and outcome-producer remains a responsibility description",
+          "Application exclusively owns deny-by-default operation-specific authorization, with pre-execution evaluation and append-critical recheck",
+          "authorization denial is BLOCKED with category AUTHORITY, code ADS_ROLE_AUTHORITY_DENIED, RESOLVED_ZERO, and zero appends",
+          "authority-bearing configuration cannot hot reload and incoherence prevents READY or closes admission",
+          "ordinary maintainer authority does not imply recovery authority"
+        ],
+        "name": "Runtime Identity, Authentication, and Authorization Enforcement"
+      },
+      {
+        "id": "14.3",
+        "locked": [
+          "authoritative ledger, read-only evidence, non-authoritative generated state, application and distribution files, and temporary acquisition state are separate filesystem authority domains",
+          "configured roots are absolute, non-overlapping, physically identified, role-scoped, checked before READY, and never selected or expanded by ordinary requests",
+          "external evidence selection uses a configured root identifier and bounded root-relative logical path; absolute, traversal, device, UNC, stream, wildcard, variable-expansion, and executable forms are rejected",
+          "lexical normalization and string-prefix comparison never prove containment",
+          "protected traversal is handle-relative or equivalently identity-safe, does not follow symbolic links, junctions, unsafe reparse points, mount redirections, devices, pipes, or sockets, and binds validation and use to the same opened object",
+          "ledger root and file identity are established before READY and rechecked inside every append-critical section",
+          "ordinary append extends the established ledger file with one canonical record and LF; full rewrites, swaps, silent recreation, normalization, skipping, and truncation are forbidden",
+          "evidence is read-only, bounded, hash-aware, and stable or explicitly DRIFT_DETECTED",
+          "recovery is separately authenticated, explicitly authorized, exclusive, evidence-preserving, and never repairs an invalid complete record automatically"
+        ],
+        "name": "Filesystem Containment, Ledger Protection, and Link-Race Defenses"
+      },
+      {
+        "id": "14.4",
+        "locked": [
+          "data classifications are PUBLIC, INTERNAL, SENSITIVE, SECRET, and PROHIBITED, with the most restrictive applicable classification controlling",
+          "ADS acquires, processes, persists, and presents only operation-required data",
+          "credentials are prohibited from MCP arguments, ledger records, reflections, proposals, projections, protocol results, and ordinary diagnostics",
+          "full environment dumps, private reasoning, unrestricted logs, unrestricted evidence bodies, raw authentication assertions, and secret-bearing command lines are prohibited",
+          "redaction is ADS-owned, occurs before disclosure to less-trusted components, and uses explicit deterministic states NONE, PARTIAL, FULL, and EXCLUDED_PROHIBITED_CONTENT",
+          "source integrity and redacted-representation integrity remain distinct; redaction never repairs mismatch or increases authority, completeness, confidence, or causal strength",
+          "reflection receives only bounded retained and redacted evidence and its output is revalidated for leakage, invented evidence, and unsupported causal claims",
+          "stdout remains minimally disclosive and protocol-only; exceptions and dependency messages are untrusted and safely rendered",
+          "secret detection is bounded defense in depth and cannot prove arbitrary content secret-free",
+          "suspected exposure stops propagation without persisting the secret, rotating credentials automatically, rewriting immutable records, or mutating repositories"
+        ],
+        "name": "Secrets, Sensitive Data, Redaction, and Diagnostic Disclosure"
+      },
+      {
+        "id": "14.5",
+        "locked": [
+          "every externally influenced operation runs under explicit, finite, cumulative, server-controlled, versioned limits that caller input cannot enlarge, disable, reset, or reinterpret",
+          "one immutable resource-limit policy identity is bound to runtime identity before READY; missing, unknown, contradictory, negative, or overflowing limits prevent readiness",
+          "protocol framing is bounded before Application request construction, including decoded bytes, depth, collection counts, string lengths, and diagnostic amplification",
+          "admission and concurrency limits preserve one writer, authoritative exclusion, fairness independent of caller urgency, and no degraded mutation path",
+          "evidence acquisition bounds path size, traversal depth, entries, per-item bytes, aggregate bytes, retained bytes, duration, and concurrency; redaction and hashing do not reset budgets",
+          "reflection generation, product results, diagnostics, generated artifacts, idempotency lookup, and transaction reconstruction are bounded",
+          "startup READY requires full authoritative-ledger validation within the supported deployment envelope; a bounded lookup cannot convert unresolved or unknown state into not found",
+          "monotonic budgets and cancellation preserve RESOLVED_ZERO before possible persistence and three-way certainty after persistence may begin",
+          "authorization, containment, integrity, and unresolved persistence failures are not automatically retried",
+          "capacity pressure may restrict mutation or begin draining but cannot weaken validation, transfer authority, select alternate storage, activate remote fallback, or start automatic recovery"
+        ],
+        "name": "Resource Limits, Denial-of-Service Resistance, and Bounded Execution"
+      },
+      {
+        "id": "14.6",
+        "locked": [
+          "all direct, transitive, build-time, test-only, analyzer, generated-code, native, SDK, runtime, and external package components are untrusted until explicitly qualified",
+          "qualification records include exact identity, source, purpose, graph, license, security disposition, capability, platform, trimming, Native AOT, offline-runtime, replacement boundary, outcome, limitations, and requalification triggers",
+          "package sources are explicit and mapped; versions are exact and centrally governed; committed lock files and locked restore fail closed on graph drift or source substitution",
+          "dependencies provide bounded mechanics and never own ADS product semantics, identity, authority, policy, lifecycle, ledger validity, evidence meaning, mutation certainty, diagnostics, runtime disposition, recovery, or publication",
+          "external package types remain isolated behind repository-owned adapters and do not leak into Domain or Application public contracts",
+          "generated code is deterministic executable build output subject to review, architecture tests, trimming, Native AOT, and capability checks",
+          "runtime package discovery, restore, update, plugin loading, reflection-based handler discovery, arbitrary process or shell execution, listeners, outbound network communication, remote fallback, and environment enumeration are prohibited",
+          "vulnerability, advisory, provenance, licensing, platform, and behavioral evidence govern qualification and every material dependency update requires requalification",
+          "Dx.Domain, the official C# MCP SDK, an RFC 8785 implementation, and xUnit remain conditional until direct evidence qualifies their exact versions and bounded uses",
+          "delivered archives are passive, identifiable, contain no writable state or credentials, and preserve framework-dependent, self-contained, and Native AOT semantics"
+        ],
+        "name": "Dependency Trust, Supply-Chain Security, and Runtime Capability Restriction"
+      },
+      {
+        "id": "14.7",
+        "locked": [
+          "security conditions are classified as rejected input, authority denial, containment failure, integrity failure, suspected secret exposure, resource abuse, dependency failure, runtime coherence loss, or persistence uncertainty",
+          "response priority is authoritative truth, prevention of unsafe mutation, truthful completion certainty, containment of prohibited data, protocol safety, bounded evidence preservation, narrow restriction, and one safe non-executing operator action",
+          "request-local containment is allowed only when runtime identity, policy, writer ownership, ledger identity, containment, protocol isolation, secret handling, mutation truth, and future enforcement remain coherent",
+          "runtime dispositions remain CONTINUE, RESTRICT_MUTATION, ENTER_DEGRADED_INSPECTION, BEGIN_DRAINING, and TERMINATE_UNCLEAN with the previously locked precedence",
+          "degraded inspection is non-mutating, non-authoritative, not a lifecycle state, not an operating mode, and grants no recovery or takeover authority",
+          "ledger history, operational diagnostics, generated security artifacts, durable audit evidence, and recovery evidence remain separate authority domains",
+          "rejected hostile requests do not create attacker-controlled lifecycle appends; material durable audit evidence requires a separately authorized bounded workflow",
+          "recovery requires a separately authenticated principal, exact asset and action scope, closed admission, exclusive ownership, source-byte preservation, validated plan, explicit mutation certainty, and post-action full validation",
+          "the only initial ledger-content recovery action is truncation of a proven incomplete final fragment; invalid complete records are never repaired, skipped, normalized, rewritten, or removed automatically",
+          "technical recovery does not automatically restore READY, actor authority, writer authority, or operating mode",
+          "ADS performs no automatic credential rotation, package update, remote notification, repository mutation, or destructive remediation"
+        ],
+        "name": "Security Failure Response, Recovery Authorization, and Audit Evidence"
+      },
+      {
+        "id": "14.8",
+        "locked": [
+          "Decisions 14.1 through 14.7 are mutually consistent and accepted as one security and privacy baseline",
+          "Phase 14 preserves all accepted product, authority, runtime, persistence, evidence, mutation, protocol, repository, and technology decisions through Phase 13",
+          "the threat coverage includes adversarial MCP callers, mistaken local context, unstable filesystem state, deceptive evidence, untrusted reflection and dependency output, supply-chain compromise, stale runtime instances, and implementation defects",
+          "residual risks remain explicit for privileged host administrators, incomplete secret detection, dependency unknowns, platform differences, local launch-bound authentication limits, no encryption-at-rest baseline, no cryptographic audit signatures, full-ledger startup cost, exceptional secret remediation, and operator-governed response",
+          "Phase 15 must map every material Phase 14 claim to direct reproducible evidence; aggregate suite success cannot replace direct claim evidence",
+          "PHASE_14_COMPLETE",
+          "development remains unauthorized until Phase 18 returns READY or an explicitly accepted READY_WITH_BOUNDED_RISKS",
+          "the next phase is Phase 15 Verification and Conformance Strategy",
+          "Phase 15 may define verification mechanisms but cannot silently weaken or redefine the Phase 14 baseline"
+        ],
+        "name": "Phase 14 Security and Privacy Review and Lock"
+      }
+    ],
+    "dependency_security": {
+      "conditional_dependencies": [
+        "Dx.Domain",
+        "official C# MCP SDK",
+        "RFC 8785 implementation",
+        "xUnit"
+      ],
+      "qualification_outcomes": [
+        "QUALIFIED",
+        "QUALIFIED_WITH_BOUNDED_LIMITATIONS",
+        "REJECTED",
+        "DEFERRED_FOR_MISSING_EVIDENCE"
+      ],
+      "restore": [
+        "explicit package sources",
+        "package-source mapping",
+        "exact centrally managed versions",
+        "committed lock files",
+        "locked restore for acceptance and release"
+      ],
+      "runtime_prohibitions": [
+        "package discovery",
+        "package restore",
+        "package update",
+        "plugin loading",
+        "reflection-based handler discovery",
+        "arbitrary process execution",
+        "shell execution",
+        "network listeners",
+        "outbound network communication",
+        "remote fallback"
+      ]
+    },
+    "downstream": {
+      "phase_15": [
+        "claim taxonomy and evidence identifiers",
+        "identity and authorization tests",
+        "filesystem and link-race tests",
+        "privacy and redaction tests",
+        "resource and overload tests",
+        "dependency qualification",
+        "offline and network-prohibition tests",
+        "Windows x64 and Linux x64 equivalence",
+        "trimming and Native AOT conformance",
+        "security response and recovery tests"
+      ],
+      "phase_16": [
+        "secure configuration guidance",
+        "permissions and launch guidance",
+        "diagnostic reference",
+        "degraded-inspection procedure",
+        "recovery and incident runbooks",
+        "evidence retention guidance"
+      ],
+      "phase_17": [
+        "exact repository paths",
+        "concrete types and interfaces",
+        "policy and configuration files",
+        "exact dependency versions",
+        "scripts, fixtures, work packages, delivery order, acceptance commands, packaging and artifacts"
+      ],
+      "phase_18": [
+        "cross-phase consistency",
+        "qualification status",
+        "missing evidence",
+        "residual-risk disposition",
+        "READY, READY_WITH_BOUNDED_RISKS, or NOT_READY verdict"
+      ]
+    },
+    "filesystem_security": {
+      "containment": "handle-relative or equivalently identity-safe traversal from established trusted roots",
+      "domains": [
+        "authoritative ledger root",
+        "read-only evidence roots",
+        "non-authoritative generated state",
+        "application and distribution files",
+        "temporary acquisition state"
+      ],
+      "ledger_append": "extend the established authoritative file with one canonical record and one LF",
+      "recovery": "separately authenticated and authorized incomplete-final-fragment-only truncation with source preservation and full validation"
+    },
+    "identity_and_authorization": {
+      "authentication": "local launch-bound single-principal stdio-only",
+      "identity_domains": [
+        "OS process",
+        "runtime instance",
+        "configured local principal",
+        "ADS actor",
+        "operation",
+        "idempotency",
+        "recovery principal"
+      ],
+      "ownership": "Application owns operation-specific authorization semantics; App owns trusted runtime binding and lifecycle; Host.Mcp maps protocol only; Infrastructure reports technical facts",
+      "roles": [
+        "observer",
+        "decision-producer",
+        "reflection-engine",
+        "maintainer",
+        "system-infrastructure"
+      ]
+    },
+    "phase": {
+      "development_authorized": false,
+      "id": 14,
+      "name": "Security, Privacy, and Threat Model",
+      "next_phase": "Phase 15: Verification and Conformance Strategy",
+      "result": "PHASE_14_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "privacy": {
+      "classifications": [
+        "PUBLIC",
+        "INTERNAL",
+        "SENSITIVE",
+        "SECRET",
+        "PROHIBITED"
+      ],
+      "prohibited_persistence": [
+        "credentials",
+        "private keys",
+        "raw authentication assertions",
+        "complete environment dumps",
+        "private reasoning",
+        "unrestricted evidence bodies",
+        "unbounded logs",
+        "secret-bearing command lines"
+      ],
+      "redaction_states": [
+        "NONE",
+        "PARTIAL",
+        "FULL",
+        "EXCLUDED_PROHIBITED_CONTENT"
+      ],
+      "rule": "redaction reduces disclosure but never repairs integrity, expands authority, or increases completeness, confidence, or causal strength"
+    },
+    "protected_assets": [
+      "authoritative ledger bytes",
+      "ledger semantics and integrity",
+      "authority-bearing runtime state",
+      "mutation truth",
+      "bounded evidence",
+      "secrets and sensitive information",
+      "protocol and diagnostic channels",
+      "executable and dependency integrity",
+      "application-owned product semantics"
+    ],
+    "recovery_and_response": {
+      "condition_classes": [
+        "SECURITY_INPUT_REJECTED",
+        "SECURITY_AUTHORITY_DENIED",
+        "SECURITY_CONTAINMENT_FAILURE",
+        "SECURITY_INTEGRITY_FAILURE",
+        "SECURITY_SECRET_EXPOSURE_SUSPECTED",
+        "SECURITY_RESOURCE_ABUSE",
+        "SECURITY_DEPENDENCY_FAILURE",
+        "SECURITY_RUNTIME_COHERENCE_LOSS",
+        "SECURITY_PERSISTENCE_UNCERTAINTY"
+      ],
+      "disposition_precedence": [
+        "TERMINATE_UNCLEAN",
+        "BEGIN_DRAINING",
+        "ENTER_DEGRADED_INSPECTION",
+        "RESTRICT_MUTATION",
+        "CONTINUE"
+      ],
+      "dispositions": [
+        "CONTINUE",
+        "RESTRICT_MUTATION",
+        "ENTER_DEGRADED_INSPECTION",
+        "BEGIN_DRAINING",
+        "TERMINATE_UNCLEAN"
+      ],
+      "evidence_domains": [
+        "authoritative ledger history",
+        "operational diagnostics",
+        "generated security artifacts",
+        "durable audit evidence",
+        "recovery evidence"
+      ]
+    },
+    "residual_risks": [
+      "fully privileged host administrator compromise",
+      "secret-detection incompleteness",
+      "dependency unknowns and advisory incompleteness",
+      "Windows and Linux semantic differences",
+      "single local-principal authentication scope",
+      "no selected encryption-at-rest baseline",
+      "no cryptographic audit signatures or trusted timestamps",
+      "availability limits imposed by full-ledger startup validation",
+      "exceptional remediation for secrets in immutable history",
+      "operator-governed external incident response"
+    ],
+    "resource_governance": {
+      "covered": [
+        "protocol framing",
+        "admission",
+        "concurrency",
+        "paths",
+        "evidence acquisition",
+        "ledger validation",
+        "lookups",
+        "reflection",
+        "results",
+        "diagnostics",
+        "generated artifacts",
+        "shutdown and recovery work"
+      ],
+      "policy": "one immutable versioned server-controlled limit policy bound before READY",
+      "properties": [
+        "finite",
+        "cumulative",
+        "monotonic-time bounded",
+        "caller-non-expandable",
+        "validated for missing, contradictory, negative, and overflowing values"
+      ]
+    },
+    "security_objectives": [
+      {
+        "id": "SO14-01",
+        "name": "No unauthorized mutation"
+      },
+      {
+        "id": "SO14-02",
+        "name": "No authority injection"
+      },
+      {
+        "id": "SO14-03",
+        "name": "Fail closed before mutation"
+      },
+      {
+        "id": "SO14-04",
+        "name": "Preserve authoritative evidence"
+      },
+      {
+        "id": "SO14-05",
+        "name": "Minimize disclosure"
+      },
+      {
+        "id": "SO14-06",
+        "name": "Enforce bounded resource use"
+      },
+      {
+        "id": "SO14-07",
+        "name": "Preserve local and offline boundaries"
+      },
+      {
+        "id": "SO14-08",
+        "name": "Preserve protocol isolation"
+      },
+      {
+        "id": "SO14-09",
+        "name": "Preserve secret non-persistence"
+      },
+      {
+        "id": "SO14-10",
+        "name": "Preserve semantic truth under attack"
+      }
+    ],
+    "standing_invariants": [
+      "product persona does not grant runtime authority",
+      "runtime authority is independently established per operation",
+      "caller input cannot select authority, mode, ledger, evidence root, executable, network endpoint, canonicalizer, hash provider, writer version, or recovery capability",
+      "Application owns product and authorization semantics",
+      "security controls may restrict but never expand authority",
+      "successful new mutating commands append at most one record",
+      "blocked, failed, read-only, identical replay, and conflicting-key operations append zero records",
+      "confirmed appends survive cancellation, shutdown, indexing, projection, rendering, diagnostic, and delivery failures",
+      "mutation certainty is RESOLVED_ZERO, RESOLVED_ONE, or UNRESOLVED and resolved certainty never regresses",
+      "complete records are immutable",
+      "incomplete trailing fragments are evidence rather than records",
+      "invalid complete records are never skipped, normalized, rewritten, or automatically truncated",
+      "recovery does not imply authority or operating-mode restoration",
+      "evidence unavailability, unauthorized access, redaction, drift, limit excess, and integrity failure remain distinct",
+      "similarity and redaction do not establish causality",
+      "proposals grant no acceptance, publication, execution, or authority",
+      "stdout is protocol-only",
+      "mandatory proof behavior is network-independent",
+      "runtime arbitrary execution, plugins, package updates, repository mutation, Git mutation, and GitHub mutation are prohibited"
+    ],
+    "verification_obligations": [
+      "server-established identity and reserved authority-field rejection",
+      "deny-by-default grants and append-critical authorization recheck",
+      "lexical and physical-containment adversarial paths",
+      "symlink, junction, reparse, mount, replacement, and link-race defenses",
+      "ledger identity and writer-ownership failures",
+      "secret non-persistence, early redaction, safe exception rendering, and sink-specific disclosure",
+      "protocol, evidence, reflection, diagnostic, concurrency, and time budgets",
+      "cancellation and persistence-boundary mutation truth",
+      "locked dependency graph, sources, transitive inspection, generated-code boundaries, trimming, Native AOT, and passive artifacts",
+      "absence of arbitrary process execution, runtime listeners, outbound network use, package acquisition, repository mutation, Git mutation, and GitHub mutation",
+      "request-local and runtime-wide security response",
+      "degraded inspection non-mutation",
+      "separate recovery principal, closed admission, exclusive ownership, source preservation, fragment-only truncation, invalid-complete-record refusal, full post-recovery validation, and no automatic readiness or mode restoration",
+      "equivalent security outcomes on supported Windows x64 and Linux x64 targets"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-14-reopened",
+      "accountable-decision-security-boundary-change",
+      "accountable-decision-identity-or-authorization-change",
+      "accountable-decision-filesystem-containment-change",
+      "accountable-decision-privacy-or-redaction-change",
+      "accountable-decision-resource-policy-change",
+      "accountable-decision-dependency-trust-change",
+      "accountable-decision-security-recovery-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-security-privacy-threat-model",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-reflection",
+      "contract.prototype.accountable-decision-mcp-mapping",
+      "contract.prototype.accountable-decision-trust-model"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "recover",
+      "deliver"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "evidence/decision-support",
+      "recovery",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-security-privacy-threat-model"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 14 defines the Accountable Decision System threat model, local identity and authorization, filesystem and ledger containment, privacy and redaction, bounded execution, dependency and capability trust, security response, recovery authorization, audit evidence, residual risks, and verification obligations without authorizing implementation before Phase 18.",
+  "title": "Accountable Decision System security, privacy, and threat model",
+  "version": 1
+}
