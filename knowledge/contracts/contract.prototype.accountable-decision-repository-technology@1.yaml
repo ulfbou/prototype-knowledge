@@ -1,0 +1,301 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_naming": "knowledge-phase-<phase-id>-<description>.dx",
+    "compatibility_spaces": [
+      "product release",
+      "configuration schema",
+      "ledger record schema",
+      "lifecycle record kind",
+      "MCP tool contract",
+      "diagnostic catalog",
+      "evidence-reference contract",
+      "knowledge baseline identity"
+    ],
+    "decisions": [
+      {
+        "id": "12.1",
+        "locked": [
+          "ulfbou/accountable-decision-system is the sole implementation repository",
+          "the implementation repository owns executable source, composition, implementation tests, conformance fixtures, build and packaging configuration, runtime adapters, implementation documentation, repository-local CI, and generated implementation artifacts",
+          "prototype-knowledge retains architectural knowledge authority, collab retains generic DX and collaboration tooling authority, and prototype-docs retains applicable human coordination authority",
+          "knowledge and collaboration repositories are consumed as development evidence and tooling, not mandatory runtime dependencies or product-semantic authorities"
+        ],
+        "name": "Implementation Repository Ownership"
+      },
+      {
+        "id": "12.2",
+        "locked": [
+          "C# 14 with no preview language features",
+          "net10.0 on .NET 10 LTS",
+          "pin one .NET 10 SDK feature band",
+          "nullable reference types enabled",
+          "warnings treated as errors",
+          "deterministic compilation",
+          "BCL-first implementation",
+          "expected failures use explicit typed outcomes",
+          "SHA-256 uses System.Security.Cryptography",
+          "trimming awareness and Native AOT readiness are required",
+          "allocation and timing claims require direct evidence"
+        ],
+        "name": "Language, Runtime, and SDK Selection"
+      },
+      {
+        "id": "12.3",
+        "locked": [
+          "continuously supported runtime identifiers are win-x64 and linux-x64",
+          "win-arm64, linux-arm64, osx-arm64, and osx-x64 are portable but unsupported until promoted by direct evidence",
+          "supported-platform claims require build, test, publish, and executable evidence",
+          "equivalent inputs and authoritative state preserve ADS semantics across supported targets",
+          "platform-specific failures appear only as explicit infrastructure diagnostics"
+        ],
+        "name": "Supported Operating Systems and Build Matrix"
+      },
+      {
+        "id": "12.4",
+        "locked": [
+          "build with .NET 10 SDK, MSBuild, and NuGet",
+          "use Central Package Management, committed lock files, locked restore, and explicit package sources",
+          "framework-dependent net10.0 executable is the authoritative development reference",
+          "verify framework-dependent, RID-specific self-contained, and RID-specific Native AOT outputs",
+          "Native AOT archives become preferred only after exact-binary conformance",
+          "RID-specific self-contained output is the bounded fallback",
+          "Windows distribution uses zip and Linux distribution uses tar.gz",
+          "archives are passive and contain no writable state, authority-bearing configuration, service registration, PATH changes, registry changes, scheduled tasks, daemon registration, repository mutation, Git mutation, GitHub mutation, or extraction-triggered network access",
+          "Linux packaging verifies executable permissions survive archive round trip"
+        ],
+        "name": "Build, Packaging, and Distribution Baseline"
+      },
+      {
+        "id": "12.5",
+        "locked": [
+          "dependencies are BCL-first, evidence-governed, purpose-bounded, centrally versioned, locked, and replaceable",
+          "each external dependency has a bounded purpose, reviewed direct and transitive graph, compatible license, controlled source, trimming and AOT evidence where applicable, offline-runtime compatibility, and a removal boundary",
+          "external dependencies cannot redefine ADS semantics",
+          "prerelease dependencies require explicit qualification and isolation",
+          "Dx.Domain, the MCP SDK, and RFC 8785 implementation remain unselected pending direct qualification"
+        ],
+        "name": "Dependency Selection and Supply-Chain Policy"
+      },
+      {
+        "id": "12.6",
+        "locked": [
+          "canonical solution is AccountableDecisionSystem.slnx",
+          "production projects are AccountableDecisionSystem.Domain, AccountableDecisionSystem.Application, AccountableDecisionSystem.Infrastructure, AccountableDecisionSystem.Host.Mcp, and AccountableDecisionSystem.App",
+          "only AccountableDecisionSystem.App is executable and owns composition",
+          "Domain references no production project",
+          "Application references Domain",
+          "Infrastructure references Application and Domain",
+          "Host.Mcp references Application and Domain",
+          "App references Infrastructure, Host.Mcp, Application, and Domain",
+          "Infrastructure and Host.Mcp are peer adapters and never reference each other",
+          "Application owns ports implemented by adapters",
+          "Common, Shared, Core, and Abstractions junk-drawer projects are prohibited",
+          "architecture tests enforce references, namespace boundaries, and external type insulation",
+          "public and protected Domain and Application APIs cannot leak unaccepted external package types",
+          "MCP stdout is protocol-only and bounded operational diagnostics use stderr or another explicitly configured non-protocol sink",
+          "the pinned SDK must build AccountableDecisionSystem.slnx on Windows x64 and Linux x64"
+        ],
+        "name": "Solution, Project, and Source Topology"
+      },
+      {
+        "id": "12.7",
+        "locked": [
+          "product release version, configuration schema version, ledger record schema version, lifecycle record-kind version, MCP tool-contract version, diagnostic catalog version, evidence-reference contract version, and knowledge baseline identity are independent",
+          "product releases use Semantic Versioning and 0.MINOR.PATCH before stability",
+          "contract compatibility is explicit and executable, never inferred from product version",
+          "complete ledger records are immutable and never silently upgraded, normalized, reinterpreted, rehashed, skipped, or rewritten",
+          "new executables may read explicitly supported historical versions and write exactly one configured accepted writer version per ledger",
+          "unsupported authoritative state blocks mutation with zero appends",
+          "schema compatibility classification explicitly covers semantics, canonical bytes, integrity, authority, lifecycle, terminal results, mutation accounting, transaction completeness, evidence, and idempotency",
+          "migration is never implicit and any future migration preserves the source while producing a separately verifiable destination with provenance",
+          "configuration, MCP contracts, diagnostics, and evidence-reference semantics evolve under independent explicit contracts",
+          "each acceptance or distribution build identifies its accepted immutable or versioned knowledge baseline",
+          "behavioral compatibility preserves authority, lifecycle, terminal class, mutation count, idempotency, diagnostics, canonical bytes, SHA-256, completeness, and evidence results",
+          "framework-dependent, self-contained, Native AOT, Windows x64, and Linux x64 outputs are semantically equivalent",
+          "each release candidate automatically produces a deterministic machine-readable compatibility manifest from authoritative build inputs",
+          "every compatibility claim has direct version-tagged fixtures and executable tests",
+          "removing support requires a bounded decision, release documentation, manifests, executable rejection, retained historical fixtures, and no ledger rewrite",
+          "dependency updates are classified by resulting behavior",
+          "platform claims require execution evidence",
+          "read-only degraded inspection is allowed only when trustworthy bounded interpretation is possible"
+        ],
+        "name": "Compatibility, Versioning, and Evolution Policy"
+      },
+      {
+        "id": "12.8",
+        "locked": [
+          "Decisions 12.1 through 12.7 are mutually consistent and accepted as one baseline",
+          "Phase 12 preserves all accepted product, authority, mutation, integrity, and runtime constraints through Phase 11",
+          "Phase 12 does not authorize development to begin",
+          "the consolidated knowledge carrier uses the knowledge-phase-12- prefix",
+          "PHASE_12_COMPLETE",
+          "next phase is Phase 13 Detailed Component Architecture and Runtime Coordination",
+          "Phase 13 cannot reopen locked Phase 12 baselines without direct qualification evidence demonstrating contradiction or counterproductive constraint"
+        ],
+        "name": "Phase 12 Review and Lock"
+      }
+    ],
+    "deferred": [
+      "final Dx.Domain adoption and package version",
+      "exact MCP SDK",
+      "exact RFC 8785 implementation",
+      "exact test framework",
+      "exact CI provider",
+      "exact script filenames",
+      "initial product version",
+      "exact schema identifiers",
+      "compatibility-manifest format",
+      "release hosting",
+      "code signing",
+      "installer technology",
+      "long-term support windows",
+      "public release automation"
+    ],
+    "outputs": {
+      "archives": {
+        "linux-x64": ".tar.gz",
+        "win-x64": ".zip"
+      },
+      "development_reference": "framework-dependent net10.0 executable",
+      "fallback": "RID-specific self-contained archives",
+      "preferred_after_conformance": "RID-specific Native AOT archives",
+      "verification": [
+        "framework-dependent",
+        "RID-specific self-contained",
+        "RID-specific Native AOT"
+      ]
+    },
+    "phase": {
+      "development_authorized": false,
+      "id": 12,
+      "name": "Repository and Technology Selection",
+      "next_phase": "Phase 13: Detailed Component Architecture and Runtime Coordination",
+      "result": "PHASE_12_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "portable_uncommitted_targets": [
+      "win-arm64",
+      "linux-arm64",
+      "osx-arm64",
+      "osx-x64"
+    ],
+    "preserved_invariants": [
+      "persona does not grant runtime authority",
+      "authority is independently established per operation",
+      "caller input cannot select authority, mode, ledger, evidence root, executable, or network endpoint",
+      "application owns product semantics and hosts preserve them",
+      "successful mutating operations append at most one record",
+      "blocked, failed, read-only, and idempotent replay operations append zero records",
+      "conflicting idempotency reuse appends nothing",
+      "uncertain completion resolves from authoritative state using the same idempotency key",
+      "complete records are immutable",
+      "incomplete trailing fragments are evidence but not records",
+      "invalid complete records are never skipped, rewritten, or silently truncated",
+      "recovery does not imply authority",
+      "projections never override validated history",
+      "mandatory proof behavior is network-independent",
+      "repository, Git, and GitHub mutation remain outside the executable proof",
+      "proposal generation grants no acceptance, publication, execution, or expanded authority"
+    ],
+    "repository": {
+      "collaboration_tooling": "ulfbou/collab",
+      "human_coordination": "ulfbou/prototype-docs",
+      "implementation": "ulfbou/accountable-decision-system",
+      "knowledge_authority": "ulfbou/prototype-knowledge"
+    },
+    "solution": {
+      "dependency_direction": [
+        "Domain -> no production project",
+        "Application -> Domain",
+        "Infrastructure -> Application, Domain",
+        "Host.Mcp -> Application, Domain",
+        "App -> Infrastructure, Host.Mcp, Application, Domain"
+      ],
+      "executable_project": "AccountableDecisionSystem.App",
+      "file": "AccountableDecisionSystem.slnx",
+      "projects": [
+        "AccountableDecisionSystem.Domain",
+        "AccountableDecisionSystem.Application",
+        "AccountableDecisionSystem.Infrastructure",
+        "AccountableDecisionSystem.Host.Mcp",
+        "AccountableDecisionSystem.App"
+      ]
+    },
+    "supported_targets": [
+      "win-x64",
+      "linux-x64"
+    ],
+    "technology": {
+      "language": "C# 14",
+      "preview_features": false,
+      "runtime": ".NET 10 LTS",
+      "sdk": "pinned .NET 10 feature band",
+      "target_framework": "net10.0"
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-12-reopened",
+      "accountable-decision-repository-ownership-change",
+      "accountable-decision-technology-baseline-change",
+      "accountable-decision-project-topology-change",
+      "accountable-decision-compatibility-policy-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-repository-technology",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-mcp-mapping"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "testing/conformance",
+      "planning",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-repository-technology"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 12 establishes the Accountable Decision System implementation repository, C# 14 and .NET 10 baseline, supported Windows and Linux targets, deterministic build and passive distribution model, evidence-governed dependencies, Clean Architecture project topology, and explicit independent compatibility contracts without authorizing development before Phase 18.",
+  "title": "Accountable Decision System repository and technology baseline",
+  "version": 1
+}

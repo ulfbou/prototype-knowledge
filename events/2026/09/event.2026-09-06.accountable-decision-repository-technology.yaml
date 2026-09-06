@@ -1,0 +1,40 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-12-decisions-12.1-through-12.8-accepted-and-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-runtime-architecture@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-product-acceptance@1"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    }
+  ],
+  "id": "event.2026-09-06.accountable-decision-repository-technology",
+  "kind": "repository-technology-baseline-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-repository-technology@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "testing/conformance",
+      "planning",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Completed and locked Accountable Decision System Phase 12, establishing repository ownership, .NET 10 and C# 14, supported platforms, build and distribution outputs, dependency governance, Clean Architecture project topology, and explicit contract-specific compatibility."
+}
