@@ -1,0 +1,45 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-17-decisions-17.1-through-17.12-accepted-and-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-documentation-operational-model@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-verification-conformance-strategy@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-security-privacy-threat-model@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-component-adapter-design@1"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    }
+  ],
+  "id": "event.2026-09-06.accountable-decision-vertical-slice-delivery-specification",
+  "kind": "vertical-slice-delivery-specification-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-vertical-slice-delivery-specification@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture",
+      "planning",
+      "product",
+      "testing/conformance",
+      "devops/artifacts",
+      "recovery",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Completed and locked Accountable Decision System Phase 17, defining the complete 0.1.0 Robust Prototype vertical-slice delivery specification, exact repository and contract topology, twelve ordered work packages, verification, operations, packaging, commands, and the bounded path to Phase 18 readiness review."
+}

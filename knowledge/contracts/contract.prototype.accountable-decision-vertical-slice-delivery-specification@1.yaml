@@ -1,0 +1,359 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_naming": "phase-<phase-id>-<description>.dx.txt",
+    "completion": {
+      "blocked_by_architectural_conflict": [],
+      "deferred_by_accepted_scope": [
+        "Stable Full Release-only capabilities",
+        "network, distributed, multi-tenant, service, installer, autonomous publication, and remote MCP capabilities"
+      ],
+      "defined": [
+        "repository and source",
+        "runtime and configuration",
+        "product and application",
+        "infrastructure",
+        "MCP",
+        "verification",
+        "operations and release",
+        "delivery and commands"
+      ],
+      "defined_with_bounded_dependency": [
+        "exact qualified SDK and package versions",
+        "platform-specific ownership and containment mechanisms"
+      ],
+      "incomplete": []
+    },
+    "decisions": [
+      {
+        "id": "17.1",
+        "locked": [
+          "Phase 17 converts accepted architecture into a complete non-implementing development specification for the initial vertical slice",
+          "ulfbou/accountable-decision-system is the sole implementation repository",
+          "The vertical slice retains Observation, Decision, Outcome, Reflection, and Proposal and ends at non-authoritative proposal or explicit block",
+          "Work packages use stable WP17-NN identities and declare exact paths, projects, contracts, prerequisites, dependencies, artifacts, boundaries, verification, mappings, evidence, completion, and next package",
+          "Every implementation-ready package is complete and placeholder-free",
+          "Packages preserve continuous verification and avoid competing authority or knowingly invalid intermediate states",
+          "Direct Phase 10, Phase 14, and Phase 15 evidence remains mandatory",
+          "Phase 17 specifies commands and evidence but claims no unexecuted success",
+          "The robust prototype uses production-shaped foundations and a supported path to stable release without speculative full-release scope",
+          "Development remains unauthorized until an accepted Phase 18 READY or READY_WITH_BOUNDED_RISKS verdict"
+        ],
+        "name": "Delivery Scope, Repository Boundary, and Work-Package Model"
+      },
+      {
+        "id": "17.2",
+        "locked": [
+          "Two maturity stages are Robust Prototype Release and Stable Full Release and neither creates runtime authority or lifecycle semantics",
+          "The first Robust Prototype Release is product version 0.1.0 and is a usable distributable implementation of the accepted local slice",
+          "Prototype acceptance requires direct claim evidence, supported-platform execution, output assessment, packaging, documentation, and absence of prohibited side effects",
+          "Framework-dependent net10.0 is the semantic reference, self-contained is fallback, and Native AOT is preferred only after qualification",
+          "Stable Full Release requires a separate evidence-based readiness decision and is not inferred from version 1.0.0",
+          "Future evolution cannot reinterpret immutable records, weaken authority or mutation truth, convert blocks to protocol errors, make proposals authoritative, or hide topology changes",
+          "No speculative plugin, bus, workflow, distributed, multi-tenant, remote MCP, migration, publication, or multi-agent framework is included",
+          "Every executable and release artifact exposes coherent product, source, knowledge, framework, RID, output, schema, writer, reader, MCP, diagnostic, evidence, and lock identities"
+        ],
+        "name": "Release Stages, Version Baseline, and Graduation Boundary"
+      },
+      {
+        "id": "17.3",
+        "locked": [
+          "Canonical solution is AccountableDecisionSystem.slnx in ulfbou/accountable-decision-system",
+          "Top-level tracked domains are .config, .github/workflows, config, docs, evidence, fixtures, packages, schemas, scripts, src, and tests; .dx is ignored generated state",
+          "Production projects are AccountableDecisionSystem.Domain, Application, Infrastructure, Host.Mcp, and App; only App is executable",
+          "Dependency direction is Domain none; Application to Domain; Infrastructure to Application and Domain; Host.Mcp to Application and Domain; App to all",
+          "Seven test projects are Domain.Tests, Application.Tests, Infrastructure.Tests, Host.Mcp.Tests, App.Tests, Architecture.Tests, and Conformance.Tests",
+          "Every xUnit test class explicitly includes using Xunit;",
+          "Source is organized by capability and responsibility, not Helpers, Utils, Common, Misc, Shared, Managers, or Services catch-alls",
+          "Exact configuration examples, schema domains, fixture domains, evidence boundary, documentation paths, script domains, package domains, and CI boundary are locked",
+          "Topology supports robust prototype and stable evolution without empty speculative extension points"
+        ],
+        "name": "Canonical Repository, Solution, and Artifact Topology"
+      },
+      {
+        "id": "17.4",
+        "locked": [
+          "Initial identities are product 0.1.0; ads-configuration@1; ads-resource-limits@1; ads-redaction-policy@1; ads-ledger-record@1; ads-ledger-writer@1; ads-mcp-tools@1; ads-operation-result@1; ads-diagnostics@1; ads-evidence-reference@1; ads-recovery-plan@1; ads-compatibility-manifest@1; ads-verification-evidence@1",
+          "Builds identify an accepted deterministic knowledge baseline without requiring prototype-knowledge at runtime",
+          "Tracked examples are config/accountable-decision.example.json, resource-limits.example.json, redaction-policy.example.json, and config/README.md with corresponding versioned schemas",
+          "Configuration domains are runtime, principal, actor, operatingMode, policy, ledger, evidence, resourceLimits, privacy, diagnostics, reflection, lifecycle, and recovery; unknown properties fail",
+          "Authority-bearing configuration is explicit, validated before readiness, and immutable for one runtime instance",
+          "Ledger configuration binds one absolute decision-ledger.jsonl, record and writer versions, readers, ownership, and flush policy without fallback or silent migration",
+          "Evidence roots are absolute, separate, read-only, contained, bounded, and network-free",
+          "Resource limits are finite, cumulative, immutable, overflow-checked, and caller-non-expandable",
+          "Reflection is in-process and networkPermitted false for the robust prototype",
+          "Commands are run, validate-config, inspect, recover-fragment, and version --format json",
+          "ADS_CONFIG_PATH is the only optional config-path environment variable; explicit --config wins and no implicit search occurs",
+          "CARRIER_SOURCE_DIR is external carrier workflow state and not ADS runtime configuration",
+          "Inspection and recovery are distinct from ordinary runtime, and recovery requires a separate principal and plan"
+        ],
+        "name": "Contract Versions, Configuration Surface, and Runtime Launch Boundary"
+      },
+      {
+        "id": "17.5",
+        "locked": [
+          "Exact Domain areas and principal semantic types cover actors, diagnostics, evidence, ledger, lifecycle, operations, reflection, results, and transactions",
+          "Closed sets preserve accepted roles, modes, terminal classes, certainty, persistence completion, dispositions, ledger states, evidence states, finding strengths, lifecycle states, and degraded inspection",
+          "DecisionLedgerRecord owns semantic content only and recognizes all accepted types while the prototype writes only Observation, Decision, Outcome, Reflection, and Proposal",
+          "Payloads are ObservationPayload, DecisionPayload, OutcomePayload, ReflectionPayload, and ProposalPayload with accepted semantics",
+          "Exact commands are CaptureObservation, RecordDecision, RecordOutcome, GenerateReflection, and GenerateProposal",
+          "Exact queries are GetLedgerRecord, GetDecisionTransaction, ListIncompleteTransactions, FindSimilarFailures, GetReflectionInputs, and ValidateLedger",
+          "Every mutating request binds OperationId, IdempotencyKey, SubjectId and rejects authority-bearing caller input",
+          "Evaluation precedence is request/schema, ledger integrity/references, actor context, mode/policy, lifecycle, evidence/gates, append/idempotency, mutation",
+          "Application ports are IAuthorizationPolicy, ICanonicalJson, IClock, IEvidenceStore, IFailureClassifier, IHashProvider, IIdentityGenerator, ILedgerAppender, ILedgerInspector, ILedgerReader, IReflectionGenerator, and IRuntimeContext",
+          "Handlers use explicit constructor dependencies and no service locator or reflection discovery",
+          "Same key and same normalized request replays with zero append; conflicting reuse appends nothing; unresolved completion resolves from authoritative history",
+          "Every result preserves complete mutation disclosure and Application owns product diagnostic selection"
+        ],
+        "name": "Domain and Application Contract Topology"
+      },
+      {
+        "id": "17.6",
+        "locked": [
+          "Exact Infrastructure areas and principal files cover canonicalization, evidence, filesystem, hashing, identity, ledger, reflection, recovery, and time",
+          "RFC 8785 canonicalization is deterministic UTF-8 without BOM and covers ordering, escaping, Unicode, numbers, arrays, duplicates, and unsupported values",
+          "Canonicalizer qualification prefers the smallest qualified exact dependency, otherwise repository-owned implementation, with no runtime selection",
+          "SHA-256 uses System.Security.Cryptography.SHA256, omits only integrity.recordHash, produces 64 lowercase hex, appends one LF outside the digest, and has no hash chain",
+          "Ledger decoder rejects BOM, CR, invalid UTF-8/JSON, duplicates, unsupported versions, noncanonical bytes, malformed hashes, and unknown required semantics",
+          "Inspection distinguishes valid complete, valid with incomplete trailing fragment, invalid complete record, unsupported version, unavailable, and identity mismatch without repair",
+          "Reads expose only validated records and explicit boundaries; unresolved state cannot silently become not found",
+          "Append critical section rechecks admission, ownership, identity, boundary, idempotency, authority/mode facts, lifecycle/references, evidence identity, record validity, persistence, and mutation truth",
+          "Persistence completion is ConfirmedNoAppend, ConfirmedAppend, or Unresolved and unresolved is resolved with the same identities rather than retried",
+          "One writer process binds logical and physical ledger identity, process, runtime instance, writer version, and mechanism; elapsed time alone never authorizes takeover",
+          "Linux and Windows containment are platform-qualified, identity-safe, and fail closed",
+          "Evidence acquisition is read-only, cumulative-budgeted, stable or drift-detected, hash-aware, redaction-aware, and excludes prohibited content",
+          "DeterministicFailureClassifier uses the closed taxonomy and DeterministicReflectionGenerator provides mandatory in-process offline behavior with untrusted output validation",
+          "Recovery only truncates a proven incomplete trailing fragment under a validated ads-recovery-plan@1 after preservation and never repairs invalid complete records or restores authority"
+        ],
+        "name": "Infrastructure, Persistence, Evidence, and Reflection Adapter Topology"
+      },
+      {
+        "id": "17.7",
+        "locked": [
+          "Host.Mcp has exact Diagnostics, Framing, Mapping, Protocol, Resources, Runtime, Schemas, and Tools areas and references only Application and Domain",
+          "MCP baseline is 2026-07-28; server identity accountable-decision-system, title Accountable Decision System, version 0.1.0",
+          "Official C# MCP SDK is conditional and must preserve deterministic explicit registration, bounds, cancellation, stdio isolation, trimming, AOT, platform, offline, and dependency rules; otherwise repository-owned implementation is used",
+          "stdin and stdout are protocol-only and stderr is bounded diagnostics; ProtocolOutputWriter alone writes serialized stdout",
+          "Bounded framing rejects malformed protocol before Application invocation",
+          "Eight tools are explicitly ordered: ads_capture_observation, ads_record_decision, ads_record_outcome, ads_generate_reflection, ads_generate_proposal, ads_list_incomplete_transactions, ads_find_similar_failures, ads_validate_ledger",
+          "Tools map one-to-one, reject reserved authority fields, and cannot access Infrastructure, configuration, recovery, or arbitrary files",
+          "BLOCKED is an MCP success with isError false; FAILED preserves ADS diagnostics and mutation truth; JSON-RPC errors are protocol-specific",
+          "Six resources are server capabilities, server health, ledger record, transaction, reflection inputs, and diagnostic code; all are bounded and read-only",
+          "No prompts, subscriptions, dynamic registration, plugins, or network listener exist",
+          "App owns explicit composition, commands, configuration, diagnostics, inspection, lifecycle, recovery, and thin Program.cs",
+          "Startup establishes diagnostics, config, identities, principal, actor, policy, roots, ledger, ownership, complete validation, projections, handlers, MCP registry, streams, admission, and READY with zero appends",
+          "Admission opens only in READY; draining closes admission first, preserves certainty, closes append before ownership release, and distinguishes clean from unclean termination",
+          "Restart creates a new runtime instance and reconstructs authority from persisted state",
+          "Inspect composes no appender and recover-fragment composes no MCP or ordinary handlers"
+        ],
+        "name": "MCP Host, Application Composition, and Process Lifecycle Topology"
+      },
+      {
+        "id": "17.8",
+        "locked": [
+          "Canonical evidence, fixtures, Conformance test, and verification script directories are exact",
+          "Authoritative claim catalog is evidence/catalogs/ads-verification-claims.v1.json with schema and complete mandatory V15 entries",
+          "Phase 10 and Phase 14 mapping catalogs preserve E10-01 through E10-17, D10-P1 and D10-S1 through D10-S15, SO14-01 through SO14-10, and all mandatory V15 claims",
+          "Evidence levels E1_STATIC through E6_REPRODUCIBLE_ARTIFACT remain ordered and non-substitutable",
+          "Claim results distinguish pass, fail, blocked prerequisite, not run, not applicable, inconclusive, and accepted-scope deferral; only pass satisfies mandatory applicable claims",
+          "Product demonstrations run from isolated known state and D10-P1 proves exactly five valid appends and no prohibited side effects",
+          "Conformance harness uses actual executables, isolates all state and streams, invokes without shell, preserves bounded failures, and avoids machine dependencies",
+          "Independent canonicalization, SHA-256, framing, mutation-delta, and ledger-semantic oracles do not solely reuse production logic",
+          "Every mutation claim compares exact authoritative pre-state and post-state; zero is byte-identical and one is exactly one canonical LF record",
+          "Versioned fixture manifests and deterministic fault identities preserve exact bytes, activation proof, and release non-activation",
+          "Security, privacy, resource, recovery, MCP, concurrency, platform, output, and distribution claims receive direct evidence",
+          "Matrix covers win-x64 and linux-x64 across framework-dependent, self-contained, Native AOT, and passive archive cells",
+          "Evidence packages under .dx/ads/evidence contain coherent manifests, claims, demonstrations, matrix, dependencies, artifacts, diagnostics, summary, and checksums without prohibited data",
+          "Aggregate verification has no force-pass and succeeds only when every mandatory applicable claim and required mapping, platform, dependency, artifact, documentation, and prohibited-effect check passes"
+        ],
+        "name": "Verification Assets, Claim Execution, and Evidence-Package Topology"
+      },
+      {
+        "id": "17.9",
+        "locked": [
+          "Exact documents cover README, architecture, configuration, diagnostics, Windows/Linux installation, lifecycle, degraded inspection, troubleshooting, fragment recovery, security/privacy, verification, robust prototype, stable graduation, and known limitations",
+          "Documentation explains but grants no authority or readiness and discrepancy causes documentation conformance failure",
+          "Installation uses passive ZIP or TAR.GZ without services, daemons, PATH, registry, scheduled tasks, updates, or listeners",
+          "Diagnostic reference is generated or validated against the catalog and recovery guide permits only separately authorized incomplete-fragment truncation",
+          "Packaging definitions and scripts are exact and consume previously verified outputs without restore, hidden compile, network fetch, or source amendment",
+          "Generated outputs live under .dx/ads/build, publish, packages, and release",
+          "Archive names encode product, RID, and output class; shorter name is used only for the preferred qualified output",
+          "Archives extract under accountable-decision-system-0.1.0 with bin, config, docs, licenses, manifests, schemas, README, and notices and no future empty directories",
+          "Compatibility, dependency, artifact, and release manifests plus internal and external SHA-256 manifests are required",
+          "Release stage is ROBUST_PROTOTYPE; packages contain no ledger, secrets, mutable state, deployed authority config, automatic action, or repository mutation",
+          "Release candidates live under .dx/ads/release/0.1.0/<id> with coherent archives, evidence, manifests, reports, checksums, and summary",
+          "Documentation validation checks links, commands, catalogs, schemas, identities, placeholders, roles, recovery prohibitions, and truthful evidence"
+        ],
+        "name": "Operational Documentation, Packaging, and Release-Artifact Specification"
+      },
+      {
+        "id": "17.10",
+        "locked": [
+          "Twelve ordered packages are WP17-01 build foundation; WP17-02 Domain; WP17-03 Application; WP17-04 canonical JSON and reads; WP17-05 append and ownership; WP17-06 evidence and reflection; WP17-07 config/composition/lifecycle; WP17-08 stdio MCP; WP17-09 inspection/recovery; WP17-10 conformance and demonstrations; WP17-11 platform/package/docs; WP17-12 release aggregation",
+          "Each package declares exact paths, contracts, prerequisites, dependencies, artifacts, boundaries, verification, mappings, evidence, completion, and next package",
+          "Every package leaves a buildable placeholder-free repository passing applicable checks and no temporary competing semantics",
+          "Package boundaries do not overclaim properties of doubles or omit real-adapter evidence",
+          "From WP17-04 oracles apply; WP17-05 exact mutation evidence; WP17-08 composed process and stdout purity; WP17-09 recovery authority; WP17-10 evidence coverage; WP17-11 platform/archive/docs",
+          "Package states are WP_PASS, WP_FAIL, WP_BLOCKED_PREREQUISITE, WP_NOT_RUN and only pass satisfies dependencies",
+          "External dependency qualification occurs at the earliest consuming package and mandatory production dependencies cannot remain deferred for WP17-12",
+          "Defects are classified by ownership and valid assertions are never weakened",
+          "Packages form reviewable delivery boundaries while exact PR subdivision remains evidence-driven"
+        ],
+        "name": "Work Packages, Delivery Order, and Incremental Acceptance Gates"
+      },
+      {
+        "id": "17.11",
+        "locked": [
+          "Canonical PowerShell 7 and POSIX shell scripts own repository validation, schemas, docs, architecture, component tests, conformance, demonstrations, complete verification, packaging, and release candidate workflows",
+          "Restore is dotnet restore AccountableDecisionSystem.slnx --locked-mode using global.json, NuGet.Config, central package management, lock files, sources, and source mapping",
+          "Release build is dotnet build AccountableDecisionSystem.slnx --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:Deterministic=true",
+          "Component and architecture tests use exact dotnet test commands and focused success never replaces full applicable gates",
+          "Conformance and demonstrations use actual selected executables, isolated state, stdio, independent oracles, and machine-readable results",
+          "Complete verification runs validation, restore, build, architecture, components, process, security/faults, demonstrations, platform/output, distribution, evidence validation, and aggregate in order",
+          "Publish contracts cover framework-dependent, self-contained, and Native AOT explicitly for win-x64 and linux-x64 with no silent fallback",
+          "Packaging consumes exact verified publish directories and neither restores nor compiles nor selects latest heuristically",
+          "Release candidate commands require clean tracked state, exact revision, knowledge baseline, lock graph, verified outputs, evidence, docs, archives, and PHASE_15_VERIFICATION_PASS and perform no remote or Git mutation",
+          "Scripts strictly validate named inputs, reject ambiguity and path hazards, write machine-readable results under .dx/ads, and never hide mutation",
+          "After locked restore all mandatory activity runs without network and verifies network prohibition",
+          "Exact dependency versions use direct qualification; all WP17-01 selections are exact before development carrier delivery",
+          "CI delegates to repository scripts and release eligibility requires every accepted gate and no prohibited effect"
+        ],
+        "name": "Build, Verification, Packaging, and Release Command Contract"
+      },
+      {
+        "id": "17.12",
+        "locked": [
+          "Decisions 17.1 through 17.11 are mutually consistent and preserve all accepted constraints through Phase 16",
+          "The complete Phase 17 specification defines repository, source, runtime, product, Infrastructure, MCP, verification, operations, release, delivery, and command dimensions",
+          "Exact external dependency and platform mechanism selections are DEFINED_WITH_BOUNDED_DEPENDENCY; stable-release exclusions are DEFERRED_BY_ACCEPTED_SCOPE; no architectural conflict or incomplete dimension remains",
+          "The Phase 17 result is PHASE_17_DELIVERY_SPECIFICATION_COMPLETE and makes the robust prototype specification ready for Phase 18 assessment without claiming implementation or verification",
+          "Acceptance authorizes the consolidated Phase 17 knowledge carrier with exact phase-17 filename prefix and complete event-plus-contract delta",
+          "Phase 18 Development Readiness Review is next after carrier application, verification, commit, and merge report",
+          "Development remains unauthorized until an explicitly accepted READY or READY_WITH_BOUNDED_RISKS verdict"
+        ],
+        "name": "Phase 17 Review, Completeness Assessment, and Lock"
+      }
+    ],
+    "implementation_repository": "ulfbou/accountable-decision-system",
+    "phase": {
+      "development_authorized": false,
+      "id": 17,
+      "name": "Vertical Slice Delivery Specification",
+      "next_phase": "Phase 18: Development Readiness Review",
+      "result": "PHASE_17_DELIVERY_SPECIFICATION_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "preserved_invariants": [
+      "persona does not grant authority",
+      "authority is established per operation",
+      "Application owns product semantics",
+      "successful new mutating commands append at most one record",
+      "blocked, failed, read-only, replay, and conflicting-key operations append zero records",
+      "mutation certainty is RESOLVED_ZERO, RESOLVED_ONE, or UNRESOLVED",
+      "complete records are immutable",
+      "incomplete trailing fragments are evidence not records",
+      "invalid complete records are never silently repaired, skipped, rewritten, normalized, or truncated",
+      "per-record RFC 8785 and SHA-256 with no hash chain",
+      "one local process, one stdio MCP host, one configured JSONL ledger, one writer process",
+      "mandatory behavior is network-independent",
+      "proposal is non-authoritative",
+      "runtime repository, Git, and GitHub mutation is prohibited",
+      "development requires accepted Phase 18 readiness"
+    ],
+    "release": {
+      "product_version": "0.1.0",
+      "stable_release_requires_separate_readiness": true,
+      "stage": "ROBUST_PROTOTYPE"
+    },
+    "supported_targets": [
+      "win-x64",
+      "linux-x64"
+    ],
+    "work_packages": [
+      "WP17-01",
+      "WP17-02",
+      "WP17-03",
+      "WP17-04",
+      "WP17-05",
+      "WP17-06",
+      "WP17-07",
+      "WP17-08",
+      "WP17-09",
+      "WP17-10",
+      "WP17-11",
+      "WP17-12"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-17-reopened",
+      "vertical-slice-delivery-specification-change",
+      "robust-prototype-release-boundary-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-vertical-slice-delivery-specification",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-documentation-operational-model",
+      "contract.prototype.accountable-decision-verification-conformance-strategy",
+      "contract.prototype.accountable-decision-security-privacy-threat-model",
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-product-acceptance"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "devops/artifacts",
+      "evidence",
+      "evidence/decision-support",
+      "planning",
+      "product",
+      "recovery",
+      "testing",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-vertical-slice-delivery-specification"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 17 defines the complete production-shaped, placeholder-free delivery specification for the Accountable Decision System 0.1.0 Robust Prototype Release, including repository topology, contracts, adapters, stdio MCP host, lifecycle, verification, operations, packaging, twelve ordered work packages, commands, and stable-release evolution boundaries without authorizing development before Phase 18.",
+  "title": "Accountable Decision System vertical slice delivery specification",
+  "version": 1
+}
