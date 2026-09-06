@@ -1,0 +1,52 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "accountable-decision-system-phase-15-decisions-15.1-through-15.8-accepted-and-locked"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-security-privacy-threat-model@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-product-acceptance@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-component-adapter-design@1"
+    },
+    {
+      "contract": "contract.prototype.accountable-decision-repository-technology@1"
+    },
+    {
+      "decision": "decision.prototype.accountable-decision-predevelopment-plan@1"
+    }
+  ],
+  "id": "event.2026-09-06.accountable-decision-verification-conformance-strategy",
+  "kind": "verification-conformance-strategy-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "contract.prototype.accountable-decision-verification-conformance-strategy@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "devops/artifacts",
+      "evidence",
+      "evidence/decision-support",
+      "planning",
+      "recovery",
+      "testing",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "summary": "Completed and locked Accountable Decision System Phase 15, defining claim-driven verification, test and harness topology, deterministic fixtures, independent oracles, controlled fault injection, mandatory conformance mapping, platform and output qualification, CI gates, evidence artifacts, aggregate reporting, and completion criteria."
+}

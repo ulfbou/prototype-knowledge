@@ -1,0 +1,967 @@
+{
+  "authority": {
+    "class": "normative-cross-repository-contract",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "aggregate_pass_requires": [
+      "all canonical gates pass",
+      "every mandatory claim is CLAIM_PASS",
+      "all E10, D10, and SO14 mappings have complete passing coverage",
+      "every required platform-output cell passes",
+      "required dependencies are qualified",
+      "all artifacts exist and match hashes",
+      "no prohibited side effect occurs",
+      "no required evidence is blocked, inconclusive, not run, missing, invalid, or from an inconsistent identity"
+    ],
+    "authoritative_state_checks": [
+      "exact ledger byte length and SHA-256",
+      "complete record count and validated final boundary",
+      "trailing-fragment identity",
+      "ordered record identities and types",
+      "canonical bytes and independent record hashes",
+      "idempotency and physical ledger identities",
+      "byte-identical prior history for zero mutation",
+      "exactly one valid LF-terminated addition for one mutation"
+    ],
+    "carrier_naming": "phase-<phase-id>-<description>.dx.txt",
+    "ci_gates": [
+      "G15-01 Repository and contract validation",
+      "G15-02 Locked dependency restore",
+      "G15-03 Build and static architecture",
+      "G15-04 Focused and complete component tests",
+      "G15-05 Integrated process conformance",
+      "G15-06 Security, privacy, resource, and fault conformance",
+      "G15-07 Platform and output matrix",
+      "G15-08 Distribution verification",
+      "G15-09 Product demonstration portfolio",
+      "G15-10 Evidence-package validation",
+      "G15-11 Aggregate Phase 15 verification"
+    ],
+    "claim_catalog": [
+      {
+        "claim_id": "V15-PRODUCT-001",
+        "class": "PRODUCT",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Canonical failure-to-proposal journey"
+      },
+      {
+        "claim_id": "V15-PRODUCT-002",
+        "class": "PRODUCT",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Result-envelope completeness"
+      },
+      {
+        "claim_id": "V15-PRODUCT-003",
+        "class": "PRODUCT",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Presentation consistency"
+      },
+      {
+        "claim_id": "V15-PRODUCT-004",
+        "class": "PRODUCT",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Outcome-status distinctions"
+      },
+      {
+        "claim_id": "V15-PRODUCT-005",
+        "class": "PRODUCT",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Multiple safe gate reasons"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-001",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Persona does not grant authority"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-002",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Caller authority injection is rejected"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-003",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Operating mode remains independent"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-004",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Append-critical authorization recheck"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-005",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Recovery authority remains separate"
+      },
+      {
+        "claim_id": "V15-AUTHORITY-006",
+        "class": "AUTHORITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Locked evaluation precedence"
+      },
+      {
+        "claim_id": "V15-MUTATION-001",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Identical idempotent replay"
+      },
+      {
+        "claim_id": "V15-MUTATION-002",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Conflicting key reuse"
+      },
+      {
+        "claim_id": "V15-MUTATION-003",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Ambiguous completion resolution"
+      },
+      {
+        "claim_id": "V15-MUTATION-004",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Confirmed append survives downstream failure"
+      },
+      {
+        "claim_id": "V15-MUTATION-005",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Concurrent duplicate serialization"
+      },
+      {
+        "claim_id": "V15-MUTATION-006",
+        "class": "MUTATION",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Read-only evaluation purity"
+      },
+      {
+        "claim_id": "V15-LEDGER_INTEGRITY-001",
+        "class": "LEDGER_INTEGRITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E2_COMPONENT_EXECUTION",
+        "title": "Independent canonical record integrity"
+      },
+      {
+        "claim_id": "V15-LEDGER_INTEGRITY-002",
+        "class": "LEDGER_INTEGRITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Invalid complete history fails closed"
+      },
+      {
+        "claim_id": "V15-LEDGER_INTEGRITY-003",
+        "class": "LEDGER_INTEGRITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Incomplete trailing fragment is not a record"
+      },
+      {
+        "claim_id": "V15-LEDGER_INTEGRITY-004",
+        "class": "LEDGER_INTEGRITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Ledger identity replacement blocks append"
+      },
+      {
+        "claim_id": "V15-LEDGER_INTEGRITY-005",
+        "class": "LEDGER_INTEGRITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Unsupported version blocks mutation"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-001",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Incomplete lifecycle blocks reflection"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-002",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Correlation-only proposal block"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-003",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Unknown classification remains valid and bounded"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-004",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Evidence availability states remain distinct"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-005",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Hash mismatch is integrity invalid"
+      },
+      {
+        "claim_id": "V15-EVIDENCE-006",
+        "class": "EVIDENCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Mutable evidence drift is detected"
+      },
+      {
+        "claim_id": "V15-REFLECTION-001",
+        "class": "REFLECTION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Reflection output is revalidated"
+      },
+      {
+        "claim_id": "V15-REFLECTION-002",
+        "class": "REFLECTION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Proposal remains non-authoritative"
+      },
+      {
+        "claim_id": "V15-SECURITY-001",
+        "class": "SECURITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E2_COMPONENT_EXECUTION",
+        "title": "Filesystem lexical rejection"
+      },
+      {
+        "claim_id": "V15-SECURITY-002",
+        "class": "SECURITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Physical containment and link defense"
+      },
+      {
+        "claim_id": "V15-SECURITY-003",
+        "class": "SECURITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "No arbitrary execution"
+      },
+      {
+        "claim_id": "V15-SECURITY-004",
+        "class": "SECURITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E4_PLATFORM_EXECUTION",
+        "title": "Runtime network prohibition"
+      },
+      {
+        "claim_id": "V15-SECURITY-005",
+        "class": "SECURITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Security disposition precedence"
+      },
+      {
+        "claim_id": "V15-PRIVACY-001",
+        "class": "PRIVACY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Secret non-persistence"
+      },
+      {
+        "claim_id": "V15-PRIVACY-002",
+        "class": "PRIVACY",
+        "mandatory": true,
+        "minimum_evidence_level": "E2_COMPONENT_EXECUTION",
+        "title": "Early redaction"
+      },
+      {
+        "claim_id": "V15-PRIVACY-003",
+        "class": "PRIVACY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Redaction preserves limitations"
+      },
+      {
+        "claim_id": "V15-PRIVACY-004",
+        "class": "PRIVACY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Safe exception and rendering fallback"
+      },
+      {
+        "claim_id": "V15-RESOURCE-001",
+        "class": "RESOURCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Protocol bounds apply before Application construction"
+      },
+      {
+        "claim_id": "V15-RESOURCE-002",
+        "class": "RESOURCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Evidence budgets are cumulative"
+      },
+      {
+        "claim_id": "V15-RESOURCE-003",
+        "class": "RESOURCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Reflection and result bounds"
+      },
+      {
+        "claim_id": "V15-RESOURCE-004",
+        "class": "RESOURCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Diagnostic amplification resistance"
+      },
+      {
+        "claim_id": "V15-RESOURCE-005",
+        "class": "RESOURCE",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Overload preserves writer authority"
+      },
+      {
+        "claim_id": "V15-PROTOCOL-001",
+        "class": "PROTOCOL",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Deterministic MCP discovery"
+      },
+      {
+        "claim_id": "V15-PROTOCOL-002",
+        "class": "PROTOCOL",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Product result mapping"
+      },
+      {
+        "claim_id": "V15-PROTOCOL-003",
+        "class": "PROTOCOL",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Stdout protocol purity"
+      },
+      {
+        "claim_id": "V15-PROTOCOL-004",
+        "class": "PROTOCOL",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Invalid framing does not invoke Application"
+      },
+      {
+        "claim_id": "V15-LIFECYCLE-001",
+        "class": "LIFECYCLE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Readiness gate"
+      },
+      {
+        "claim_id": "V15-LIFECYCLE-002",
+        "class": "LIFECYCLE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Draining closes admission first"
+      },
+      {
+        "claim_id": "V15-LIFECYCLE-003",
+        "class": "LIFECYCLE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "EOF and shutdown converge"
+      },
+      {
+        "claim_id": "V15-LIFECYCLE-004",
+        "class": "LIFECYCLE",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Restart reconstructs authority"
+      },
+      {
+        "claim_id": "V15-RECOVERY-001",
+        "class": "RECOVERY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Recovery prerequisites are mandatory"
+      },
+      {
+        "claim_id": "V15-RECOVERY-002",
+        "class": "RECOVERY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Fragment-only recovery"
+      },
+      {
+        "claim_id": "V15-RECOVERY-003",
+        "class": "RECOVERY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Invalid complete record is not repaired"
+      },
+      {
+        "claim_id": "V15-RECOVERY-004",
+        "class": "RECOVERY",
+        "mandatory": true,
+        "minimum_evidence_level": "E5_ADVERSARIAL_OR_FAULT_INJECTED",
+        "title": "Recovery does not restore authority"
+      },
+      {
+        "claim_id": "V15-DEPENDENCY-001",
+        "class": "DEPENDENCY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Locked dependency graph"
+      },
+      {
+        "claim_id": "V15-DEPENDENCY-002",
+        "class": "DEPENDENCY",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Conditional dependency qualification"
+      },
+      {
+        "claim_id": "V15-DEPENDENCY-003",
+        "class": "DEPENDENCY",
+        "mandatory": true,
+        "minimum_evidence_level": "E1_STATIC",
+        "title": "External type isolation"
+      },
+      {
+        "claim_id": "V15-COMPATIBILITY-001",
+        "class": "COMPATIBILITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E4_PLATFORM_EXECUTION",
+        "title": "Supported platform equivalence"
+      },
+      {
+        "claim_id": "V15-COMPATIBILITY-002",
+        "class": "COMPATIBILITY",
+        "mandatory": true,
+        "minimum_evidence_level": "E4_PLATFORM_EXECUTION",
+        "title": "Output-class equivalence"
+      },
+      {
+        "claim_id": "V15-DISTRIBUTION-001",
+        "class": "DISTRIBUTION",
+        "mandatory": true,
+        "minimum_evidence_level": "E3_INTEGRATED_PROCESS",
+        "title": "Passive archive boundary"
+      },
+      {
+        "claim_id": "V15-DISTRIBUTION-002",
+        "class": "DISTRIBUTION",
+        "mandatory": true,
+        "minimum_evidence_level": "E4_PLATFORM_EXECUTION",
+        "title": "Linux executable permission round trip"
+      }
+    ],
+    "claim_classes": [
+      "PRODUCT",
+      "AUTHORITY",
+      "MUTATION",
+      "LEDGER_INTEGRITY",
+      "EVIDENCE",
+      "REFLECTION",
+      "SECURITY",
+      "PRIVACY",
+      "RESOURCE",
+      "PROTOCOL",
+      "LIFECYCLE",
+      "RECOVERY",
+      "DEPENDENCY",
+      "COMPATIBILITY",
+      "DISTRIBUTION"
+    ],
+    "completion": {
+      "compatible_with_completion": [
+        "DEFINED",
+        "DEFINED_WITH_BOUNDED_DEPENDENCY",
+        "justified DEFERRED_BY_ACCEPTED_SCOPE"
+      ],
+      "current_assessment": "No INCOMPLETE or BLOCKED_BY_ARCHITECTURAL_CONFLICT item exists. Exact implementation identities are Phase 17 new deliverables.",
+      "planning_states": [
+        "DEFINED",
+        "DEFINED_WITH_BOUNDED_DEPENDENCY",
+        "DEFERRED_BY_ACCEPTED_SCOPE",
+        "BLOCKED_BY_ARCHITECTURAL_CONFLICT",
+        "INCOMPLETE"
+      ]
+    },
+    "conditional_dependencies": [
+      "Dx.Domain",
+      "official C# MCP SDK",
+      "RFC 8785 implementation",
+      "xUnit"
+    ],
+    "decisions": [
+      {
+        "id": "15.1",
+        "locked": [
+          "verification is claim-driven, evidence-proportional, deterministic, independently reproducible, and performed at the responsible boundary",
+          "material claims use stable V15 identities and one primary taxonomy class",
+          "evidence levels E1 through E6 have increasing strength and weaker evidence cannot substitute for required stronger evidence",
+          "every mutation claim compares exact authoritative pre-state and post-state; record count alone is insufficient",
+          "negative-space claims define an observation boundary capable of detecting prohibited effects",
+          "PASS, FAIL, BLOCKED_PREREQUISITE, NOT_RUN, NOT_APPLICABLE, INCONCLUSIVE, and DEFERRED_BY_ACCEPTED_SCOPE remain distinct",
+          "Phase 10 acceptance and Phase 14 security remain source authority",
+          "development remains unauthorized"
+        ],
+        "name": "Verification Objectives, Claim Taxonomy, and Evidence Standard"
+      },
+      {
+        "id": "15.2",
+        "locked": [
+          "seven logical projects cover Domain, Application, Infrastructure, Host.Mcp, App, Architecture, and Conformance tests",
+          "tests follow production authority boundaries and production code gains no public test backdoors",
+          "real adapters and actual executables are required for physical persistence, filesystem, protocol, lifecycle, platform, and output claims",
+          "xUnit remains conditional and every xUnit test class explicitly includes using Xunit;",
+          "test doubles implement bounded ports only and cannot prove the real adapter property they replace",
+          "the process harness isolates stdin, stdout, stderr, workspace, environment, ledger, and evidence roots",
+          "an independent ledger oracle verifies framing, canonical bytes, hashes, references, and mutation delta",
+          "concurrency tests use deterministic signals rather than sleeps or completion polling"
+        ],
+        "name": "Test Architecture, Project Topology, and Harness Boundaries"
+      },
+      {
+        "id": "15.3",
+        "locked": [
+          "one versioned machine-readable catalog owns stable claim identities, propositions, applicability, minimum evidence, assertions, prohibited effects, and mappings",
+          "all E10-01 through E10-17, D10-P1 and D10-S1 through D10-S15, and SO14-01 through SO14-10 map explicitly to mandatory V15 claims",
+          "every mandatory claim must reach CLAIM_PASS",
+          "platform-output matrix reduction requires an explicit bounded equivalence argument",
+          "broad suite or demonstration success cannot replace a failed or unmapped mandatory claim"
+        ],
+        "name": "Claim Catalog, Phase 10 Mapping, and Mandatory Conformance Matrix"
+      },
+      {
+        "id": "15.4",
+        "locked": [
+          "fixtures use stable F15 identities, versions, exact bytes, hashes, and immutable meaning",
+          "oracles use stable O15 identities and do not reuse production logic for the property verified",
+          "faults use stable X15 identities, one declared activation boundary, and activation proof",
+          "persistence fault stages preserve RESOLVED_ZERO, RESOLVED_ONE, and UNRESOLVED truth",
+          "filesystem races, ownership conflicts, protocol delivery failures, evidence drift, reflection faults, and recovery faults use deterministic coordination",
+          "oracle disagreement and missed or unexpected faults prevent claim pass",
+          "fuzzing is bounded, seeded, supplementary, and produces minimized fixed regression fixtures"
+        ],
+        "name": "Deterministic Fixtures, Independent Oracles, and Fault-Injection Protocol"
+      },
+      {
+        "id": "15.5",
+        "locked": [
+          "required platforms are win-x64 and linux-x64",
+          "framework-dependent net10.0, RID self-contained, and RID Native AOT executables receive actual conformance execution",
+          "framework-dependent output is the reference; Native AOT becomes preferred only after complete qualification and self-contained remains fallback",
+          "equivalent deterministic inputs produce equivalent ADS semantics and identical canonical record bytes and hashes",
+          "Dx.Domain, official C# MCP SDK, RFC 8785 implementation, and xUnit remain conditional pending exact qualification",
+          "locked restore, explicit sources, source mapping, dependency graph, provenance, licensing, advisories, trimming, Native AOT, and runtime capability are verified",
+          "Windows ZIP and Linux TAR.GZ are passive, safe, hash-identified, round-trip verified archives",
+          "one output or platform success cannot conceal another required cell failure"
+        ],
+        "name": "Platform, Build-Output, Dependency, and Distribution Conformance"
+      },
+      {
+        "id": "15.6",
+        "locked": [
+          "CI orchestrates but does not define semantics, claims, readiness, authority, or mutation truth",
+          "pull-request, main, release-candidate, and local contexts remain distinct",
+          "eleven canonical gates G15-01 through G15-11 cover repository validation, restore, build, tests, process, security, matrix, distribution, demonstrations, evidence, and aggregation",
+          "completed evidence is immutable, hash-identified, privacy-bounded, and tied to one consistent source, baseline, graph, binary, platform, and output identity",
+          "automatic retry is limited to bounded non-mutating transient infrastructure failures",
+          "partial success cannot claim PHASE_15_VERIFICATION_PASS",
+          "aggregate pass is deterministic and has no manual force-pass field",
+          "CI and aggregation infrastructure require self-tests"
+        ],
+        "name": "CI Gates, Evidence Artifacts, and Aggregate Verification Reporting"
+      },
+      {
+        "id": "15.7",
+        "locked": [
+          "Phase 15 completion concerns strategy completeness rather than execution of an unimplemented system",
+          "claim, evidence, boundary, fixture, oracle, matrix, dependency, CI, deferral, and consistency dimensions must be complete",
+          "exact Phase 17 projects, files, versions, tools, schemas, scripts, and workflows are bounded new deliverables, not blockers",
+          "mandatory claim identities, mappings, evidence strength, authoritative state comparison, platforms, outputs, and security requirements cannot be deferred",
+          "true blockers require an architectural verification conflict or unavailable existing prerequisite",
+          "no Phase 15 architectural blocker exists and PHASE_15_REVIEW_READY is established"
+        ],
+        "name": "Verification Completion Criteria, Deferrals, and Phase 15 Review Preparation"
+      },
+      {
+        "id": "15.8",
+        "locked": [
+          "Decisions 15.1 through 15.7 are mutually consistent and accepted as one verification baseline",
+          "mandatory product, authority, mutation, ledger, evidence, reflection, security, privacy, resource, protocol, lifecycle, recovery, dependency, compatibility, and distribution coverage is complete",
+          "planning items are DEFINED or DEFINED_WITH_BOUNDED_DEPENDENCY; none are INCOMPLETE or BLOCKED_BY_ARCHITECTURAL_CONFLICT",
+          "PHASE_15_STRATEGY_COMPLETE",
+          "future execution remains separately PHASE_15_VERIFICATION_PASS or PHASE_15_VERIFICATION_FAIL",
+          "the next phase is Phase 16 Documentation and Operational Model",
+          "development remains unauthorized until Phase 18 returns READY or an explicitly accepted READY_WITH_BOUNDED_RISKS"
+        ],
+        "name": "Phase 15 Verification and Conformance Review and Lock"
+      }
+    ],
+    "dependency_qualification": [
+      "exact version, source, graph, lock identity, bounded purpose, license, provenance, advisories, platform, trimming, Native AOT, offline behavior, capability, isolation, replacement boundary, limitations, and disposition",
+      "permitted dispositions are QUALIFIED, QUALIFIED_WITH_BOUNDED_LIMITATIONS, REJECTED, and DEFERRED_FOR_MISSING_EVIDENCE",
+      "mandatory production dependencies cannot remain deferred for aggregate verification pass"
+    ],
+    "downstream": {
+      "phase_16": [
+        "verification operation guidance",
+        "result interpretation",
+        "failure evidence retention",
+        "degraded inspection and recovery procedures",
+        "dependency and security incident guidance"
+      ],
+      "phase_17": [
+        "exact projects, types, tests, explicit using Xunit;, fixtures, oracles, fault adapters, manifests, schemas, dependencies, CI workflows, scripts, packaging, work order, and acceptance commands"
+      ],
+      "phase_18": [
+        "cross-phase consistency",
+        "feasibility",
+        "tool and dependency availability",
+        "true blockers",
+        "residual risks",
+        "READY, READY_WITH_BOUNDED_RISKS, or NOT_READY verdict"
+      ]
+    },
+    "evidence_levels": {
+      "E1_STATIC": "bounded structural evidence",
+      "E2_COMPONENT_EXECUTION": "controlled component behavior",
+      "E3_INTEGRATED_PROCESS": "actual composed process and stdio behavior",
+      "E4_PLATFORM_EXECUTION": "actual supported platform and output execution",
+      "E5_ADVERSARIAL_OR_FAULT_INJECTED": "controlled race, corruption, cancellation, partial-progress, or failure evidence",
+      "E6_REPRODUCIBLE_ARTIFACT": "retained machine-readable readiness-grade evidence backed by required execution"
+    },
+    "fixture_oracle_fault_contract": {
+      "fault_identity": "X15-<BOUNDARY>-<NNN>@<VERSION>",
+      "fixture_identity": "F15-<CLASS>-<NNN>@<VERSION>",
+      "oracle_identity": "O15-<PROPERTY>-<NNN>@<VERSION>",
+      "rules": [
+        "exact byte-preserving immutable versioned fixtures",
+        "production-independent bounded oracles",
+        "one declared deterministic fault with activation proof",
+        "oracle disagreement prevents pass",
+        "release composition exposes no caller-activatable fault injection"
+      ]
+    },
+    "phase": {
+      "development_authorized": false,
+      "future_execution_results": [
+        "PHASE_15_VERIFICATION_PASS",
+        "PHASE_15_VERIFICATION_FAIL"
+      ],
+      "id": 15,
+      "name": "Verification and Conformance Strategy",
+      "next_phase": "Phase 16: Documentation and Operational Model",
+      "result": "PHASE_15_STRATEGY_COMPLETE",
+      "status": "accepted-and-locked"
+    },
+    "platform_output_matrix": [
+      "win-x64 framework-dependent net10.0",
+      "win-x64 self-contained",
+      "win-x64 Native AOT",
+      "win-x64 passive ZIP",
+      "linux-x64 framework-dependent net10.0",
+      "linux-x64 self-contained",
+      "linux-x64 Native AOT",
+      "linux-x64 passive TAR.GZ"
+    ],
+    "prohibited_side_effects": [
+      "unintended ledger append or partial record",
+      "complete-record rewrite",
+      "repository, Git, or GitHub mutation",
+      "network listener or outbound connection",
+      "arbitrary child process or shell execution",
+      "plugin loading or runtime package acquisition",
+      "secret persistence",
+      "stdout diagnostic pollution",
+      "automatic recovery, mode restoration, authority expansion, acceptance, or publication"
+    ],
+    "source_claim_mapping": {
+      "phase_10_acceptance": {
+        "E10-01": [
+          "V15-AUTHORITY-001"
+        ],
+        "E10-02": [
+          "V15-PRODUCT-001"
+        ],
+        "E10-03": [
+          "V15-MUTATION-001"
+        ],
+        "E10-04": [
+          "V15-EVIDENCE-001"
+        ],
+        "E10-05": [
+          "V15-EVIDENCE-002"
+        ],
+        "E10-06": [
+          "V15-AUTHORITY-003"
+        ],
+        "E10-07": [
+          "V15-LEDGER_INTEGRITY-002"
+        ],
+        "E10-08": [
+          "V15-PRODUCT-001",
+          "V15-PRODUCT-002"
+        ],
+        "E10-09": [
+          "V15-MUTATION-002"
+        ],
+        "E10-10": [
+          "V15-MUTATION-003"
+        ],
+        "E10-11": [
+          "V15-EVIDENCE-003"
+        ],
+        "E10-12": [
+          "V15-PRODUCT-004"
+        ],
+        "E10-13": [
+          "V15-MUTATION-006"
+        ],
+        "E10-14": [
+          "V15-AUTHORITY-006"
+        ],
+        "E10-15": [
+          "V15-PRODUCT-003"
+        ],
+        "E10-16": [
+          "V15-PRODUCT-005"
+        ],
+        "E10-17": [
+          "V15-PRODUCT-001",
+          "V15-REFLECTION-002"
+        ]
+      },
+      "phase_10_demonstrations": {
+        "D10-P1": [
+          "V15-PRODUCT-001",
+          "V15-PRODUCT-002",
+          "V15-REFLECTION-002"
+        ],
+        "D10-S1": [
+          "V15-AUTHORITY-001"
+        ],
+        "D10-S10": [
+          "V15-PRODUCT-004"
+        ],
+        "D10-S11": [
+          "V15-MUTATION-006"
+        ],
+        "D10-S12": [
+          "V15-AUTHORITY-006"
+        ],
+        "D10-S13": [
+          "V15-PRODUCT-003"
+        ],
+        "D10-S14": [
+          "V15-PRODUCT-005"
+        ],
+        "D10-S15": [
+          "V15-REFLECTION-002"
+        ],
+        "D10-S2": [
+          "V15-MUTATION-001"
+        ],
+        "D10-S3": [
+          "V15-EVIDENCE-001"
+        ],
+        "D10-S4": [
+          "V15-EVIDENCE-002"
+        ],
+        "D10-S5": [
+          "V15-AUTHORITY-003"
+        ],
+        "D10-S6": [
+          "V15-LEDGER_INTEGRITY-002"
+        ],
+        "D10-S7": [
+          "V15-MUTATION-002"
+        ],
+        "D10-S8": [
+          "V15-MUTATION-003"
+        ],
+        "D10-S9": [
+          "V15-EVIDENCE-003"
+        ]
+      },
+      "phase_14_security_objectives": {
+        "SO14-01": [
+          "V15-AUTHORITY-004",
+          "V15-SECURITY-002",
+          "V15-MUTATION-003",
+          "V15-RECOVERY-001"
+        ],
+        "SO14-02": [
+          "V15-AUTHORITY-001",
+          "V15-AUTHORITY-002",
+          "V15-AUTHORITY-005"
+        ],
+        "SO14-03": [
+          "V15-AUTHORITY-004",
+          "V15-LEDGER_INTEGRITY-002",
+          "V15-RESOURCE-001",
+          "V15-MUTATION-003"
+        ],
+        "SO14-04": [
+          "V15-LEDGER_INTEGRITY-002",
+          "V15-LEDGER_INTEGRITY-003",
+          "V15-RECOVERY-002",
+          "V15-RECOVERY-003"
+        ],
+        "SO14-05": [
+          "V15-PRIVACY-002",
+          "V15-PRIVACY-003",
+          "V15-PRIVACY-004"
+        ],
+        "SO14-06": [
+          "V15-RESOURCE-001",
+          "V15-RESOURCE-002",
+          "V15-RESOURCE-003",
+          "V15-RESOURCE-004",
+          "V15-RESOURCE-005"
+        ],
+        "SO14-07": [
+          "V15-SECURITY-003",
+          "V15-SECURITY-004"
+        ],
+        "SO14-08": [
+          "V15-PROTOCOL-001",
+          "V15-PROTOCOL-003",
+          "V15-PROTOCOL-004"
+        ],
+        "SO14-09": [
+          "V15-PRIVACY-001",
+          "V15-PRIVACY-002",
+          "V15-PRIVACY-004"
+        ],
+        "SO14-10": [
+          "V15-PROTOCOL-002",
+          "V15-MUTATION-003",
+          "V15-MUTATION-004",
+          "V15-SECURITY-005",
+          "V15-REFLECTION-001"
+        ]
+      }
+    },
+    "test_topology": [
+      "AccountableDecisionSystem.Domain.Tests",
+      "AccountableDecisionSystem.Application.Tests",
+      "AccountableDecisionSystem.Infrastructure.Tests",
+      "AccountableDecisionSystem.Host.Mcp.Tests",
+      "AccountableDecisionSystem.App.Tests",
+      "AccountableDecisionSystem.Architecture.Tests",
+      "AccountableDecisionSystem.Conformance.Tests"
+    ],
+    "verification_objectives": [
+      "prove accepted product behavior",
+      "prove authority and policy enforcement",
+      "prove authoritative persistence and mutation truth",
+      "prove evidence and reflection boundaries",
+      "prove security and privacy controls",
+      "prove protocol and host fidelity",
+      "prove platform and output compatibility",
+      "produce readiness-grade evidence"
+    ]
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-phase-15-reopened",
+      "verification-claim-contract-change",
+      "conformance-matrix-change",
+      "verification-evidence-standard-change",
+      "test-architecture-change",
+      "dependency-qualification-change",
+      "aggregate-verification-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "contract.prototype.accountable-decision-verification-conformance-strategy",
+  "kind": "contract",
+  "relationships": {
+    "related": [
+      "decision.prototype.accountable-decision-predevelopment-plan",
+      "contract.prototype.accountable-decision-product-acceptance",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-security-privacy-threat-model",
+      "contract.prototype.accountable-decision-application-boundary",
+      "contract.prototype.accountable-decision-ledger",
+      "contract.prototype.accountable-decision-mcp-mapping"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "plan",
+      "implement",
+      "assess",
+      "deliver",
+      "recover"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "collab"
+    ],
+    "roles": [
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "architecture",
+      "architecture/authority",
+      "architecture/determinism",
+      "compatibility",
+      "devops",
+      "devops/artifacts",
+      "evidence",
+      "evidence/decision-support",
+      "planning",
+      "recovery",
+      "testing",
+      "testing/conformance",
+      "validation/diagnostics",
+      "workflow/transactionality"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.accountable-decision-verification-conformance-strategy"
+    }
+  ],
+  "status": "active",
+  "summary": "Phase 15 defines claim-driven verification, seven test boundaries, stable claim and fixture identities, independent oracles, deterministic fault injection, complete E10, D10, and SO14 mapping, Windows and Linux output conformance, dependency qualification, passive archive checks, eleven CI gates, immutable evidence artifacts, and deterministic aggregate reporting without authorizing development before Phase 18.",
+  "title": "Accountable Decision System verification and conformance strategy",
+  "version": 1
+}
