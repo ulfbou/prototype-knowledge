@@ -1,0 +1,49 @@
+{
+  "evidence": [
+    {
+      "conversation_decision": "generic-lessons-learned-from-bounded-phase-and-carrier-workflow"
+    },
+    {
+      "lesson": "lesson.workflow.explicit-decision-state-reconciliation@1"
+    },
+    {
+      "lesson": "lesson.workflow.phase-lock-authority-reconciliation@1"
+    },
+    {
+      "lesson": "lesson.workflow.complete-deliverables@1"
+    },
+    {
+      "lesson": "lesson.workflow.state-aware-repository-finalization@1"
+    },
+    {
+      "contract": "contract.dx.canonical-carrier@1"
+    }
+  ],
+  "id": "event.2026-09-06.acceptance-delivery-workflow-lessons",
+  "kind": "lessons-accepted",
+  "occurred_on": "2026-09-06",
+  "resulted_in": [
+    "lesson.workflow.acceptance-delivery-continuity@1"
+  ],
+  "schema_version": "1.0",
+  "scope": {
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab"
+    ],
+    "topics": [
+      "lessons",
+      "planning",
+      "workflow",
+      "workflow/handoff",
+      "workflow/producer-responsibility",
+      "workflow/transactionality",
+      "delivery",
+      "evidence",
+      "recovery",
+      "knowledge/capture"
+    ]
+  },
+  "summary": "Accepted generic lessons for monotonic decision state, direct progression after acceptance, immediate production after delivery authorization, exact carrier identity, complete repository workflows, and truthful verification reporting."
+}

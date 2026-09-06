@@ -1,0 +1,176 @@
+{
+  "authority": {
+    "class": "accepted-lesson",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "carrier_integrity": [
+      "A consolidated carrier contains the complete accepted phase baseline rather than only the final review summary.",
+      "Repository carriers contain only intended new and changed files.",
+      "Payloads are complete, directly usable, and free of placeholders.",
+      "The exact delivered filename is authoritative for copying, inspection, verification, unpacking, reporting, and repository workflow commands.",
+      "Canonical carriers use UTF-8, LF-only text, relative POSIX paths, and four-space payload indentation.",
+      "Every generated carrier is reparsed and each decoded payload is byte-compared with its intended content."
+    ],
+    "decision_state": {
+      "rules": [
+        "The current explicit user reconciliation outranks an assistant-maintained status projection.",
+        "An accepted and locked decision returns to proposed only when explicitly reopened.",
+        "Preserve exact accepted decision identifiers and titles.",
+        "Apply corrections narrowly and preserve unaffected accepted decisions.",
+        "Before proposing, identify the highest accepted decision and the next unresolved decision.",
+        "Perform a secondary numbering, title, and scope consistency check before responding."
+      ],
+      "states": [
+        "PROPOSED",
+        "ACCEPTED_WITH_CORRECTIONS",
+        "ACCEPTED_AND_LOCKED",
+        "SUPERSEDED"
+      ]
+    },
+    "delivery_authorization": [
+      "When final phase acceptance authorizes the consolidated carrier, produce it immediately if no genuine existing prerequisite is unavailable.",
+      "Do not stop at stating that delivery is authorized.",
+      "A missing repeated confirmation is not a blocker.",
+      "A future artifact assigned to a later phase is a new deliverable rather than a missing current prerequisite.",
+      "Classify missing items as NEW_DELIVERABLE, EXISTING_PREREQUISITE, OPTIONAL_FOLLOW_UP, or OUT_OF_SCOPE; only an unavailable EXISTING_PREREQUISITE may block."
+    ],
+    "pre_response_check": [
+      "Confirm accepted and locked decisions and the next unresolved identifier.",
+      "Confirm no accepted title, authority, mutation guarantee, lifecycle rule, or scope exclusion is being reopened.",
+      "Confirm whether acceptance authorizes immediate artifact production.",
+      "Confirm exact carrier filename and exact delivered repository paths.",
+      "Confirm carrier and payload hashes, sizes, encoding, line endings, indentation, reparse, byte comparison, and markers.",
+      "Confirm which repository checks actually ran and which require the operator repository.",
+      "Confirm copy, verify, unpack, validate, test, immutability, diff, stage, and commit commands are complete."
+    ],
+    "producer_responsibility": [
+      "The producer owns correction and complete redelivery of a deterministic artifact defect.",
+      "Do not transfer schema repair, filename reconciliation, command completion, or validation cleanup to the operator.",
+      "When a prior delivery omitted required instructions, redeliver the complete artifact evidence and complete commands in the same response."
+    ],
+    "progression": [
+      "Present one bounded unresolved decision at a time.",
+      "After ordinary acceptance, proceed directly to the next unresolved decision.",
+      "Do not add acceptance recaps or ceremonial commentary when direct progression is required.",
+      "Do not interpret repetition as acceptance, but do not ask for acceptance again after explicit acceptance.",
+      "Later decisions may refine mechanisms but may not silently change locked authority, mutation, lifecycle, ownership, or scope boundaries."
+    ],
+    "repository_workflow": {
+      "required_order": [
+        "copy the exact delivered carrier from CARRIER_SOURCE_DIR into repository-local .dx",
+        "inspect the repository-local carrier with the repository DX tool and --verify",
+        "unpack the same exact carrier",
+        "run repository validation",
+        "run the complete unit-test suite",
+        "check immutable events against HEAD",
+        "check unstaged whitespace and show unstaged statistics",
+        "stage only exact delivered event and knowledge paths",
+        "check staged whitespace and show staged name status",
+        "commit with a content-accurate message"
+      ],
+      "rules": [
+        "Use && chaining so no later mutation follows an earlier failure.",
+        "Do not stage the .dx carrier.",
+        "Do not stage directories, wildcards, or unrelated changes.",
+        "Do not use exit in command sequences intended for an interactive shell.",
+        "Commands are part of the delivery and must use actual repository paths and tools."
+      ]
+    },
+    "rule": "Treat explicit acceptance as authoritative, preserve it monotonically, continue from the next unresolved task, and complete every already authorized delivery without reopening settled decisions or omitting required operational instructions.",
+    "verification_reporting": {
+      "artifact_checks": [
+        "exact filename",
+        "DX version",
+        "carrier byte size",
+        "carrier SHA-256",
+        "exact entry list",
+        "entry byte sizes",
+        "entry SHA-256 values",
+        "UTF-8",
+        "LF-only",
+        "four-space payload indentation",
+        "complete reparse",
+        "decoded payload byte comparison",
+        "required content markers"
+      ],
+      "repository_checks": [
+        "repository validation",
+        "complete unit tests",
+        "event immutability against actual HEAD",
+        "unstaged diff checks",
+        "staged diff checks"
+      ],
+      "rule": "Report a check as successful only when it actually ran successfully; otherwise report it as not run with the concrete reason."
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "bounded-decision-workflow-change",
+      "carrier-delivery-workflow-change",
+      "repository-finalization-contract-change"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "lesson.workflow.acceptance-delivery-continuity",
+  "kind": "lesson",
+  "relationships": {
+    "related": [
+      "lesson.workflow.explicit-decision-state-reconciliation",
+      "lesson.workflow.phase-lock-authority-reconciliation",
+      "lesson.workflow.complete-deliverables",
+      "lesson.workflow.state-aware-repository-finalization",
+      "lesson.workflow.copy-safe-command-boundaries",
+      "contract.dx.canonical-carrier",
+      "rule.collaboration.producer-owned-correction"
+    ],
+    "superseded_by": null,
+    "supersedes": []
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "phases": [
+      "discover",
+      "plan",
+      "handoff",
+      "implement",
+      "deliver",
+      "assess",
+      "finalize",
+      "recover",
+      "maintain-knowledge"
+    ],
+    "repositories": [
+      "prototype-knowledge",
+      "prototype-docs",
+      "collab"
+    ],
+    "roles": [
+      "user",
+      "lead",
+      "senior",
+      "maintainer"
+    ],
+    "topics": [
+      "lessons",
+      "planning",
+      "workflow",
+      "workflow/handoff",
+      "workflow/producer-responsibility",
+      "workflow/transactionality",
+      "delivery",
+      "evidence",
+      "recovery",
+      "knowledge/capture"
+    ]
+  },
+  "sources": [
+    {
+      "event": "event.2026-09-06.acceptance-delivery-workflow-lessons"
+    }
+  ],
+  "status": "active",
+  "summary": "Bounded decision workflows remain reliable when explicit acceptance updates a monotonic decision register, progression continues without ceremonial repetition, final phase lock triggers the already authorized artifact, and delivery includes exact carrier identity, complete repository commands, and only verification claims that actually ran.",
+  "title": "Preserve accepted state and complete authorized delivery",
+  "version": 1
+}
