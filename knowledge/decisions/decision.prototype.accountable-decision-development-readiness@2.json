@@ -1,0 +1,86 @@
+{
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "content": {
+    "decision_18_3": {
+      "id": "18.3",
+      "outcome": "INITIAL_DEPENDENCY_DIRECTION_QUALIFIED_WITH_BOUNDED_S0_KERNEL_ADOPTION",
+      "locked": [
+        ".NET SDK 10.0.400 feature band is QUALIFIED_WITH_BOUNDED_LIMITATIONS and must be pinned by global.json before WP17-01 passes.",
+        "xunit.v3 4.0.0 is QUALIFIED_WITH_BOUNDED_LIMITATIONS; exact supporting runner and analyzer identities must be fixed and locked in WP17-01, and every xUnit test class explicitly includes using Xunit;.",
+        "The official MCP C# SDK v2 line is QUALIFIED_WITH_BOUNDED_LIMITATIONS for protocol mechanics only; its exact package and patch version must be pinned before first use, and failure of stdio, deterministic registration, cancellation, trimming, Native AOT, platform, offline, dependency, or type-isolation qualification activates the repository-owned fallback.",
+        "Dx.Domain.Kernel, Dx.Domain.Primitives, Dx.Domain.Annotations, and the associated Dx.Domain analyzer packages are QUALIFIED_WITH_BOUNDED_LIMITATIONS as the S0 accountability substrate for the Robust Prototype.",
+        "For ADS qualification, Dx.Domain is classified by its admitted capabilities as an accountable execution kernel, not as a DDD framework and not as an authority source for ADS semantics.",
+        "The admitted runtime capabilities are typed outcomes, bounded domain failures, strongly typed identifiers, immutable facts, explicit causation and correlation, transition accounting, and metadata-only semantic annotations.",
+        "The admitted build-time capabilities are result-flow analysis, construction-authority enforcement, scope and layer enforcement, public-surface governance, forbidden-vocabulary enforcement, temporal-helper governance, and generated-code tagging.",
+        "AccountableDecisionSystem.Domain is S1 and may depend on the qualified S0 substrate. Application, Infrastructure, adapters, and hosts remain in higher scopes and may depend only in the direction permitted by the repository-owned scope map.",
+        "ADS retains exclusive semantic authority over runtime roles, operating modes, ledger record types, evidence availability, reflection classifications, actors, commands, diagnostics, proposal boundaries, human authority, lifecycle, trust, recovery, publication, and mutation-certainty contracts.",
+        "Dx.Domain abstractions may implement or carry ADS-owned semantics but must not redefine, broaden, weaken, or become the authority source for those semantics.",
+        "The ADS ledger remains the authoritative accountable record. Fact and causation primitives may represent immutable payloads, parent links, root links, correlation, and transition results only when ADS-owned ledger invariants remain explicit and enforceable.",
+        "Chronology must not substitute for causation; direct dependency must be represented by parent links; roots must identify the first observation; cycles remain forbidden; incomplete, unavailable, partial, expired, or redacted evidence states must remain visible under ADS-owned contracts.",
+        "ADS mutation outcomes remain closed and repository-owned, including ConfirmedNoAppend, ConfirmedAppend, and Unresolved; RESOLVED_ZERO, RESOLVED_ONE, and UNRESOLVED; and SUCCEEDED, BLOCKED, and FAILED.",
+        "BLOCKED remains a successful MCP protocol response with isError=false when the ADS operation completed accountably without performing the prohibited mutation.",
+        "Qualified result-flow analysis must detect ignored accountable outcomes, including any flow that could silently discard a BLOCKED diagnostic or lose exactly-zero-or-one append accounting.",
+        "Strongly typed identifiers may replace duplicated repository identifier validation only after equivalence tests prove preservation of normalization, validation, equality, serialization, parsing, trimming, and Native AOT behavior required by ADS contracts.",
+        "Dx.Domain analyzers are build-only governance dependencies and must be referenced with PrivateAssets=all or an equivalently isolating mechanism. Analyzer packages must not become runtime dependencies or leak into published ADS artifacts.",
+        "The repository-owned scope configuration is authoritative. The minimum intended topology is S0 for the qualified Dx.Domain substrate, S1 for AccountableDecisionSystem.Domain, S2 for Application, and higher scopes for Infrastructure, adapters, and hosts.",
+        "Existing runtime architecture tests may be retained as defense in depth. They must not be removed until analyzer enforcement has equivalent or stronger coverage and qualification tests demonstrate that violations fail deterministically on every supported build path.",
+        "Public ADS contracts must remain type-isolated wherever external-type leakage would couple consumers to Dx.Domain, impair replacement, or transfer semantic authority. Wrapping or translation boundaries are required in those cases.",
+        "The qualified subset must remain bounded and replaceable. ADS must retain a repository-owned fallback path for outcomes, identifiers, fact carriers, and analyzer-enforced boundaries if qualification fails or later becomes invalid.",
+        "Adoption must preserve mandatory offline operation and must not introduce network access, service activation, telemetry, dynamic code loading, reflection dependence incompatible with trimming, or runtime dependencies outside the accepted .NET BCL boundary.",
+        "Before production adoption, the exact Dx.Domain package identities and versions must be pinned and must pass license, provenance, restore, transitive-dependency, supported-platform, deterministic-build, trimming, Native AOT, and offline qualification.",
+        "The adoption pilot is bounded to replacing DomainResult<T> and duplicated identifier implementations while enabling analyzers as build-only dependencies. The pilot must not change accepted ADS behavior or public contracts merely to fit substrate APIs.",
+        "The pilot must measure boilerplate removed, ignored-result violations detected beyond existing FoundationTests, build-time boundary violations detected, published dependency changes, trimmed output, Native AOT output, and Windows x64 and Linux x64 behavior.",
+        "Pilot acceptance requires all repository validation and unit tests to pass, no regression in ledger accountability, no weakening of authority boundaries, no external-type leakage contrary to accepted contracts, and successful trimming and Native AOT qualification.",
+        "Pilot failure, including semantic mismatch, analyzer instability, unacceptable diagnostics, unsupported build behavior, runtime dependency leakage, trimming failure, Native AOT failure, platform failure, offline failure, or replacement-cost failure, reactivates the repository-owned implementation without reopening ADS semantic decisions.",
+        "An external RFC 8785 package remains REJECTED for the initial implementation baseline; WP17-04 owns a repository implementation behind ICanonicalJson, verified by ADS-owned known-answer fixtures and independent oracles.",
+        "System.Security.Cryptography.SHA256 is QUALIFIED for SHA-256 mechanics only.",
+        "System.Text.Json is QUALIFIED_WITH_BOUNDED_LIMITATIONS and does not itself prove RFC 8785 conformance or duplicate-member enforcement.",
+        "Explicit constructor composition and an ADS-owned bounded BCL diagnostic sink are QUALIFIED.",
+        "Writer ownership and filesystem containment remain repository-owned platform mechanisms and receive direct Windows x64 and Linux x64 qualification at first claiming work packages.",
+        "Native AOT remains a qualification target with RID-specific self-contained output as the accepted bounded fallback.",
+        "No mandatory external dependency may use floating versions."
+      ],
+      "rationale": [
+        "The superseded Decision 18.3 treated repository-owned bounded outcomes and analyzer rules as sufficient grounds for blanket rejection. Sufficiency alone does not establish lower risk, stronger verification, lower maintenance cost, or better accountability.",
+        "The qualified subset substantially overlaps with concepts ADS already requires: typed mutation truth, ignored-result prevention, strongly typed identities, immutable facts, explicit causation, and compile-time architectural boundaries.",
+        "The relevant architectural question is whether the substrate owns or weakens ADS semantics, not whether its package name contains Domain or whether its implementation is external.",
+        "Classifying the subset as S0 preserves the distinction between reusable accountability mechanics and S1 ADS domain meaning.",
+        "Conditional qualification is more consistent than blanket rejection with the existing ADS policy for bounded, pinned, replaceable, offline-capable dependencies that pass direct qualification.",
+        "A bounded pilot provides executable evidence before full adoption and preserves the repository-owned fallback if any qualification gate fails."
+      ],
+      "supersedes_statement": "Dx.Domain is REJECTED for the initial Robust Prototype dependency graph because repository-owned bounded outcomes and analyzer rules are sufficient.",
+      "replacement_statement": "A bounded subset of Dx.Domain is QUALIFIED_WITH_BOUNDED_LIMITATIONS as the S0 accountability substrate, subject to pinned versions, build-only analyzer isolation, semantic non-authority, type isolation where required, replaceability, offline operation, deterministic builds, trimming, Native AOT, supported-platform qualification, and successful completion of the bounded adoption pilot."
+    }
+  },
+  "freshness": {
+    "invalidated_by": [
+      "accountable-decision-dependency-qualification-change",
+      "dx-domain-package-or-license-change",
+      "dx-domain-runtime-or-analyzer-capability-change",
+      "ads-authority-or-ledger-contract-change",
+      "qualification-gate-failure"
+    ],
+    "mode": "event-driven"
+  },
+  "id": "decision.prototype.accountable-decision-development-readiness",
+  "kind": "decision",
+  "relationships": {
+    "related": [
+      "contract.prototype.accountable-decision-component-adapter-design",
+      "contract.prototype.accountable-decision-repository-technology",
+      "contract.prototype.accountable-decision-runtime-architecture",
+      "contract.prototype.accountable-decision-vertical-slice-delivery-specification"
+    ],
+    "superseded_by": null,
+    "supersedes": [
+      "decision.prototype.accountable-decision-development-readiness@1"
+    ]
+  },
+  "schema_version": "1.0",
+  "status": "active",
+  "title": "Accountable Decision System development readiness",
+  "version": 2
+}

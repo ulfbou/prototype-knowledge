@@ -1,0 +1,16 @@
+{
+  "event_id": "decision.prototype.accountable-decision-development-readiness@2.accepted",
+  "event_type": "knowledge.accepted",
+  "knowledge_id": "decision.prototype.accountable-decision-development-readiness",
+  "knowledge_kind": "decision",
+  "knowledge_version": 2,
+  "authority": {
+    "class": "accepted-decision",
+    "owner": "prototype-knowledge"
+  },
+  "supersedes": [
+    "decision.prototype.accountable-decision-development-readiness@1"
+  ],
+  "reason": "Supersedes the blanket rejection of Dx.Domain with bounded qualification of its kernel, primitives, annotations, and analyzers as the S0 accountability substrate while preserving ADS-owned semantic authority and all dependency qualification gates.",
+  "status": "accepted"
+}

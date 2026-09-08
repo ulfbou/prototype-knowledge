@@ -1,0 +1,4 @@
+[submodule "tools/collab"]
+	path = tools/collab
+	url = https://github.com/ulfbou/collab.git
+	branch = master
